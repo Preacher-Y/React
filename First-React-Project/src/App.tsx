@@ -5,7 +5,7 @@ export function Nav() {
   return (
     <>
       <div>
-        <div className='flex items-center shadow-md bg-[#20222B] gap-2 p-5'>
+        <div className='flex z-2 items-center shadow-md bg-[#20222B] gap-2 p-5'>
           <img src={reactLogo} alt="" className='h-12' />
           <h1 className='text-[#01D8FE] font-bold text-2xl'>ReactFacts</h1>
         </div>
@@ -17,8 +17,18 @@ export function Nav() {
 export function Body() {
   return (
     <>
-    
+      <div className='text-xl md:text-2xl z-1 text-white mx-7 my-2 md:mx-10 md:my-4'>
+        <h1 className='font-bold text-3xl md:text-5xl'>Fun facts about React</h1>
+        <ul className='list-disc mt-4 ml-10'>
+          <li>Was first released in 2013</li>
+          <li>Was originally created by Jordan Walke</li>
+          <li>Has well over 200K stars on Github</li>
+          <li>Is maintained by Meta</li>
+          <li>Powers thousands enterprise apps, including mobile apps</li>
+        </ul>
+      </div>
     </>
   )
 }
+
 
