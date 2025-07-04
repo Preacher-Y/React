@@ -1,4 +1,5 @@
 import reactLogo from './assets/react.svg'
+import reactIcon from "./assets/reactIcon.png"
 import './App.css'
 
 export function Nav() { 
@@ -41,10 +42,19 @@ export function Footer() {
   )
 }
 
+export function Img() {
+  return (
+    <>
+      <img src={reactIcon} alt="React Icon" className='absolute top-24 right-0 -z-10' />
+    </>
+  )
+}
+
 export default function  App() {
   return (
     <>
       <Nav />
+      <Img />
       <Body />
       <Footer />
     </>
