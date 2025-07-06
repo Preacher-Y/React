@@ -7,7 +7,11 @@ export function Nav() {
     <>
       <div>
         <div className='flex z-2 items-center shadow-md bg-[#20222B] gap-2 p-5'>
-          <img src={reactLogo} alt="" className='h-12' />
+          <img
+            src={reactLogo}
+            alt=""
+            className='h-12 animate-spin [animation-duration:3s]'
+          />
           <h1 className='text-[#01D8FE] font-bold text-2xl'>ReactFacts</h1>
         </div>
       </div>
@@ -45,7 +49,7 @@ export function Footer() {
 export function Img() {
   return (
     <>
-      <img src={reactIcon} alt="React Icon" className='absolute top-24 right-0 -z-10' />
+      <img src={reactIcon} alt="React Icon" className='absolute top-24 right-0 animate-pulse [animation-duration:4s] -z-10' />
     </>
   )
 }
