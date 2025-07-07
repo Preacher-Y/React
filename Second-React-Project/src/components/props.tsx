@@ -1,12 +1,6 @@
 import { IoLocationSharp } from "react-icons/io5";
-type CardProps = {
-    img: { src: string; alt: string };
-    country: string;
-    googleMapsLink: string;
-    title: string;
-    dates: string;
-    text: string;
-};
+import type { CardProps } from "../types";
+
 export default function Card({ img, country, googleMapsLink, title, dates, text }: CardProps) {
   return (
     <div className="bg-white flex flex-col md:flex-row md:space-x-5 shadow-md rounded-lg p-4 mb-4 space-y-4 md:space-y-0">
