@@ -1,6 +1,9 @@
 import { IoLocationSharp } from "react-icons/io5";
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import type { CardProps } from "../types";
 
+// Also the Destructuring can also be done in the function parameters
+// {img, country, googleMapsLink, title, dates, text} : CardProps -> as the parameter
 export default function Card(props:CardProps) {
   return (
     <div className="bg-white flex flex-col md:flex-row md:space-x-5 shadow-md rounded-lg p-4 mb-4 space-y-4 md:space-y-0">
@@ -18,7 +21,29 @@ export default function Card(props:CardProps) {
         <h1 className="font-bold text-2xl md:text-[38px] mb-4 md:mb-6">{props.title}</h1>
         <p className="text-gray-800 mb-2 md:mb-4 font-bold">{props.dates}</p>
         <p className="text-gray-700 mb-2 md:mb-4">{props.text}</p>
+        <div className="flex space-x-4 justify-end content-center mt-4">
+          <div className="flex items-center">
+            <FaThumbsUp onClick={vote} id="up" className="inline-block text-[#1cfa8f] mr-1" size={24} />
+            <span>0</span>
+          </div>
+          <div className="flex items-center">
+            <FaThumbsDown onClick={vote} id="down" className="inline-block text-[#cc3d3d] mr-1 mt-3" size={24} />
+            <span>0</span>
+          </div>
+        </div>
       </div>
     </div>
   );
+}
+function vote(e: React.MouseEvent<SVGElement, MouseEvent>) {
+  const target = e.currentTarget as SVGElement;
+  const id = target.id;
+  const span = target.nextElementSibling as HTMLSpanElement | null;
+  if (span) {
+    if (id === "up") {
+      span.textContent = (parseInt(span.textContent || "0") + 1).toString();
+    } else if (id === "down") {
+      span.textContent = (parseInt(span.textContent || "0") + 1).toString();
+    }
+  }
 }
