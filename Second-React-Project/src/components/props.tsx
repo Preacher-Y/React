@@ -2,12 +2,14 @@ import { IoLocationSharp } from "react-icons/io5";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import type { CardProps } from "../types";
 
-// Also the Destructuring can also be done in the function parameters
-// {img, country, googleMapsLink, title, dates, text} : CardProps -> as the parameter
+/* 
+  Also the Destructuring can also be done in the function parameters
+  {img, country, googleMapsLink, title, dates, text} : CardProps -> as the parameter
+*/
 export default function Card(props:CardProps) {
   return (
     <div className="bg-white flex flex-col md:flex-row md:space-x-5 shadow-md rounded-lg p-4 mb-4 space-y-4 md:space-y-0">
-      <img src={props.img.src} alt={props.img.alt} className="w-full md:w-42 h-60 md:h-auto object-cover rounded-lg"/>
+      <img src={props.img.src} alt={props.img.alt} className="w-full md:w-52 h-60 md:h-auto object-cover rounded-lg"/>
       <div className="flex-1 flex flex-col justify-center mb-2">
         <div className="flex flex-col md:flex-row md:items-center md:space-x-5 space-y-2 md:space-y-0">
           <div className="flex items-center space-x-1">
