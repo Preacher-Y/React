@@ -9,7 +9,7 @@ export default function Body() {
             </p>
             <div className='flex justify-center items-center my-8'>
                 <input type="text" placeholder='e.g oregano' className='py-1.5 px-2 w-80 outline-none border-b-2 border-gray-300 focus:border-black'/>   
-                <Button text={<><BiPlus className='mr-2'/> Add Ingredient</>} color="bg-black/90" size="py-2 flex items-center w-50 justify-center px-4 ml-4" />
+                <Button text={<><BiPlus className='mr-2'/> Add Ingredient</>} color="bg-black/90" size="py-2 flex items-center w-50 justify-center hover:-translate-y-1 hover:shadow-[0px_0px_8px_black] transition-all duration-500 px-4 ml-4" />
             </div>
         </div>
     );
