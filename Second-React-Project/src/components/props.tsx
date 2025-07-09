@@ -13,7 +13,7 @@ export default function Card(props:CardProps) {
       <div className="flex-1 flex flex-col justify-center mb-2">
         <div className="flex flex-col md:flex-row md:items-center md:space-x-5 space-y-2 md:space-y-0">
           <div className="flex items-center space-x-1">
-            <IoLocationSharp className="h-14 text-[#F55A5A]" />
+            <IoLocationSharp className=" text-[#F55A5A]" size={22} />
             <h2 className="text-sm font-medium text-gray-700 uppercase tracking-[4px]">{props.country}</h2>
           </div>
           <a href={props.googleMapsLink} target="_blank" rel="noopener noreferrer" className="underline text-gray-500 hover:text-gray-700">
