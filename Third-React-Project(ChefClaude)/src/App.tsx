@@ -1,11 +1,13 @@
 import './App.css'
-import Home from './pages/home'
+import Header from './components/header'
+import Body from './components/body'
 
 function App() {
 
   return (
     <>
-      <Home />
+      <Header />
+      <Body />
     </>
   )
 }
