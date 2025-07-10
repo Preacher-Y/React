@@ -1,7 +1,8 @@
 export default function Ingredients(){
     return (
-        <div className="max-w-4xl mx-auto p-4 mt-9">
-            
-        </div>
+        <>
+            <ul className="list-disc pl-12 mt-4 space-y-3" id="ingredients-list">
+            </ul>
+        </>
     );
 }
