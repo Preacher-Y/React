@@ -2,6 +2,7 @@ import Button from './button';
 import { BiPlusCircle } from 'react-icons/bi';
 import Ingredients from './ingredients';
 import Generate from './generate';
+import React from 'react'
 
 export default function Body() {
     return (
@@ -13,10 +14,11 @@ export default function Body() {
                 <p className="text-gray-700 mb-6 text-center mx-auto w-full sm:w-3/4">
                     Chef Claude is your personal AI chef, ready to assist you with all your culinary needs. Whether you're looking for recipes, cooking tips, or meal planning ideas, Chef Claude has got you covered.
                 </p>
-                <div className='flex flex-col sm:flex-row justify-center items-center mt-20 mb-1 gap-4'>
+                <form onSubmit={handleAddIngredient} className='flex flex-col sm:flex-row justify-center items-center mt-20 mb-1 gap-4'>
                     <input
                         type="text"
                         placeholder='e.g oregano'
+                        aria-label='ingredient'
                         className='py-1.5 px-2 w-full sm:w-80 outline-none border-b-2 border-gray-300 focus:border-black'
                     />
                     <Button
@@ -26,8 +28,8 @@ export default function Body() {
                         onClick={handleAddIngredient}
 
                     />
-                </div>
-                <p className='px-24 md:px-30 text-gray-500 text-xs '>at least 3 ingredients are required</p>
+                </form>
+                <p className='px-18 md:px-30 text-gray-500 text-xs '>at least 3 ingredients are required</p>
             </section>
             <section className='p-4 mt-9 relative'>
                 <h1 className="font-bold text-2xl">Ingredients on hand:</h1>
@@ -40,7 +42,8 @@ export default function Body() {
     );
 }
 
-function handleAddIngredient() {
+function handleAddIngredient(e:React.FormEvent) {
+    e.preventDefault();
     const input = document.querySelector('input[type="text"]') as HTMLInputElement;
     const ingredientList = document.getElementById('ingredients-list') as HTMLUListElement;
 
