@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Button from './button';
 import { BiPlusCircle } from 'react-icons/bi';
 
-export default function IngredientForm() {
+export default function IngredientForm():React.JSX.Element {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [alertMessage, setAlertMessage] = useState('');;
-  const handleAddIngredient = (e: React.FormEvent) => {
+  const handleAddIngredient = (e: React.FormEvent):void => {
     e.preventDefault();
     
     const inputElement = document.getElementById('input') as HTMLInputElement;
@@ -30,7 +30,7 @@ export default function IngredientForm() {
     setAlertMessage('');
   };
 
-  const handleDelete = (index: number) => {
+  const handleDelete = (index: number):void => {
     const newIngredients = ingredients.filter((_, i) => i !== index);
     setIngredients(newIngredients);
   };
