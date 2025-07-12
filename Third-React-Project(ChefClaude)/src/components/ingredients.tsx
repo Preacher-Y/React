@@ -68,14 +68,11 @@ export default function IngredientForm():React.JSX.Element {
         {ingredients.map((ingredient, i) => (
           <li key={i}> 
             <div className="flex items-center justify-between py-1">
-
                 {ingredient}
                 <button
                     onClick={() => handleDelete(i)}
                     className="ml-2 text-xl text-gray-500 hover:text-red-700 font-bold"
-                >
-                ×
-                </button>
+                >×</button>
             </div>
         </li>
         ))}
