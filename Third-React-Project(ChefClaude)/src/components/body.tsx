@@ -1,4 +1,4 @@
-import Ingredients from './ingredients';
+import IngedientsForm from './ingredients';
 import Generate from './generate';
 
 export default function Body() {
@@ -13,7 +13,7 @@ export default function Body() {
                 </p>
             </section>
             <section className="px-5 relative">
-                <Ingredients />
+                <IngedientsForm />
             </section>
             <section className='p-4 mt-9 relative'>
                 <Generate />
