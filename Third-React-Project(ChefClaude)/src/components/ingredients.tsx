@@ -45,7 +45,7 @@ export default function IngredientForm():React.JSX.Element {
             aria-label='ingredient'
             id='input'
             onChange={(e) => setInputValue(e.target.value)}
-            className='py-1.5 px-2 w-full dark:placeholder:text-gray-400 sm:w-80 outline-none border-b-2 text-white dark:border-gray-800 dark:focus:border-gray-500 border-gray-300 focus:border-black'
+            className='py-1.5 px-2 w-full dark:placeholder:text-gray-400 placeholder:text-gray-500 sm:w-80 outline-none border-b-2 dark:text-white dark:border-gray-800 dark:focus:border-gray-500 border-gray-300 focus:border-black'
         />
         <Button
             text={<><BiPlusCircle className='mr-2' size={20}/> Add Ingredient</>}

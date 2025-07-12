@@ -6,8 +6,8 @@ export default function Header() {
             <div className="flex items-center">
                 <img src={Logo} alt="Chef Claude Logo" className="h-10 w-9 mr-2" />
                 <h1 className="text-2xl dark:text-white font-light">Chef Claude</h1>
+                <Theme />
             </div>
-            <Theme />
         </header>
     )
 }
