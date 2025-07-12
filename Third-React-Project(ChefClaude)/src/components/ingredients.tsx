@@ -50,7 +50,7 @@ export default function IngredientForm():React.JSX.Element {
         <Button
             text={<><BiPlusCircle className='mr-2' size={20}/> Add Ingredient</>}
             color="bg-black/90"
-            size="py-2 flex items-center rounded-lg dark:bg-gray-700 w-full sm:w-50 justify-center hover:scale-102 hover:shadow-[0px_0px_8px_black] max-sm:mt-3 transition-all duration-500 px-4 sm:ml-4"
+            size="py-2 flex items-center rounded-lg dark:bg-gray-700 dark:hover:bg-gray-700/70 w-full sm:w-50 justify-center hover:scale-102 hover:shadow-[0px_0px_8px_black] max-sm:mt-3 transition-all duration-500 px-4 sm:ml-4"
             onClick={handleAddIngredient}
 
         />
@@ -58,14 +58,14 @@ export default function IngredientForm():React.JSX.Element {
 
       {
         alertMessage && (
-        <p id="alert" className="text-red-500 max-sm:text-sm text-xs mx-16 md:mx-26 mt-2">
+        <p id="alert" className="text-red-500 dark:text-red-400 max-sm:text-sm text-xs mx-16 md:mx-26 mt-2">
           {alertMessage}
         </p>
       )}
 
-      <h1 className="font-bold mt-20 text-2xl">Ingredients on hand:</h1>
+      <h1 className="font-bold mt-20 dark:text-gray-200 text-2xl">Ingredients on hand:</h1>
 
-      <ul id="ingredients-list" className="list-disc mt-4 pl-7">
+      <ul id="ingredients-list" className="list-disc dark:marker:text-gray-400 dark:text-gray-400 mt-4 pl-7">
         {ingredients.map((ingredient, i) => (
           <li key={i}> 
             <div className="flex items-center justify-between py-1">

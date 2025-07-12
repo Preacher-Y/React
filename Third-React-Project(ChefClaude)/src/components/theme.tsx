@@ -15,7 +15,7 @@ export default function Theme(): React.JSX.Element {
         document.documentElement.setAttribute('data-theme', newTheme);
     };
     return (
-        <div className=" fixed right-3 top-0 flex justify-center items-center max-sm:mt-5 mt-3">
+        <div className=" fixed right-6 top-1 flex justify-center items-center max-sm:mt-5 mt-3">
             <Button
                 text={<BiMoon size={20} className='text-black dark:text-white' />}
                 color="bg-black/90"
