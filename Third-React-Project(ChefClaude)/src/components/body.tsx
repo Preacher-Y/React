@@ -12,13 +12,13 @@ export default function Body() {
                     Chef Claude is your personal AI chef, ready to assist you with all your culinary needs. Whether you're looking for recipes, cooking tips, or meal planning ideas, Chef Claude has got you covered.
                 </p>
             </section>
-            <section className="px-5 relative">
+            <section id='ingedrient-form' className="px-5 relative">
                 <IngedientsForm />
             </section>
-            <section className='p-4 mt-9 relative'>
+            <section id='generate-recipe' className='p-4 mt-9 relative'>
                 <Generate />
             </section>
-            <section className='p-4 mt-9 relative'>
+            <section id='results' className='p-4 mt-9 relative'>
                 <Results/>
             </section>
         </div>
