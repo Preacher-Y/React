@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import Button from './button';
 import { BiMoon, BiSun } from 'react-icons/bi';
+import type { IconType } from 'react-icons';
 export default function Theme(): React.JSX.Element {
     const [theme, setTheme] = useState('light');
+    const [logo, setLogo] = useState<IconType>(BiMoon);
+    const toggleLogo = () => {
+        setLogo(theme === 'light' ? BiMoon : BiSun);
+    };
     const toggleTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
+        toggleLogo();
         document.documentElement.setAttribute('data-theme', newTheme);
     };
     return (
