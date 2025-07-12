@@ -56,7 +56,8 @@ export default function IngredientForm():React.JSX.Element {
         />
       </form>
 
-      {alertMessage && (
+      {
+        alertMessage && (
         <p id="alert" className="text-red-500 max-sm:text-sm text-xs mx-16 md:mx-26 mt-2">
           {alertMessage}
         </p>
