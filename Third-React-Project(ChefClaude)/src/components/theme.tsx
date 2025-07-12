@@ -11,7 +11,7 @@ export default function Theme(): React.JSX.Element {
         document.documentElement.classList.toggle('dark', newTheme==='dark');
     };
 
-    const Icon = theme === 'light' ? BiSun : BiMoon;
+    const Icon = theme === 'dark' ? BiSun : BiMoon;
 
     return (
         <div className="fixed right-6 top-1 flex justify-center items-center max-sm:mt-5 mt-3">

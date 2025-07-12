@@ -1,7 +1,7 @@
 import Button from "./button";
 export default function Generate() {
     return (
-        <div className="bg-gray-200 dark:bg-gray-800 rounded-2xl p-6 flex items-end gap-2 ">
+        <div className="bg-gray-200 dark:bg-gray-800 rounded-2xl p-6 flex transition-all duration-500 items-end gap-2 ">
             <div className="px-3">
                 <h1 className="font-bold dark:text-gray-300 text-base mb-1">Ready for a recipe?</h1>
                 <p className="text-gray-500 text-xs">
