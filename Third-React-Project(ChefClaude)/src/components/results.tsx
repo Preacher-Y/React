@@ -1,4 +1,5 @@
 import { useState } from "react"
+
 import Loading from "./loading";
 export default function Results(prop:any): React.JSX.Element {
     const [loading, setLoading] = useState(true);
