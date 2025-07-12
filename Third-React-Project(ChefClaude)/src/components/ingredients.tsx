@@ -50,7 +50,7 @@ export default function IngredientForm():React.JSX.Element {
         <Button
             text={<><BiPlusCircle className='mr-2' size={20}/> Add Ingredient</>}
             color="bg-black/90"
-            size="py-2 flex items-center w-full sm:w-50 justify-center hover:-translate-y-1 hover:shadow-[0px_0px_8px_black] max-sm:mt-3 transition-all duration-500 px-4 sm:ml-4"
+            size="py-2 flex items-center rounded-lg w-full sm:w-50 justify-center hover:-translate-y-1 hover:shadow-[0px_0px_8px_black] max-sm:mt-3 transition-all duration-500 px-4 sm:ml-4"
             onClick={handleAddIngredient}
 
         />
