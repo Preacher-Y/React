@@ -6,7 +6,6 @@ export default function IngredientForm():React.JSX.Element {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
-  const [isIngredientAvalaible, setIsLoading] = useState(false);
   const handleAddIngredient = (e: React.FormEvent):void => {
     e.preventDefault();
     
@@ -26,7 +25,6 @@ export default function IngredientForm():React.JSX.Element {
       }, 3000);
       return;
     }
-
 
     if (ingredients.length >= 10) {
       setAlertMessage('You can only add up to 10 ingredients.');
@@ -76,21 +74,25 @@ export default function IngredientForm():React.JSX.Element {
         </p>
       )}
 
-      <h1 className="font-bold mt-20 dark:text-gray-200 text-2xl">Ingredients on hand:</h1>
+      {ingredients.length > 0 && (
+        <>
+          <h1 className="font-bold mt-20 dark:text-gray-200 text-2xl">Ingredients on hand:</h1>
 
-      <ul id="ingredients-list" className="list-disc dark:marker:text-gray-400 dark:text-gray-400 mt-4 pl-7">
-        {ingredients.map((ingredient, i) => (
-          <li key={i}> 
-            <div className="flex items-center justify-between py-1">
-                {ingredient}
-                <button
-                    onClick={() => handleDelete(i)}
-                    className="ml-2 text-xl text-gray-500 hover:text-red-700 font-bold"
-                >×</button>
-            </div>
-        </li>
-        ))}
-      </ul>
+          <ul id="ingredients-list" className="list-disc dark:marker:text-gray-400 dark:text-gray-400 mt-4 pl-7">
+            {ingredients.map((ingredient, i) => (
+              <li key={i}> 
+                <div className="flex items-center justify-between py-1">
+                    {ingredient}
+                    <button
+                        onClick={() => handleDelete(i)}
+                        className="ml-2 text-xl text-gray-500 hover:text-red-700 font-bold"
+                    >×</button>
+                </div>
+            </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
