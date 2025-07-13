@@ -6,7 +6,7 @@ export default function Results(prop:any): React.JSX.Element {
     const {ingredients} = useIngredients();
     return (
         <>{
-            ingredients.length >= 3 && (
+            ingredients.length>= 3 && (
                 <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 flex items-center justify-center rounded-2xl">
                 {loading ? (
                     <Loading />
