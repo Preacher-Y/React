@@ -74,7 +74,8 @@ export default function IngredientForm():React.JSX.Element {
         </p>
       )}
 
-      {ingredients.length > 0 && (
+      {
+      ingredients.length > 0 && (
         <>
           <h1 className="font-bold mt-20 dark:text-gray-200 text-2xl">Ingredients on hand:</h1>
 
