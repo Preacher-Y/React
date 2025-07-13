@@ -6,7 +6,7 @@ export default function IngredientForm():React.JSX.Element {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
-  
+  const [isIngredientAvalaible, setIsLoading] = useState(false);
   const handleAddIngredient = (e: React.FormEvent):void => {
     e.preventDefault();
     
@@ -17,12 +17,24 @@ export default function IngredientForm():React.JSX.Element {
       return;
     }
 
+    if (ingredients.includes(inputValue.trim())) {
+      setAlertMessage('This ingredient is already in the list.');
+      inputElement.classList.add('border-red-500','cursor-not-allowed');
+      setTimeout(() => {
+        inputElement.classList.remove('border-red-500', 'cursor-not-allowed');
+        setAlertMessage('');
+      }, 3000);
+      return;
+    }
+
+
     if (ingredients.length >= 10) {
       setAlertMessage('You can only add up to 10 ingredients.');
+      inputElement.classList.add('border-red-500','cursor-not-allowed');
       setTimeout(() => {
-        setAlertMessage('At least 3 ingredients are required');
-      }, 3000);
-      setInputValue('');
+        setInputValue('');
+        setAlertMessage('');
+      }, 1000);
       return;
     }
 
