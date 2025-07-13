@@ -4,7 +4,7 @@ import Body from './components/body'
 import Footer from './components/footer'
 import {IngredientsProvider} from './components/context'
 
-function App() {
+export default function App() {
 
   return (
     <>
@@ -16,5 +16,3 @@ function App() {
     </>
   )
 }
-
-export default App
