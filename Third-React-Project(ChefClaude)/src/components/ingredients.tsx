@@ -5,7 +5,8 @@ import { BiPlusCircle } from 'react-icons/bi';
 export default function IngredientForm():React.JSX.Element {
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState('');
-  const [alertMessage, setAlertMessage] = useState('');;
+  const [alertMessage, setAlertMessage] = useState('');
+  
   const handleAddIngredient = (e: React.FormEvent):void => {
     e.preventDefault();
     
