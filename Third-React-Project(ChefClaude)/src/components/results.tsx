@@ -1,10 +1,13 @@
 import { useState } from "react"
 import Loading from "./loading";
+import { useIngredients } from "./context";
 export default function Results(prop:any): React.JSX.Element {
     const [loading, setLoading] = useState(true);
+    const {ingredients} = useIngredients();
     return (
-        <>
-            <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 flex items-center justify-center rounded-2xl">
+        <>{
+            ingredients.length >= 3 && (
+                <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 flex items-center justify-center rounded-2xl">
                 {loading ? (
                     <Loading />
                 ) : (
@@ -23,6 +26,8 @@ export default function Results(prop:any): React.JSX.Element {
                     </>
                 )}
             </div>
+            )
+        }
         </>
     )
 }
