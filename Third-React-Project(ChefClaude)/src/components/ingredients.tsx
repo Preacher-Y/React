@@ -52,6 +52,7 @@ export default function IngredientForm():React.JSX.Element {
         <input
             type="text"
             placeholder='e.g oregano'
+            name='Inggredient'
             value={inputValue}
             aria-label='ingredient'
             id='input'
