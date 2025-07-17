@@ -1,3 +1,4 @@
+
 export default function Footer(){
     return (
         <footer className="grid justify-center dark:bg-gray-900 transition-all duration-500 bg-white z-10 w-full bottom-0 rounded-t-2xl items-center p-4">
