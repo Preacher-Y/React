@@ -6,6 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     text: React.ReactNode;
 }
 
+
 export default function Button({ color = "bg-blue-500",size = "py-2 px-4", text, ...props}: ButtonProps) {
     return (
         <button
