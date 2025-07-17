@@ -9,10 +9,8 @@ export default function Theme(): React.JSX.Element {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
         document.documentElement.classList.toggle('dark', newTheme==='dark');
-        // new thing learnt this is to save the theme in the storage so that it persists across page reloads
         localStorage.setItem('theme', newTheme);
     };
-    // Check local storage for theme preference on initial load
     useEffect(()=>{
         const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
         if (savedTheme) {
