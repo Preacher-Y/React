@@ -87,7 +87,7 @@ export default function IngredientForm():React.JSX.Element {
         <>
           <div className='flex items-center justify-between mt-20 '>
             <h1 className="font-bold dark:text-gray-200 text-2xl">Ingredients on hand:</h1>
-            <p className='text-gray-500 hover:text-red-700 hover:underline underline-offset-2 cursor-pointer text-xs' onClick={clearAllIngredients}>clear All</p>
+            <p className='text-gray-500 hover:text-red-500 font-bold hover:underline underline-offset-2 cursor-pointer text-xs' onClick={clearAllIngredients}>Clear All</p>
           </div>
 
           <ul id="ingredients-list" className="list-disc dark:marker:text-gray-400 dark:text-gray-400 mt-4 pl-7">
