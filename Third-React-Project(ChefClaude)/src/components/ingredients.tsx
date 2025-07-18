@@ -78,7 +78,10 @@ export default function IngredientForm():React.JSX.Element {
       {
       ingredients.length > 0 && (
         <>
-          <h1 className="font-bold mt-20 dark:text-gray-200 text-2xl">Ingredients on hand:</h1>
+          <div className='flex items-center justify-between mt-20 '>
+            <h1 className="font-bold dark:text-gray-200 text-2xl">Ingredients on hand:</h1>
+            <p className='text-gray-500 hover:text-red-700 cursor-pointer text-xs'>clear All</p>
+          </div>
 
           <ul id="ingredients-list" className="list-disc dark:marker:text-gray-400 dark:text-gray-400 mt-4 pl-7">
             {ingredients.map((ingredient, i) => (
@@ -87,7 +90,7 @@ export default function IngredientForm():React.JSX.Element {
                     {ingredient}
                     <button
                         onClick={() => handleDelete(i)}
-                        className="ml-2 text-xl text-gray-500 hover:text-red-700 font-bold"
+                        className="ml-2 text-xl text-gray-500 hover:text-red-700 font-bold cursor-pointer"
                     >×</button>
                 </div>
             </li>
