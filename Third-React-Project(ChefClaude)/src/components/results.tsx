@@ -8,7 +8,7 @@ export default function Results(prop:any): React.JSX.Element {
     return (
         <>{
             ingredients.length >= 3 && (
-                <div className="min-h-screen pt-16 bg-gray-50 dark:bg-gray-900 flex items-center justify-center rounded-2xl">
+            <div className="min-h-screen pt-16 bg-gray-50 md:mb-16 lg:mb-6 dark:bg-gray-900 flex items-center justify-center rounded-2xl">
                 {loading ? (
                     <Loading />
                 ) : (
