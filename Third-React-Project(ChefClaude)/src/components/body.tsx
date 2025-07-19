@@ -1,8 +1,12 @@
+import { useState } from "react";
 import IngedientsForm from './ingredients';
 import Generate from './generate';
 import Results from './results';
 
 export default function Body() {
+    const [loading, setLoading] = useState(false);
+    const [hasGenerated, setHasGenerated] = useState(false);
+
     return (
         <div className="max-w-2xl mx-auto">
             <section id ='hero' className="p-4 mt-32 mb-16 relative">
@@ -17,11 +21,12 @@ export default function Body() {
                 <IngedientsForm />
             </section>
             <section id='generate-recipe' className='p-4 mt-9 relative'>
-                <Generate />
+                <Generate setLoading={setLoading} setHasGenerated={setHasGenerated} />
             </section>
             <section id='results' className='p-4 mt-9 relative'>
-                <Results/>
+                <Results loading={loading} hasGenerated={hasGenerated} />
             </section>
         </div>
     );
 }
+

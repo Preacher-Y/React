@@ -1,8 +1,6 @@
-import dotenv from "dotenv";
-dotenv.config();
 import { InferenceClient } from "@huggingface/inference";
 
-const token = process.env.CHEF_CLAUDE_API_KEY ;
+const token = import.meta.env.VITE_CHEF_CLAUDE_API_KEY ;
 if (!token) throw new Error("Hugging Face token is missing.");
 const hf = new InferenceClient( token );
 
