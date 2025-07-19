@@ -12,7 +12,7 @@ they could make with some or all of those ingredients. You don't need to use eve
 they mention in your recipe. The recipe can include additional ingredients they didn't mention, 
 but try not to include too many extra ingredients. Give it to me in an object format with the following keys:
 - name: the name of the recipe
-- description: a short description of the recipe
+- description: an intersting description of the recipe
 - ingredients: a list of ingredients with measurements (an array), including the ones that weren't added in
 - instructions: a list of instructions to make the recipe (an array)
 Make sure to include the measurements for each ingredient, and provide clear and concise instructions.
