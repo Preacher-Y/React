@@ -21,9 +21,9 @@ export default function Generate({
         setIsDisabled(true);
         const response = await getRecipe(ingredients);
         if (response) {
-            setRecipe(response);
+            setRecipe(response); // response should be a RecipeType object
         } else {
-            setRecipe("No recipe found.");
+            setRecipe(null);
         }
         setLoading(false); // Stop loading
         setIsDisabled(false);

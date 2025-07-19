@@ -1,4 +1,5 @@
 import { InferenceClient } from "@huggingface/inference";
+import type { RecipeType } from "./types"; // adjust path as needed
 
 const token = import.meta.env.VITE_CHEF_CLAUDE_API_KEY ;
 if (!token) throw new Error("Hugging Face token is missing.");
@@ -19,7 +20,7 @@ Make sure to include the measurements for each ingredient, and provide clear and
 If you don't have enough information to suggest a recipe, respond with "I don't know".
 `;
 
-export default async  function getRecipeFromMistral(ingredientsArr: string[]): Promise<string | undefined> {
+export default async function getRecipeFromMistral(ingredientsArr: string[]): Promise<RecipeType | undefined> {
   const ingredientsString = ingredientsArr.join(", ");
   try {
     const response = await hf.chatCompletion({
@@ -31,8 +32,13 @@ export default async  function getRecipeFromMistral(ingredientsArr: string[]): P
       max_tokens: 1024,
     });
 
-    return response.choices?.[0]?.message?.content;
+    const data = response.choices?.[0]?.message?.content;
+    if (typeof data === "string") {
+      return JSON.parse(data) as RecipeType;
+    }
+    return undefined;
   } catch (err: any) {
     console.error(err.message);
+    return undefined;
   }
 }
