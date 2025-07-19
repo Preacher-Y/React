@@ -14,7 +14,7 @@ export default function Results({
     if (!hasGenerated || ingredients.length < 3 || !recipe) return null;
 
     return (
-        <div className="min-h-screen py-8 px-4 bg-gray-50 md:mb-16 lg:mb-6 dark:bg-gray-900  items-center justify-center rounded-2xl">
+        <div className="min-h-screen py-8 px-4 bg-gray-50 md:mb-16 lg:mb-6 dark:bg-gray-900  items-center justify-center rounded-2xl " aria-live="polite">
             {loading ? (
                 <Loading />
             ) : (
