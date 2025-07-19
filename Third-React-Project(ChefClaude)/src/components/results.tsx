@@ -22,14 +22,13 @@ export default function Results({
                     <>
                         <h1 className="text-3xl font-bold dark:text-white" >Suggested Recipe:</h1>
                         <h1 className="text-2xl font-bold dark:text-white mt-2">{recipe.name}</h1>
-                        {recipe.image && (
-                            <img src={recipe.image} alt={recipe.name} className="my-4 rounded-lg max-w-md" />
-                        )}
                         <p className="mt-2 text-lg dark:text-gray-200">{recipe.description}</p>
                         <h2 className="mt-4 text-xl font-semibold dark:text-white">Ingredients</h2>
                         <ul className="list-disc list-inside pl-4 dark:text-gray-200">
-                            {recipe.ingredients && recipe.ingredients.map((item: string, idx: number) => (
-                                <li key={idx}>{item}</li>
+                            {recipe.ingredients && recipe.ingredients.map((item, idx) => (
+                                <li key={idx}>
+                                    {item.measurement ? `${item.measurement} ` : ""}{item.name}
+                                </li>
                             ))}
                         </ul>
                         <h2 className="mt-4 text-xl font-semibold dark:text-white">Instructions</h2>
