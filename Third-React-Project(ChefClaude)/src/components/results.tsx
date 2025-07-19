@@ -1,6 +1,8 @@
 import Loading from "./loading";
 import { useRecipe } from "./recipeContext";
 import { useIngredients } from "./ingredientsContext";
+import ReactMarkdown from 'react-markdown'
+import RemarkGfm from 'remark-gfm'
 
 export default function Results({
     loading,
@@ -13,15 +15,42 @@ export default function Results({
     const { ingredients } = useIngredients();
     if (!hasGenerated || ingredients.length < 3) return null;
 
+    let parsedRecipe: any = null;
+    try {
+        parsedRecipe = recipe ? JSON.parse(recipe) : null;
+    } catch (e) {
+        parsedRecipe = null;
+    }
+
     return (
-        <div className="min-h-screen pt-16 bg-gray-50 md:mb-16 lg:mb-6 dark:bg-gray-900  items-center justify-center rounded-2xl">
+        <div className="min-h-screen py-8 px-4 bg-gray-50 md:mb-16 lg:mb-6 dark:bg-gray-900  items-center justify-center rounded-2xl">
             {loading ? (
                 <Loading />
             ) : (
-                <>
-                    <h1 className="text-2xl font-bold dark:text-white ">Suggested Recipe </h1>
-                    <pre className="dark:text-white ">{recipe}</pre>
-                </>
+                parsedRecipe ? (
+                    <>
+                        <h1 className="text-3xl font-bold dark:text-white" >Suggested Recipe:</h1>
+                        <h1 className="text-2xl font-bold dark:text-white mt-2">{parsedRecipe.name}</h1>
+                        {parsedRecipe.image && (
+                            <img src={parsedRecipe.image} alt={parsedRecipe.name} className="my-4 rounded-lg max-w-md" />
+                        )}
+                        <p className="mt-2 text-lg dark:text-gray-200">{parsedRecipe.description}</p>
+                        <h2 className="mt-4 text-xl font-semibold dark:text-white">Ingredients</h2>
+                        <ul className="list-disc list-inside pl-4 dark:text-gray-200">
+                            {parsedRecipe.ingredients && parsedRecipe.ingredients.map((item: string, idx: number) => (
+                                <li key={idx}>{item}</li>
+                            ))}
+                        </ul>
+                        <h2 className="mt-4 text-xl font-semibold dark:text-white">Instructions</h2>
+                        <ol className="list-decimal list-inside pl-4 dark:text-gray-200">
+                            {parsedRecipe.instructions && parsedRecipe.instructions.map((step: string, idx: number) => (
+                                <li key={idx}>{step}</li>
+                            ))}
+                        </ol>
+                    </>
+                ) : (
+                    <p className="text-red-500">Failed to load recipe.</p>
+                )
             )}
         </div>
     );
