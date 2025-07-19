@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from './button';
 import { BiPlusCircle } from 'react-icons/bi';
-import { useIngredients } from './context';
+import { useIngredients } from './ingredientsContext';
 
 export default function IngredientForm():React.JSX.Element {
   const {ingredients, setIngredients} = useIngredients();
