@@ -1,5 +1,6 @@
 import Logo from '../assets/chef-claude-icon.png'
 import Theme from './theme'
+
 export default function Header() {
     return (
         <header className="grid justify-center dark:bg-gray-900 transition-all duration-500 bg-white fixed z-10 w-full top-0 rounded-b-2xl items-center p-4">

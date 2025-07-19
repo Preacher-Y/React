@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Loading from "./loading";
 import { useIngredients } from "./context";
+
 export default function Results(prop:any): React.JSX.Element {
     const [loading, setLoading] = useState(true);
     const {ingredients} = useIngredients();

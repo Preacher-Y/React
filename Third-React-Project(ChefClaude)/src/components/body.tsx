@@ -1,6 +1,7 @@
 import IngedientsForm from './ingredients';
 import Generate from './generate';
 import Results from './results';
+
 export default function Body() {
     return (
         <div className="max-w-2xl mx-auto">

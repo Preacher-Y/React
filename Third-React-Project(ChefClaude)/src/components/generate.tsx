@@ -1,5 +1,6 @@
 import Button from "./button";
 import { useIngredients } from "./context";
+
 export default function Generate() {
     const { ingredients } = useIngredients();
     return (
