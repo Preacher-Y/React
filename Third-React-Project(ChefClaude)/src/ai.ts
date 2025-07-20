@@ -13,7 +13,7 @@ they mention in your recipe. The recipe can include additional ingredients they 
 but try not to include too many extra ingredients. Give it to me in an object format with the following keys:
 - name: the name of the recipe
 - description: an intersting description of the recipe
-- ingredients: a list of ingredients with measurements (an array), including the ones that weren't added in
+- ingredients: a list of ingredients with measurements (ust be an array of objects, each with "name" and "measurement" properties, both as non-empty strings. Example: [{"name": "rice", "measurement": "1 cup"}]. Do not return empty objects or empty strings.), including the ones that weren't added in
 - instructions: a list of instructions to make the recipe (an array)
 Make sure to include the measurements for each ingredient, and provide clear and concise instructions.
 If you don't have enough information to suggest a recipe, respond with "I don't know".

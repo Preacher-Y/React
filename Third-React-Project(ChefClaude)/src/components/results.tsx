@@ -25,11 +25,13 @@ export default function Results({
                         <p className="mt-2 text-lg dark:text-gray-200">{recipe.description}</p>
                         <h2 className="mt-4 text-xl font-semibold dark:text-white">Ingredients</h2>
                         <ul className="list-disc list-inside pl-4 dark:text-gray-200">
-                            {recipe.ingredients && recipe.ingredients.map((item, idx) => (
-                                <li key={idx}>
-                                    {item.measurement ? `${item.measurement} ` : ""}{item.name}
-                                </li>
-                            ))}
+                            {recipe.ingredients
+                                .filter(item => item && (item.name || item.measurement))
+                                .map((item, idx) => (
+                                    <li key={idx}>
+                                        {item.measurement ? `${item.measurement} ` : ""}{item.name}
+                                    </li>
+                                ))}
                         </ul>
                         <h2 className="mt-4 text-xl font-semibold dark:text-white">Instructions</h2>
                         <ol className="list-decimal list-inside pl-4 dark:text-gray-200">
