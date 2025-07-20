@@ -1,11 +1,25 @@
-export default function Body(){
+import type { DataType } from "../App"
+export default function Body({setData}:{setData:React.Dispatch<React.SetStateAction<DataType>>}){
+    const handleTopTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setData((prev) => ({
+        ...prev,
+        topText: e.target.value,
+        }));
+    };
+    const handleBottomTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setData((prev) => ({
+      ...prev,
+      bottomText: e.target.value,
+    }));
+  };
     return (
         <section className="mx-auto max-w-lg max-sm:rounded-b-lg">
             <form action="" className="grid">
                 <div className="md:flex grid justify-center md:justify-between items-center py-4">
                     <div className="grid max-sm:mb-4 ">
                         <label htmlFor="top" className="font-bold text-lg tracking-wide">Top Text</label>
-                        <input 
+                        <input
+                            onChange={handleTopTextChange}
                             type="text" 
                             placeholder="Top Text" name="top" 
                             className="py-1 px-3 rounded w-[250px] md:w-[222px] h-10 md:h-9 border border-gray-400 outline-none focus:border-blue-500" 
@@ -14,6 +28,7 @@ export default function Body(){
                     <div className="grid max-sm:mb-4">
                         <label htmlFor="bottom" className="font-bold text-lg tracking-wide">Bottom Text</label>
                         <input 
+                            onChange={handleBottomTextChange}
                             type="text" 
                             placeholder="Bottom Text" name="bottom"
                             className="py-1 px-3 rounded border w-[250px] md:w-[222px] h-10 md:h-9 border-gray-400 outline-none focus:border-blue-500"
