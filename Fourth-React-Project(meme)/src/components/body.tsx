@@ -1,17 +1,13 @@
 import type { DataType } from "../App"
 export default function Body({setData}:{setData:React.Dispatch<React.SetStateAction<DataType>>}){
-    const handleTopTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData((prev) => ({
         ...prev,
-        topText: e.target.value,
+        [e.target.name]: e.target.value,
         }));
     };
-    const handleBottomTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData((prev) => ({
-      ...prev,
-      bottomText: e.target.value,
-    }));
-  };
+
     return (
         <section className="mx-auto max-w-lg max-sm:rounded-b-lg">
             <form action="" className="grid">
@@ -19,18 +15,18 @@ export default function Body({setData}:{setData:React.Dispatch<React.SetStateAct
                     <div className="grid max-sm:mb-4 ">
                         <label htmlFor="top" className="font-bold text-lg tracking-wide">Top Text</label>
                         <input
-                            onChange={handleTopTextChange}
+                            onChange={handleChange}
                             type="text" 
-                            placeholder="Top Text" name="top" 
+                            placeholder="Top Text" name="topText" 
                             className="py-1 px-3 rounded w-[250px] md:w-[222px] h-10 md:h-9 border border-gray-400 outline-none focus:border-blue-500" 
                         />
                     </div>
                     <div className="grid max-sm:mb-4">
                         <label htmlFor="bottom" className="font-bold text-lg tracking-wide">Bottom Text</label>
                         <input 
-                            onChange={handleBottomTextChange}
+                            onChange={handleChange}
                             type="text" 
-                            placeholder="Bottom Text" name="bottom"
+                            placeholder="Bottom Text" name="bottomText"
                             className="py-1 px-3 rounded border w-[250px] md:w-[222px] h-10 md:h-9 border-gray-400 outline-none focus:border-blue-500"
                         />
                     </div>
