@@ -10,6 +10,7 @@ export default function Body({setData}:{setData:React.Dispatch<React.SetStateAct
 
     return (
         <section className="mx-auto max-w-lg max-sm:rounded-b-lg">
+            
             <form action="" className="grid">
                 <div className="md:flex grid justify-center md:justify-between items-center py-4">
                     <div className="grid max-sm:mb-4 ">
