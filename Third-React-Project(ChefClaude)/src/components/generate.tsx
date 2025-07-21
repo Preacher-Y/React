@@ -21,11 +21,11 @@ export default function Generate({
         setIsDisabled(true);
         const response = await getRecipe(ingredients);
         if (response) {
-            setRecipe(response); // response should be a RecipeType object
+            setRecipe(response);
         } else {
             setRecipe(null);
         }
-        setLoading(false); // Stop loading
+        setLoading(false); 
         setIsDisabled(false);
     }
 
