@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[template.environment]
+  VITE_CHEF_CLAUDE_API_KEY = "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" 
