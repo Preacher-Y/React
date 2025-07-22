@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Element } from 'react-scroll'
 import IngedientsForm from './ingredients';
 import Generate from './generate';
 import Results from './results';
@@ -7,6 +8,12 @@ export default function Body() {
     const [loading, setLoading] = useState(false);
     const [hasGenerated, setHasGenerated] = useState(false);
     const results = useRef<HTMLElement|null>(null)
+
+//     useEffect(() => {
+//     if (loading && hasGenerated && results.current) {
+//       results.current.scrollTo({ top:10,behavior: "smooth" });
+//     }
+//   }, [loading, hasGenerated]);
 
     return (
         <div className="max-w-2xl mx-auto">
@@ -22,11 +29,13 @@ export default function Body() {
                 <IngedientsForm setHasGenerated={setHasGenerated}/>
             </section>
             <section id='generate-recipe' className='p-4 mt-9 relative'>
-                <Generate setLoading={setLoading} resultsRef={results} setHasGenerated={setHasGenerated} />
+                <Generate setLoading={setLoading} setHasGenerated={setHasGenerated} />
             </section>
-            <section id='results' ref={results} className='p-4 mt-9 relative'>
-                <Results loading={loading} hasGenerated={hasGenerated} />
-            </section>
+            <Element name="results-section">
+                <section id='results' ref={results} className='p-4 mt-9 relative'>
+                    <Results loading={loading} hasGenerated={hasGenerated} />
+                </section>
+            </Element>
         </div>
     );
 }
