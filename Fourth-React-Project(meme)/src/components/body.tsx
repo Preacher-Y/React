@@ -1,8 +1,8 @@
 import type { DataType } from "../App"
-export default function Body({setData}:{setData:React.Dispatch<React.SetStateAction<DataType>>}){
+export default function Body(props:any){
     
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setData((prev) => ({
+    props.setData((prev:DataType) => ({
         ...prev,
         [e.target.name]: e.target.value,
         }));
@@ -11,7 +11,7 @@ export default function Body({setData}:{setData:React.Dispatch<React.SetStateAct
     return (
         <section className="mx-auto max-w-lg max-sm:rounded-b-lg">
             
-            <form action="" className="grid">
+            <form onSubmit={(e)=>e.preventDefault()} className="grid">
                 <div className="md:flex grid justify-center md:justify-between items-center py-4">
                     <div className="grid max-sm:mb-4 ">
                         <label htmlFor="top" className="font-bold text-lg tracking-wide">Top Text</label>
@@ -32,7 +32,7 @@ export default function Body({setData}:{setData:React.Dispatch<React.SetStateAct
                         />
                     </div>
                 </div>
-                <button className="max-sm:mx-auto max-sm:text-2xl py-2 px-4 font-semibold hover:scale-102 duration-500  md:py-1 md:px-2 bg-gradient-to-r from-[#672280] to-[#A626D3] text-white rounded">Get a new meme image 🖼️</button>
+                <button onClick={props.getImg} className="max-sm:mx-auto max-sm:text-2xl py-2 px-4 font-semibold hover:scale-102 duration-500  md:py-1 md:px-2 bg-gradient-to-r from-[#672280] to-[#A626D3] text-white rounded">Get a new meme image 🖼️</button>
             </form>
         </section>
     )

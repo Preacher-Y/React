@@ -1,10 +1,11 @@
-import type { DataType } from '../App'
-export default function Results({data}:{data:DataType}){
+
+export default function Results(props:any){
+    
     return (
        <section className="my-10 flex justify-center">
             <div className="relative w-full max-w-[512px] max-sm:mx-7 aspect-[3/2]">
                 <img
-                src="http://i.imgflip.com/1bij.jpg"
+                src={props.image}
                 alt="Meme"
                 className="w-full h-full object-cover"
                 />
@@ -23,7 +24,7 @@ export default function Results({data}:{data:DataType}){
                     -2px 0 0 #000,
                     2px 2px 5px #000
                     `,
-                }}>{data.topText}</h1>
+                }}>{props.data.topText}</h1>
 
                 <h2
                 className="absolute bottom-4 left-1/2 -translate-x-1/2 px-1 font-[impact,sans-serif] text-nowrap text-xl sm:text-2xl md:text-3xl lg:text-4xl uppercase text-white tracking-[1px]"
@@ -39,7 +40,7 @@ export default function Results({data}:{data:DataType}){
                     -2px 0 0 #000,
                     2px 2px 5px #000
                     `,
-                }}>{data.bottomText}</h2>
+                }}>{props.data.bottomText}</h2>
             </div>
         </section>
 
