@@ -1,8 +1,8 @@
 import type { DataType } from '../App'
 export default function Results({data}:{data:DataType}){
     return (
-        <section className=''>
-            <h1 className=' text-center my-[15px] px-[5px] font-[impact,sans-serif] text-[2rem] uppercase text-white tracking-[1px]' 
+        <section className={`my-10 bg-[url('http://i.imgflip.com/1bij.jpg')] bg-contain bg-no-repeat bg-center`}>
+            <h1 className=' text-center my-[15px] px-[5px] font-[impact,sans-serif] text-3xl uppercase text-white tracking-[1px]' 
             style={
                 {
                     textShadow: `
@@ -18,7 +18,7 @@ export default function Results({data}:{data:DataType}){
                     `
                 }
             }>{data.topText}</h1>
-            <h2 className=' text-center my-[15px] px-[5px] font-[impact,sans-serif] text-[2rem] uppercase text-white tracking-[1px]'
+            <h2 className=' text-center my-22 px-[5px] font-[impact,sans-serif] text-3xl uppercase text-white tracking-[1px]'
             style={
                 {
                     textShadow: `
