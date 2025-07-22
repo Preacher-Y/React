@@ -5,7 +5,7 @@ import Generate from './generate';
 import Results from './results';
 
 export default function Body() {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [hasGenerated, setHasGenerated] = useState(false);
     const results = useRef<HTMLElement|null>(null)
 
@@ -32,7 +32,7 @@ export default function Body() {
                 <Generate setLoading={setLoading} setHasGenerated={setHasGenerated} />
             </section>
             <Element name="results-section">
-                <section id='results' ref={results} className='p-4 mt-9 relative'>
+                <section id='results' ref={results} className='p-4 mt-14 relative'>
                     <Results loading={loading} hasGenerated={hasGenerated} />
                 </section>
             </Element>
