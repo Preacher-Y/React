@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import IngedientsForm from './ingredients';
 import Generate from './generate';
 import Results from './results';
@@ -6,6 +6,7 @@ import Results from './results';
 export default function Body() {
     const [loading, setLoading] = useState(false);
     const [hasGenerated, setHasGenerated] = useState(false);
+    const results = useRef<HTMLElement|null>(null)
 
     return (
         <div className="max-w-2xl mx-auto">
@@ -18,12 +19,12 @@ export default function Body() {
                 </p>
             </section>
             <section id='ingedrient-form' className="px-5 relative">
-                <IngedientsForm />
+                <IngedientsForm setHasGenerated={setHasGenerated}/>
             </section>
             <section id='generate-recipe' className='p-4 mt-9 relative'>
-                <Generate setLoading={setLoading} setHasGenerated={setHasGenerated} />
+                <Generate setLoading={setLoading} resultsRef={results} setHasGenerated={setHasGenerated} />
             </section>
-            <section id='results' className='p-4 mt-9 relative'>
+            <section id='results' ref={results} className='p-4 mt-9 relative'>
                 <Results loading={loading} hasGenerated={hasGenerated} />
             </section>
         </div>

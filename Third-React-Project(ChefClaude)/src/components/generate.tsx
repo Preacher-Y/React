@@ -7,9 +7,11 @@ import { useState } from "react";
 export default function Generate({
     setLoading,
     setHasGenerated,
+    resultsRef
 }: {
     setLoading: (loading: boolean) => void,
     setHasGenerated: (hasGenerated: boolean) => void,
+    resultsRef:React.RefObject<HTMLElement|null>
 }) {
     const { ingredients } = useIngredients();
     const { setRecipe } = useRecipe();
@@ -19,6 +21,7 @@ export default function Generate({
         setLoading(true);
         setHasGenerated(true);
         setIsDisabled(true);
+        resultsRef.current?.scrollIntoView({behavior:'smooth'})
         const response = await getRecipe(ingredients);
         if (response) {
             setRecipe(response);

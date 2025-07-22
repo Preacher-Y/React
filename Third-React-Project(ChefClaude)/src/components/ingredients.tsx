@@ -3,7 +3,7 @@ import Button from './button';
 import { BiPlusCircle } from 'react-icons/bi';
 import { useIngredients } from './ingredientsContext';
 
-export default function IngredientForm():React.JSX.Element {
+export default function IngredientForm({setHasGenerated}:{setHasGenerated:(hasGenerated: boolean) => void}):React.JSX.Element {
   const {ingredients, setIngredients} = useIngredients();
   const [inputValue, setInputValue] = useState('');
   const [alertMessage, setAlertMessage] = useState('');
@@ -46,6 +46,7 @@ export default function IngredientForm():React.JSX.Element {
     setIngredients([]);
     setInputValue('');
     setAlertMessage('');
+    setHasGenerated(false)
     const inputElement = document.getElementById('input') as HTMLInputElement;
     inputElement.focus();
   }
