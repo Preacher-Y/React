@@ -10,7 +10,7 @@ export default function Body() {
 
     return (
         <div className="max-w-2xl mx-auto">
-            <section id ='hero' className="p-4 mt-27 mb-16 relative">
+            <section id ='hero' className="px-4 pt-9 mt-21 mb-14 relative">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl dark:text-gray-100 text-center font-bold mb-4">
                     Welcome to Chef Claude
                 </h2>
