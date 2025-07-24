@@ -16,7 +16,7 @@ export default function App() {
       <Header/>
       <section className="max-w-lg mx-auto h-96 flex flex-col gap-3 justify-center">
         <Body dice={dice}/>
-        <button onClick={()=>setDice(generateAllNewDice)} className="bg-blue-600 text-white w-40 self-center mt-6 py-2 px-2">Roll the Dice</button>
+        <button onClick={()=>setDice(generateAllNewDice)} className="bg-blue-600 text-white w-46 rounded-2xl text-xl self-center mt-10 py-2 px-4">Roll the Dice</button>
       </section>
     </div>
   )
