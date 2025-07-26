@@ -35,7 +35,7 @@ export default function App() {
       <section className="max-w-lg mx-auto h-96 flex flex-col gap-3 justify-center">
         <Body dice={dice} toggleHold={toggleHold}/>
         <button 
-        onClick={()=>dice.every(el=>el.isHeld===true)? setDice(generateAllNewDice):setDice(prev=>prev.map(el=>el.isHeld?el:{...el,value:Math.ceil(Math.random() * 6)}))} 
+        onClick={()=>dice.every(el=>el.value===dice[0].value) && dice.every(el=>el.isHeld)? setDice(generateAllNewDice):setDice(prev=>prev.map(el=>el.isHeld?el:{...el,value:Math.ceil(Math.random() * 6)}))} 
         className="bg-blue-600 text-white w-46 rounded-2xl text-xl self-center mt-10 py-2 px-4">{dice.every(el=>el.isHeld===true)?`Start Again`:`Roll the Dice`}</button>
       </section>
     </div>
