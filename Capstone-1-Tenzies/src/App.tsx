@@ -1,6 +1,7 @@
 import Header from "./components/header";
 import Body from "./components/body";
 import React from "react";
+import Confetti from "react-confetti";
 import { nanoid } from "nanoid";
 
 export type Die = {
@@ -9,8 +10,11 @@ export type Die = {
   id:string
 }
 
+
 export default function App() {
   const [dice, setDice] = React.useState(generateAllNewDice())
+
+  const gameWon= dice.every(el=>el.value===dice[0].value) && dice.every(el=>el.isHeld)
   
   function toggleHold(id: string) {
     setDice(prevDice =>
@@ -31,12 +35,13 @@ export default function App() {
 
   return (
     <div className="border-40 w-full h-[100dvh] ">
+      {gameWon && (<Confetti/>)}
       <Header/>
       <section className="max-w-lg mx-auto h-96 flex flex-col gap-3 justify-center">
         <Body dice={dice} toggleHold={toggleHold}/>
         <button 
-        onClick={()=>dice.every(el=>el.value===dice[0].value) && dice.every(el=>el.isHeld)? setDice(generateAllNewDice):setDice(prev=>prev.map(el=>el.isHeld?el:{...el,value:Math.ceil(Math.random() * 6)}))} 
-        className="bg-blue-600 text-white w-46 rounded-2xl text-xl self-center mt-10 py-2 px-4">{dice.every(el=>el.isHeld===true)?`Start Again`:`Roll the Dice`}</button>
+        onClick={()=>gameWon? setDice(generateAllNewDice):setDice(prev=>prev.map(el=>el.isHeld?el:{...el,value:Math.ceil(Math.random() * 6)}))} 
+        className="bg-blue-600 text-white w-46 rounded-2xl text-xl self-center mt-10 py-2 px-4">{gameWon?`New Game`:`Roll the Dice`}</button>
       </section>
     </div>
   )
