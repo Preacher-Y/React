@@ -14,8 +14,8 @@ export default function App() {
   
   function toggleHold(id: string) {
     setDice(prevDice =>
-      prevDice.map(die =>
-        die.id === id ? { ...die, isHeld: !die.isHeld } : die
+      prevDice.map(el =>
+        el.id === id ? { ...el, isHeld: !el.isHeld } : el
       )
     );
   }
