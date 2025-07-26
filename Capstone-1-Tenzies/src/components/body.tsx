@@ -1,12 +1,12 @@
 import AllDices from "./allDices"
 import type { Die } from "../App"
-export default function Body({dice,setIsHeld}:{dice:Die[],setIsHeld:React.Dispatch<React.SetStateAction<boolean>>}){
+export default function Body({dice,toggleHold}:{dice:Die[],toggleHold:(id:string)=>void}){
     return(
         <>
             <h1 className="text-center">
                 Roll dice 
             </h1>
-            <AllDices dice={dice} setIsHeld={setIsHeld}/>
+            <AllDices dice={dice} toggleHold={toggleHold}/>
         </>
     )
 }
