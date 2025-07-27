@@ -3,7 +3,7 @@ import type { Die } from "../App";
 
 export default function AllDices({dice,toggleHold}:{dice:Die[],toggleHold:(id:string)=>void}) {
     
-    const diceElements = dice.map(el => <Dices value={el.value} key={el.id} id={el.id} isHeld={el.isHeld} toggleHold={toggleHold}/>)
+    const diceElements = dice.map(el => <Dices isDisabled={dice.every(el=>el.value===dice[0].value) && dice.every(el=>el.isHeld)} value={el.value} key={el.id} id={el.id} isHeld={el.isHeld} toggleHold={toggleHold}/>)
 
     return(
         <div className="grid grid-cols-5 mt-12 gap-10 ">
