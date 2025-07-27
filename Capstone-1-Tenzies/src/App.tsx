@@ -34,8 +34,9 @@ export default function App() {
 
 
   return (
-    <div className="border-40 w-full h-[100dvh] ">
+    <div className="border-40 w-full h-[100dvh]">
       {gameWon && (<Confetti/>)}
+      <p className={`absolute left-1/2 -translate-x-1/2 bottom-0  bg-white px-5 py-3 rounded-lg transition-all duration-700 ease-in-out ${gameWon ? 'opacity-100 translate-y-0 mb-7' : 'opacity-0 mb-0'}`}>🎉Congratulations! You won! Press "New Game" to start again.</p>
       <Header/>
       <section className="max-w-lg mx-auto h-96 flex flex-col gap-3 justify-center">
         <Body dice={dice} toggleHold={toggleHold}/>
