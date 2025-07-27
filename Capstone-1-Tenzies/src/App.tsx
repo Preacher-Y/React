@@ -13,9 +13,16 @@ export type Die = {
 
 export default function App() {
   const [dice, setDice] = React.useState(generateAllNewDice())
+  const buttnRef = React.useRef<HTMLButtonElement>(null)
 
   const gameWon= dice.every(el=>el.value===dice[0].value) && dice.every(el=>el.isHeld)
   
+  React.useEffect(()=>{
+    if(gameWon && buttnRef.current){
+      buttnRef.current.focus()
+    }
+  },[gameWon])
+
   function toggleHold(id: string) {
     setDice(prevDice =>
       prevDice.map(el =>
@@ -41,8 +48,9 @@ export default function App() {
       <section className="max-w-lg mx-auto h-96 flex flex-col gap-3 justify-center">
         <Body dice={dice} toggleHold={toggleHold}/>
         <button 
+        ref={buttnRef}
         onClick={()=>gameWon? setDice(generateAllNewDice):setDice(prev=>prev.map(el=>el.isHeld?el:{...el,value:Math.ceil(Math.random() * 6)}))} 
-        className="bg-blue-600 text-white w-46 rounded-2xl text-xl self-center mt-10 py-2 px-4">{gameWon?`New Game`:`Roll the Dice`}</button>
+        className="bg-blue-600 text-white w-46 rounded-2xl focus:border-3 border-black outline-none text-xl self-center mt-10 py-2 px-4">{gameWon?`New Game`:`Roll the Dice`}</button>
       </section>
     </div>
   )
