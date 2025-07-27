@@ -12,6 +12,7 @@ export type Die = {
 
 
 export default function App() {
+  
   const [dice, setDice] = React.useState(generateAllNewDice())
   const buttnRef = React.useRef<HTMLButtonElement>(null)
 

@@ -1,6 +1,8 @@
 import AllDices from "./allDices"
 import type { Die } from "../App"
+
 export default function Body({dice,toggleHold}:{dice:Die[],toggleHold:(id:string)=>void}){
+
     return(
         <>
             <p className="text-center font-medium">

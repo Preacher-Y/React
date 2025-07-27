@@ -11,6 +11,7 @@ export default function Dices({
   toggleHold: (id: string) => void;
   isDisabled: boolean;
 }) {
+    
   const dotPositions: { [key: number]: number[] } = {
     1: [4],
     2: [0, 8],
