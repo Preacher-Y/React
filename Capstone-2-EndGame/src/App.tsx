@@ -1,5 +1,6 @@
 import { memo } from "react"
 import Hero from "./components/hero"
+import LanguagesCards from "./components/languageCards"
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
   return (
     <>
       <Hero/>
+      <LanguagesCards/>
     </>
   )
 }

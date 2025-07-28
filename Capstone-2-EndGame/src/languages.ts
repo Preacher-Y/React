@@ -5,7 +5,7 @@ export type lang={
     color: string;
 }[]
 
-export const languages:lang = [
+export  const languages:lang = [
     {
         name: "HTML",
         backgroundColor: "#E2680F",
