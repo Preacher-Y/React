@@ -18,6 +18,11 @@ function App() {
         <Word/>
         <Keyboard/>
       </wordContext.Provider>
+      <button
+      onClick={()=>alert("New Game initiated")} 
+      className="px-10 py-2 bg-blue-400 font-bold text-xl text-black border rounded border-white">
+        New Game
+      </button>
 
     </>
   )
