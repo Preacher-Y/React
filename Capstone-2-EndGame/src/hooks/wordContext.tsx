@@ -1,12 +1,17 @@
-import { createContext, useContext } from "react";
+import React, { createContext, useContext } from "react";
 
-export const wordContext = createContext<string|undefined>(undefined)
+type wordContextType={
+    word:string;
+    setWord: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const wordContext = createContext<wordContextType|undefined>(undefined)
 
 export function useWordContext(){
-    const word = useContext(wordContext)
+    const contextWord = useContext(wordContext)
 
-    if(word===undefined){
+    if(contextWord===undefined){
         throw new Error("The context has an error, Try checking the provider in the App.tsx ");
     }
-    return word
+    return contextWord
 }

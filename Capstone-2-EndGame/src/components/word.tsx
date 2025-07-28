@@ -2,7 +2,7 @@ import { useWordContext } from "../hooks/wordContext"
 
 export default function Word(){
 
-    const word = useWordContext()
+    const {word} = useWordContext()
 
     return (
         <section className="flex justify-center gap-2 my-10">
