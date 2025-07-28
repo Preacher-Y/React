@@ -2,7 +2,7 @@ import Status from "./status"
 
 export default function Hero(){
     return(
-        <section className="max-w-xl my-10 mx-auto">
+        <section className="max-w-xl my-14 mx-auto">
             <header>
                 <h1 className="text-4xl font-bold ">Assembly: Endgame</h1>
                 <p className="font-light text-gray-400 mt-4 tracking-wider text-lg">Guess the word in under <strong className="text-gray-300 font-semibold">8 attempts </strong>to keep the programming world safe from Assembly</p>

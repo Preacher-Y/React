@@ -3,6 +3,7 @@ import Hero from "./components/hero"
 import LanguagesCards from "./components/languageCards"
 import { wordContext } from "./hooks/wordContext"
 import Word from "./components/word"
+import Keyboard from "./components/keyboard"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <wordContext.Provider value={word}>
         <LanguagesCards/>
         <Word/>
+        <Keyboard/>
       </wordContext.Provider>
 
     </>
