@@ -3,6 +3,7 @@ import Body from "./components/body";
 import React from "react";
 import Confetti from "react-confetti";
 import { nanoid } from "nanoid";
+import { DiceContext, ToggleHoldContext } from "./components/hooks/context";
 
 export type Die = {
   value:number;
@@ -47,7 +48,11 @@ export default function App() {
       <p className={`absolute left-1/2 -translate-x-1/2 bottom-0  bg-white px-5 py-3 rounded-lg transition-all duration-700 ease-in-out ${gameWon ? 'opacity-100 translate-y-0 mb-7' : 'opacity-0 mb-0'}`}>🎉Congratulations! You won! Press "New Game" to start again.</p>
       <Header/>
       <section className="max-w-lg mx-auto h-96 flex flex-col gap-3 justify-center">
-        <Body dice={dice} toggleHold={toggleHold}/>
+        <DiceContext.Provider value={dice}>
+          <ToggleHoldContext value={toggleHold}>
+            <Body/>
+          </ToggleHoldContext>
+        </DiceContext.Provider>
         <button 
         ref={buttnRef}
         onClick={()=>gameWon? setDice(generateAllNewDice):setDice(prev=>prev.map(el=>el.isHeld?el:{...el,value:Math.ceil(Math.random() * 6)}))} 
