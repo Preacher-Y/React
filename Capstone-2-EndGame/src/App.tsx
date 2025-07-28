@@ -1,14 +1,22 @@
-import { memo } from "react"
+import React,{ memo } from "react"
 import Hero from "./components/hero"
 import LanguagesCards from "./components/languageCards"
+import { wordContext } from "./hooks/wordContext"
+import Word from "./components/word"
 
 
 function App() {
 
+  const [word,setWord] = React.useState<string>('react')
+
   return (
     <>
       <Hero/>
-      <LanguagesCards/>
+      <wordContext.Provider value={word}>
+        <LanguagesCards/>
+        <Word/>
+      </wordContext.Provider>
+
     </>
   )
 }
