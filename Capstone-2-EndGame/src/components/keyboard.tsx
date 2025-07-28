@@ -2,10 +2,10 @@ import { useLetterContext } from "../hooks/letterContext"
 
 export default function Keyboard(){
 
-    const {setLetter} = useLetterContext()
+    const {letter,setLetter} = useLetterContext()
 
-    function addGuessedLetter(letter:string):void{
-        setLetter(prev=>[...prev,letter])
+    function addGuessedLetter(aletter:string):void{
+        setLetter(prev=>prev.includes(aletter)?prev:[...prev,aletter])
     }
 
     const keys = 'qwertyuiopasdfghjklzxcvbnm'.toUpperCase()
