@@ -1,17 +1,19 @@
+import { useContext } from "react";
+import { ToggleHoldContext } from "./hooks/context";
+
 export default function Dices({
   value,
   isHeld,
   id,
-  toggleHold,
   isDisabled,
 }: {
   value: number;
   isHeld: boolean;
   id: string;
-  toggleHold: (id: string) => void;
   isDisabled: boolean;
 }) {
     
+  const toggleHold = useContext(ToggleHoldContext)
   const dotPositions: { [key: number]: number[] } = {
     1: [4],
     2: [0, 8],
@@ -24,7 +26,11 @@ export default function Dices({
   return (
     <button
       disabled={isDisabled}
-      onClick={() => toggleHold(id)}
+      onClick={() =>{
+         if(toggleHold){
+          return toggleHold(id)
+         }
+        }}
       className={`${isHeld ? "bg-green-400 hover:bg-green-800" : "bg-gray-100 hover:bg-green-500"} ${isDisabled ? "cursor-not-allowed" : ""} w-12 h-12 pl-2 pt-2 text-center rounded drop-shadow-[0px_0px_2px_gray] grid grid-cols-3 grid-rows-3 gap-[2px] p-[3px]`}>
       {Array.from({ length: 9 }).map((_, i) => (
         <span
