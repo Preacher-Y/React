@@ -9,7 +9,7 @@ import Keyboard from "./components/keyboard"
 
 function App() {
 
-  const [word,setWord] = React.useState<string>('react')
+  const [word,setWord] = React.useState<string>('react'.toUpperCase())
   const [letter, setLetter] = React.useState<string[]>([])
 
   return (

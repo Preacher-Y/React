@@ -47,6 +47,12 @@ export  const languages:lang = [
         color: "#F9F4DA",
     },
     {
+        name:"TailwindCSS",
+        backgroundColor: "Purple",
+        color:"#F9F4DA"
+
+    },
+    {
         name: "Assembly",
         backgroundColor: "#2D519F",
         color: "#F9F4DA",
