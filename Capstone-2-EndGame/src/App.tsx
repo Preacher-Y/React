@@ -1,4 +1,4 @@
-import React,{ memo } from "react"
+import React,{ memo, useRef } from "react"
 import Hero from "./components/hero"
 import LanguagesCards from "./components/languageCards"
 import { wordContext } from "./hooks/wordContext"
@@ -7,17 +7,47 @@ import Word from "./components/word"
 import Keyboard from "./components/keyboard"
 import { languages } from "./languages"
 import Confetti from 'react-confetti'
+import {generate} from 'random-words'
 
 
 function App() {
 
-  const [word,setWord] = React.useState<string>('react'.toUpperCase())
+  const [word,setWord] = React.useState<string>(generate(1)[0].toUpperCase())
   const [letter, setLetter] = React.useState<string[]>([])
+
+  const btnRef = useRef<HTMLButtonElement|null>(null)
 
   const isGameFailed = letter.filter(el=> !word.includes(el)).length >= languages.length-1
   const isGameWon = [...new Set(word.split(''))].every(el=> letter.includes(el))
   
   const gameOver = isGameFailed||isGameWon
+ 
+  function scroollFocus():void{
+    setTimeout(() => {
+      btnRef.current?.scrollIntoView({behavior:"smooth"})
+        setTimeout(() => {
+          btnRef.current?.focus()
+        }, 4000);
+    }, 3500);
+  }
+  React.useEffect(() => {
+    if(gameOver){
+      scroollFocus()
+    }
+  }, [gameOver])
+
+  React.useEffect(() => {
+    function handleRestart(e: KeyboardEvent) {
+      if (gameOver && e.key === "Enter") {
+        setWord(generate(1)[0].toUpperCase());
+        setLetter([]);
+      }
+    }
+
+    window.addEventListener("keydown", handleRestart);
+    return () => window.removeEventListener("keydown", handleRestart);
+  }, [gameOver]);
+  
 
   return (
     <>
@@ -31,7 +61,11 @@ function App() {
         </letterContext.Provider>
       </wordContext.Provider>
       {gameOver && (<button
-      onClick={()=>alert("New Game initiated")} 
+      ref={btnRef}
+      onClick={()=>{
+        setWord(generate(1)[0].toUpperCase())
+        setLetter([])    
+      }} 
       className="px-10 py-2 bg-blue-400 font-bold text-xl text-black border rounded border-white">
         New Game
       </button>)}
@@ -40,4 +74,4 @@ function App() {
   )
 }
 
-export default memo(App)
+export default App

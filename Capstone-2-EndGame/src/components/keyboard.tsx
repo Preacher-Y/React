@@ -19,19 +19,17 @@ export default function Keyboard(){
         setLetter(prev=>prev.includes(letter)?prev:[...prev,letter])
     }
 
-    React.useEffect(() => {
+   React.useEffect(() => {
         function handleKeyPress(e: KeyboardEvent) {
             const key = e.key.toUpperCase();
-            if (keys.includes(key)) {
-                addGuessedLetter(key);
+            if (!gameOver && keys.includes(key)) {
+            addGuessedLetter(key);
             }
         }
-        if(!gameOver){
-            window.addEventListener("keydown", handleKeyPress);
-        }
 
+        window.addEventListener("keydown", handleKeyPress);
         return () => window.removeEventListener("keydown", handleKeyPress);
-    }, [letter]);
+    }, [letter, gameOver]);
 
     return (
         <section className="flex justify-center flex-wrap gap-2 mx-10 my-6">
