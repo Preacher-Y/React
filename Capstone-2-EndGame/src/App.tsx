@@ -49,7 +49,7 @@ function App() {
 
   return (
     <>
-      {isGameWon && <Confetti className="w-[80%] mx-auto h-full"/>}
+      {isGameWon && <Confetti className="w-[80%] mx-auto h-[780px] md:h-[1054px] sm:h-[1000px]"/>}
       <wordContext.Provider value={{word,setWord}}>
         <letterContext.Provider value={{letter,setLetter}}>
           <Hero/>

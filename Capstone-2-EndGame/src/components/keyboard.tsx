@@ -41,9 +41,9 @@ export default function Keyboard(){
                         onClick={() => addGuessedLetter(el)}
                         disabled={gameOver || letter.includes(el)}
                         className={clsx(
-                            "w-14 h-14 rounded-md font-bold text-2xl place-self-center border border-white content-center",
+                            "w-14 h-14 rounded-md font-bold text-2xl place-self-center border border-white ping content-center",
                             {
-                            "opacity-50":gameOver&& !word.toUpperCase().includes(el),
+                            "opacity-50":isGameWon&& !word.toUpperCase().includes(el) || isGameFailed,
                             "bg-green-600 text-white": letter.includes(el) && word.toUpperCase().includes(el),
                             "bg-red-600 text-white": letter.includes(el) && !word.toUpperCase().includes(el),
                             "bg-yellow-500 text-[#333233]": !letter.includes(el),
