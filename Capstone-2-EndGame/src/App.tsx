@@ -1,4 +1,4 @@
-import React,{ memo, useRef } from "react"
+import React,{ useRef } from "react"
 import Hero from "./components/hero"
 import LanguagesCards from "./components/languageCards"
 import { wordContext } from "./hooks/wordContext"
