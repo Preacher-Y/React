@@ -1,6 +1,7 @@
 import React from "react"
 import { useLetterContext } from "../hooks/letterContext"
 import { useWordContext } from "../hooks/wordContext"
+import { languages } from "../languages"
 import clsx from "clsx"
 
 export default function Keyboard(){
@@ -8,6 +9,11 @@ export default function Keyboard(){
     const {letter,setLetter} = useLetterContext()
     const {word} = useWordContext()
     const keys = 'qwertyuiopasdfghjklzxcvbnm'.toUpperCase()
+
+    const isGameFailed = letter.filter(el=> !word.includes(el)).length >= languages.length-1
+    const isGameWon = [...new Set(word.split(''))].every(el=> letter.includes(el))
+      
+    const gameOver = isGameFailed||isGameWon
 
     function addGuessedLetter(letter:string):void{
         setLetter(prev=>prev.includes(letter)?prev:[...prev,letter])
@@ -20,8 +26,10 @@ export default function Keyboard(){
                 addGuessedLetter(key);
             }
         }
-        
-        window.addEventListener("keydown", handleKeyPress);
+        if(!gameOver){
+            window.addEventListener("keydown", handleKeyPress);
+        }
+
         return () => window.removeEventListener("keydown", handleKeyPress);
     }, [letter]);
 
@@ -33,7 +41,7 @@ export default function Keyboard(){
                     <button
                         key={el}
                         onClick={() => addGuessedLetter(el)}
-                        disabled={letter.includes(el)}
+                        disabled={gameOver || letter.includes(el)}
                         className={clsx(
                             "w-14 h-14 rounded-md font-bold text-2xl place-self-center border border-white content-center",
                             {
