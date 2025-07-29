@@ -1,6 +1,7 @@
 import { useLetterContext } from "../hooks/letterContext";
 import { useWordContext } from "../hooks/wordContext";
 import { languages } from "../languages";
+import { GiWilliamTellSkull } from "react-icons/gi";
 
 export default function LanguagesCards(){
 
@@ -21,8 +22,8 @@ export default function LanguagesCards(){
                             {el.name}
                         </h1>
                         {isDead && (
-                                <span className="absolute inset-0 flex items-center justify-center text-xl rounded">
-                                💀
+                                <span className="absolute inset-0 flex items-center justify-center text-2xl rounded">
+                                    <GiWilliamTellSkull/>
                                 </span>
                             )}
                     </div>
