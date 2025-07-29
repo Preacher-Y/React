@@ -25,9 +25,7 @@ function App() {
   function scroollFocus():void{
     setTimeout(() => {
       btnRef.current?.scrollIntoView({behavior:"smooth"})
-        setTimeout(() => {
-          btnRef.current?.focus()
-        }, 4000);
+      btnRef.current?.focus()
     }, 3500);
   }
   React.useEffect(() => {
