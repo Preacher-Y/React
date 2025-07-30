@@ -108,5 +108,11 @@ echo %GREEN% Project "%projectName%" is ready with React.%RESET%
 echo %CYAN% cd %projectName%%RESET%
 echo %CYAN% Run: npm run dev%RESET%
 
+echo.
+:: Runn the Project created
+echo Starting the %projectName% ...
+cd %projectName%
+call npm run dev
+
 endlocal
 pause
