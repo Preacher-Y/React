@@ -59,7 +59,7 @@ break > src\components\header.tsx
 >> src\components\header.tsx echo function Header() {
 >> src\components\header.tsx echo   return (
 >> src\components\header.tsx echo     ^<header className="bg-gray-100 py-4 text-center text-lg font-semibold text-gray-800"^>
->> src\components\header.tsx echo       Welcome to My App!
+>> src\components\header.tsx echo       Welcome to %projectName%!
 >> src\components\header.tsx echo     ^</header^>
 >> src\components\header.tsx echo   );
 >> src\components\header.tsx echo }
@@ -78,10 +78,12 @@ break > src\App.tsx
 >> src\App.tsx echo.
 >> src\App.tsx echo function App() {
 >> src\App.tsx echo   return (
->> src\App.tsx echo     ^<Header/^>
->> src\App.tsx echo     ^<div className="text-center mt-20 text-3xl font-bold text-blue-600"^>
->> src\App.tsx echo       Tailwind 4 + Vite
->> src\App.tsx echo     ^</div^>
+>> src\App.tsx echo     ^<^>
+>> src\App.tsx echo         ^<Header/^>
+>> src\App.tsx echo         ^<div className="text-center mt-20 text-3xl font-bold text-blue-600"^>
+>> src\App.tsx echo             Tailwind 4 + Vite
+>> src\App.tsx echo         ^</div^>
+>> src\App.tsx echo     ^</^>
 >> src\App.tsx echo   );
 >> src\App.tsx echo }
 >> src\App.tsx echo.
