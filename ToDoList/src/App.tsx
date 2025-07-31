@@ -3,6 +3,7 @@ import Body from './components/body';
 import { todoContext } from './hooks/listContext';
 import { useState } from 'react';
 import Results from './components/results';
+import Confetti from 'react-confetti'
 
 function App() {
   const [todo,setTodo] = useState<string[]>([])
