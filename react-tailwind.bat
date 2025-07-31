@@ -74,7 +74,7 @@ echo %CYAN%Creating clean App.tsx...%RESET%
 break > src\App.tsx
 
 :: Append line-by-line safely
->> src\App.tsx echo import Header from ^'^./components/Header^';
+>> src\App.tsx echo import Header from ^'^./components/header^';
 >> src\App.tsx echo.
 >> src\App.tsx echo function App() {
 >> src\App.tsx echo   return (
