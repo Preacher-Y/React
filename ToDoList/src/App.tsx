@@ -1,11 +1,18 @@
 import Header from './components/header';
 import Body from './components/body';
+import { todoContext } from './hooks/listContext';
+import { useState } from 'react';
+import Results from './components/results';
 
 function App() {
+  const [todo,setTodo] = useState<string[]>([])
   return (
     <>
+      <todoContext.Provider value={{todo,setTodo}}>
         <Header/>
         <Body/>
+        <Results/>
+      </todoContext.Provider>
     </>
   );
 }
