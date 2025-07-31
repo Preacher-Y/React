@@ -25,13 +25,13 @@ export default function Body(){
     }
     return (
         <section className="mt-6">
-            <form onSubmit={addTodo} className="flex justify-between gap-6 items-center w-[80%] mx-auto px-8 py-3 rounded-full shadow-md shadow-gray-400">
+            <form onSubmit={addTodo} className="flex justify-between gap-6 group transition-all duration-1000 ease-in-out hover:scale-105 items-center w-[80%] mx-auto px-8 py-3 rounded-full shadow-md shadow-gray-400">
                 <input ref={inputRef} type="text" placeholder="Add Todo..." name="search" id="search" className="w-full outline-none" />
                 
                 <button
                     type="submit"
                     onClick={addTodo}
-                ><FaPlusCircle className="text-green-700 text-2xl"/>
+                ><FaPlusCircle className="text-green-700 text-2xl group-hover:scale-110 transition-all duration-1000 ease-in-out"/>
                 </button>
             </form>
             {
