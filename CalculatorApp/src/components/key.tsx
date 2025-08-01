@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Keys ({onKeyPress}:{onKeyPress:(key:string)=>void}):React.JSX.Element{
     const buttons = [
     ['C', '±', '%', '÷'],
@@ -9,7 +11,7 @@ export default function Keys ({onKeyPress}:{onKeyPress:(key:string)=>void}):Reac
 
   const getButtonStyle = (key:string) => {
     if (key === '=') {
-      return 'bg-blue-500 hover:bg-blue-600 text-white col-span-2';
+      return 'bg-blue-500 hover:bg-blue-600 text-white';
     }
     if (['÷', '×', '−', '+'].includes(key)) {
       return 'bg-orange-500 hover:bg-orange-600 text-white';

@@ -11,6 +11,19 @@ export default function Results() {
     setChecked(Array(todo.length).fill(false));
   }, [todo]);
 
+  const [showMessage, setShowMessage] = useState(false);
+  const allChecked = checked.length > 0 && checked.every((v) => v);
+
+  useEffect(() => {
+    if (allChecked) {
+        setTimeout(() => {
+          setShowMessage(true);
+        }, 50);
+    } else {
+        setShowMessage(false);
+      }
+  }, [allChecked]);
+
   const toggleChecked = (index: number) => {
     const updated = [...checked];
     updated[index] = !updated[index];
@@ -24,10 +37,10 @@ export default function Results() {
     setChecked(updatedChecked);
   };
 
-  const allChecked = checked.length > 0 && checked.every((v) => v);
 
-  return (
-    <section className="mt-6 relative">
+  return (todo.length > 0 && 
+      (<section className="mt-6 relative">
+      <p className="text-end text-sm text-red-700 font-semibold hover:underline underline-offset-2" onClick={()=>setTodo([])}>Clear All</p>
       <ul>
         {todo.map((el, i) => (
           <li key={i} className="flex justify-between items-center px-4 py-2">
@@ -44,19 +57,24 @@ export default function Results() {
               </span>
             </label>
 
-            <button onClick={() => delTodo(i)}>
+            <button disabled={allChecked} onClick={() => delTodo(i)}>
               <BiSolidTrash className="text-red-700 text-lg hover:scale-110 transition-all duration-200 ease-in-out" />
             </button>
           </li>
         ))}
       </ul>
 
-      {allChecked && (
-        <div className="bg-white text-black text-center rounded-2xl w-[80%] max-w-md mx-auto mt-6 py-4 px-6 fixed top-4 left-1/2 transform -translate-x-1/2 shadow-lg z-50">
-          <h1 className="text-xl font-bold">Well Done!</h1>
-          <p className="text-sm">All tasks have been finished</p>
-        </div>
-      )}
-    </section>
+      <div
+        className={clsx(
+          "transition-all duration-500 ease-out transform fixed top-0 left-1/2 -translate-x-1/2 z-50",
+          "w-[80%] max-w-md mt-6 px-6 py-4 rounded-2xl text-center shadow-lg",
+          allChecked ? "bg-white text-black" : "hidden",
+          showMessage ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+        )}
+      >
+        <h1 className="text-xl font-bold">Well Done!</h1>
+        <p className="text-sm">All tasks have been finished</p>
+      </div>
+    </section>)
   );
 }
