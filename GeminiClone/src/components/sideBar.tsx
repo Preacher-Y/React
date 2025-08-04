@@ -1,10 +1,18 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import clsx from "clsx";
 import { useOpenContext } from "../hooks/openContext";
+import { useOpen2Context } from "../hooks/open2Context";
 import Threedots from "./threeDots";
 function SideBar() {
   const { isOpen, setIsOpen } = useOpenContext();
+  const { isOpen2 } = useOpen2Context();
   const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(()=>{
+    if(isOpen2){
+      setIsOpen(false);
+    }
+  },[isOpen]);
 
   return (
     <aside
@@ -18,7 +26,7 @@ function SideBar() {
       <nav className="h-full flex flex-col justify-between">
         <div className="flex flex-col">
 
-          <div className="flex items-center justify-between p-4 pb-2 transition-all duration-300 text-gray-100">
+          <div className="flex items-center justify-between mb-4 p-4 pb-2 transition-all duration-300 text-gray-100">
             <button className="flex items-center gap-2 text-xl hover:bg-gray-500/20 cursor-pointer rounded-full px-2 py-2">
                <span className="icon-[lucide--menu] cursor-pointer"/>
             </button>
