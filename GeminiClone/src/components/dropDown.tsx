@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, memo } from 'react';
 import { FaCaretDown } from "react-icons/fa";
 
 const DropdownMenu = () => {
@@ -63,4 +63,4 @@ const DropdownMenu = () => {
   );
 };
 
-export default DropdownMenu;
+export default memo(DropdownMenu);
