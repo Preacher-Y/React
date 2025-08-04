@@ -32,7 +32,7 @@ const DropdownMenu = () => {
     <div className="relative inline-block text-left" ref={menuRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-[#282A2C] text-gray-400 flex items-center gap-1 text-[16px] px-2.5 py-1 rounded-full shadow focus:outline-none"
+        className="bg-[#282A2C] text-gray-400 tracking-ide flex items-center gap-1 text-[15px]/6 px-2.5  rounded-full shadow focus:outline-none"
       >
         {selected}
         <FaCaretDown/>

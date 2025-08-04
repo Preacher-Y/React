@@ -8,7 +8,7 @@ function SideBar() {
     <aside
       className={clsx(
         "h-screen bg-[#282A2C] flex fixed top-0 z-20 flex-col justify-between transition-all duration-300",
-        isOpen ? "w-64" : "w-16"
+        isOpen ? "w-64" : "w-18"
       )}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
