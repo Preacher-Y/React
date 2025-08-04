@@ -1,3 +1,4 @@
+import { memo } from 'react';
 function Body() {
   return (
     <>
@@ -8,4 +9,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default memo(Body);
