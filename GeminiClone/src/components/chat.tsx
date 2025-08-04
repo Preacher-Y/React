@@ -1,7 +1,13 @@
 import { memo } from "react";
 import AddFile from "./addFile"
+import { useSearchContext } from "../hooks/searchContext";
 
 function Chat() {
+    const {isSearchClicked} = useSearchContext();
+    
+      if (isSearchClicked) {
+        return <></>;
+      }
   return (
     <>
         <div className="max-w-3xl mx-auto left-[23.9%] h-[18%] w-[55%] fixed bottom-0 border border-gray-500  rounded-3xl shadow-lg py-3 px-2 mb-12">
