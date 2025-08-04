@@ -19,21 +19,21 @@ function SideBar() {
         <div className="flex flex-col">
 
           <div className="flex items-center justify-between p-4 pb-2 transition-all duration-300 text-gray-100">
-            <div className="flex items-center gap-2 text-xl hover:bg-gray-500/20 cursor-pointer rounded-full px-2 py-2">
-               <button className="icon-[lucide--menu] cursor-pointer"/>
-            </div>
+            <button className="flex items-center gap-2 text-xl hover:bg-gray-500/20 cursor-pointer rounded-full px-2 py-2">
+               <span className="icon-[lucide--menu] cursor-pointer"/>
+            </button>
             {isOpen && (
-              <div className="flex items-center gap-2 text-xl hover:bg-gray-500/20 cursor-pointer rounded-full px-2 py-2">
-                <button className="icon-[ion--search] cursor-pointer" />
-              </div>
+              <button className="flex items-center gap-2 text-xl hover:bg-gray-500/20 cursor-pointer rounded-full px-2 py-2">
+                <span className="icon-[ion--search] cursor-pointer" />
+              </button>
             )}
           </div>
 
           <div className="text-gray-400/60 px-4 py-2">
-            <div className="flex items-center gap-2 font-semibold truncate cursor-pointer transition-all duration-300 ease-in-out rounded-full px-2 py-2">
-              <button className="icon-[material-symbols--edit-square-outline-rounded] cursor-pointer transition-all duration-300 ease-in-out text-[21px]" />
+            <button className="flex items-center gap-2 font-semibold truncate cursor-pointer transition-all duration-300 ease-in-out rounded-full px-2 py-2">
+              <span className="icon-[material-symbols--edit-square-outline-rounded] cursor-pointer transition-all duration-300 ease-in-out text-[21px]" />
               {isOpen && <span className="transition-all duration-1000 ease-in-out text-md truncate">New Chat</span>}
-            </div>
+            </button>
           </div>
           
           {isOpen &&(<ul className="text-gray-300/70 px-4 transition-all duration-300 ease-in-out truncate">
@@ -50,10 +50,10 @@ function SideBar() {
           </ul>)}
         </div>
         
-        <div className="text-gray-300 mb-4 mx-2 px-4 py-2 flex items-center gap-2 truncate hover:bg-gray-500/20 cursor-pointer rounded-full">
-          <button className="icon-[clarity--settings-solid] cursor-pointer text-[21px]" />
+        <button className="text-gray-300 mb-4 mx-2 px-4 py-2 flex items-center gap-2 truncate hover:bg-gray-500/20 cursor-pointer rounded-full">
+          <span className="icon-[clarity--settings-solid] cursor-pointer text-[21px]" />
           {isOpen && <span className="truncate">Settings & Help</span>}
-        </div>
+        </button>
       </nav>
     </aside>
   );
