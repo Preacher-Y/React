@@ -7,6 +7,7 @@ function SideBar() {
   const { isOpen, setIsOpen } = useOpenContext();
   const { isOpen2 } = useOpen2Context();
   const [isHovered, setIsHovered] = useState(false);
+  
 
   useEffect(()=>{
     if(isOpen2){

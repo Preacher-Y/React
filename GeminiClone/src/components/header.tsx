@@ -8,10 +8,10 @@ function Header() {
   const { isOpen } = useOpenContext();
   return (
     <header className={clsx("py-1 text-xl fixed right-0 transition-all duration-300 top-0 flex items-center justify-between mx-5 font-semibold z-20",
-                  {
-                    "left-64":isOpen,
-                    "left-16": !isOpen
-                  })}>
+              {
+                "left-64":isOpen,
+                "left-16": !isOpen
+              })}>
       <div>
         <h1 className="pl-1 text-gray-400">Gemini</h1>
         <DropdownMenu/>
