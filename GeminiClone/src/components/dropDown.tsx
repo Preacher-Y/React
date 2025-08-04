@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect, memo } from 'react';
 import { FaCaretDown } from "react-icons/fa";
+import { useOpen2Context } from '../hooks/open2Context';
 
 const DropdownMenu = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isOpen2, setIsOpen2 } = useOpen2Context();
   const [selected, setSelected] = useState('2.5 Flash');
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -14,13 +15,13 @@ const DropdownMenu = () => {
 
   const handleSelect = (version:string):void => {
     setSelected(version);
-    setIsOpen(false);
+    setIsOpen2(false);
   };
 
   useEffect(() => {
     const handleOutsideClick = (e:MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
+        setIsOpen2(false);
       }
     };
 
@@ -31,14 +32,14 @@ const DropdownMenu = () => {
   return (
     <div className="relative inline-block text-left" ref={menuRef}>
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => setIsOpen2(!isOpen2)}
         className="bg-[#282A2C] text-gray-400 tracking-ide flex items-center gap-1 text-[15px]/6 px-2.5  rounded-full shadow focus:outline-none"
       >
         {selected}
         <FaCaretDown/>
       </button>
 
-      {isOpen && (
+      {isOpen2 && (
         <div className="absolute mt-2 w-82 rounded-lg shadow-lg bg-[#282A2C] py-3 text-gray-100">
           <span className="text-base text-gray-400 m-4">Choose your model</span>
           <div className="mt-2 space-y-2">
