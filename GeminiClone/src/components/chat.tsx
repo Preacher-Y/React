@@ -1,6 +1,7 @@
+import { memo } from "react";
 import AddFile from "./addFile"
 
-export default function Chat() {
+function Chat() {
   return (
     <>
         <div className="max-w-3xl mx-auto left-[23.2%] h-[20%] w-[57%] fixed bottom-0 border border-gray-500  rounded-3xl shadow-lg py-3 px-2 mb-12">
@@ -31,3 +32,4 @@ export default function Chat() {
     </>
   );
 }
+export default memo(Chat);
