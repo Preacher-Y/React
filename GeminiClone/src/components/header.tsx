@@ -1,9 +1,17 @@
 import DropdownMenu from "./dropDown";
 import Logo from '../assets/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg'
+import { memo } from "react";
+import { useOpenContext } from "../hooks/openContext";
+import { clsx } from "clsx";
 
 function Header() {
+  const { isOpen } = useOpenContext();
   return (
-    <header className="py-1 text-xl flex items-center justify-between mx-5 font-semibold relative">
+    <header className={clsx("py-1 text-xl fixed right-0 transition-all duration-300 top-0 flex items-center justify-between mx-5 font-semibold z-20",
+                  {
+                    "left-64":isOpen,
+                    "left-16": !isOpen
+                  })}>
       <div>
         <h1 className="pl-1 text-gray-400">Gemini</h1>
         <DropdownMenu/>
@@ -21,4 +29,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default memo(Header);
