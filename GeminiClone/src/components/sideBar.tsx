@@ -9,7 +9,7 @@ function SideBar() {
   const { isOpen, setIsOpen } = useOpenContext();
   const {isSearchClicked,setIsSearchClicked}= useSearchContext();
   const { isOpen2 } = useOpen2Context();
-  const [isHovered, setIsHovered] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
 
   useEffect(()=>{
@@ -51,16 +51,34 @@ function SideBar() {
             </button>
           </div>
           
-          {isOpen &&(<ul className="text-gray-300/70 px-4 transition-all duration-300 ease-in-out truncate">
+          {isOpen &&(<ul className="text-gray-300/70 px-4 transition-all duration-300 ease-in-out truncate max-h-full overflow-y-auto">
             <h1 className="px-2 pb-3">Recent</h1>
             <li className="text-gray-300 transition-all flex justify-between relative items-center duration-300 ease-in-out truncate "
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+              onMouseEnter={() => setHoveredIndex(0)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
               <div className="py-2 px-4 w-full hover:bg-gray-500/20 cursor-pointer rounded-full">
                 <span>Clone the Gemini</span>
               </div>
-              {isHovered && (<Threedots />)}
+              {hoveredIndex==0 && (<Threedots />)}
+            </li>
+            <li className="text-gray-300 transition-all flex justify-between relative items-center duration-300 ease-in-out truncate "
+              onMouseEnter={() => setHoveredIndex(1)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="py-2 px-4 w-full hover:bg-gray-500/20 cursor-pointer rounded-full">
+                <span>Build a React App</span>
+              </div>
+              {hoveredIndex==1 && (<Threedots />)}
+            </li>
+            <li className="text-gray-300 transition-all flex justify-between relative items-center duration-300 ease-in-out truncate "
+              onMouseEnter={() => setHoveredIndex(2)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className="py-2 px-4 w-full hover:bg-gray-500/20 cursor-pointer rounded-full">
+                <span>Learn TypeScript</span>
+              </div>
+              {hoveredIndex==2 && (<Threedots />)}
             </li>
           </ul>)}
         </div>
