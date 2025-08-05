@@ -30,7 +30,6 @@ function SideBar() {
     { title: "MongoDB Introduction", date: "Nov 5" },
   ];
 
-
   return (
     <aside
       className={clsx(
@@ -90,13 +89,15 @@ function SideBar() {
                 <li
                   key={item.title}
                   className={clsx(
-                    "flex items-center pt-2 justify-between cursor-pointer transition-all duration-300 ease-in-out relative" // Add relative positioning
+                    "flex items-center pt-2 justify-between cursor-pointer transition-all duration-300 ease-in-out relative"
                   )}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <div className="flex items-center gap-2 px-4 py-2 w-full rounded-full hover:bg-gray-500/20">
-                    <span className="truncate">{item.title}</span>
+                    <span className="truncate max-w-[170px] text-ellipsis overflow-hidden whitespace-nowrap">
+                      {item.title}
+                    </span>
                   </div>
                   {hoveredIndex === index && (
                     <div className="absolute right-2">
