@@ -44,7 +44,7 @@ function SideBar() {
             )}
           </div>
 
-          <div className="text-[#9A9B9C] px-4 py-2">
+          <div className="text-[#9A9B9C] overflow-hidden px-4 py-2">
             <button className="flex items-center gap-2 font-semibold truncate cursor-pointer transition-all duration-300 ease-in-out rounded-full px-2 py-2">
               <span className="icon-[material-symbols--edit-square-outline-rounded] cursor-pointer transition-all duration-300 ease-in-out text-[21px]" />
               {isOpen && <span className="transition-all duration-1000 ease-in-out text-md truncate">New Chat</span>}
