@@ -33,7 +33,7 @@ const DropdownMenu = () => {
     <div className="relative inline-block text-left" ref={menuRef}>
       <button
         onClick={() => setIsOpen2(!isOpen2)}
-        className="bg-[#282A2C] text-gray-400 tracking-ide flex items-center gap-1 text-[15px]/6 px-2.5  rounded-full shadow focus:outline-none"
+        className="bg-[#282A2C] text-[#9A9B9C] tracking-ide flex items-center gap-1 text-[15px]/6 px-2.5  rounded-full shadow focus:outline-none"
       >
         {selected}
         <FaCaretDown/>
@@ -41,13 +41,13 @@ const DropdownMenu = () => {
 
       {isOpen2 && (
         <div className="absolute mt-2 w-82 rounded-lg shadow-lg bg-[#282A2C] py-3 text-gray-100">
-          <span className="text-base text-gray-400 m-4">Choose your model</span>
+          <span className="text-base text-[#9A9B9C] m-4">Choose your model</span>
           <div className="mt-2 space-y-2">
             {options.map((opt, idx) => (
               <div key={idx} className="flex items-center justify-between px-4 py-1 hover:bg-gray-600/30 cursor-pointer" onClick={() => handleSelect(opt.version)}>
                 <div className='pr-6'>
                   <p className="text-[14px] font-medium">{opt.name}</p>
-                  <p className="text-[13px] text-gray-400">{opt.version}</p>
+                  <p className="text-[13px] text-[#9A9B9C]">{opt.version}</p>
                 </div>
                 {opt.label && (
                   <span className="bg-blue-300 px-2 py-0.5 rounded-full text-blue-900  text-base font-bold">{opt.label}</span>

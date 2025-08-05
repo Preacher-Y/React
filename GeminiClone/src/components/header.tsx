@@ -16,7 +16,7 @@ function Header() {
                 "pt-4":isSearchClicked,
               })}>
       <div>
-        <h1 className="pl-1 text-gray-400">Gemini</h1>
+        <h1 className="pl-1 text-[#9A9B9C]">Gemini</h1>
         {!isSearchClicked&&<DropdownMenu/>}
       </div>
       <div className="flex gap-4 items-center">
