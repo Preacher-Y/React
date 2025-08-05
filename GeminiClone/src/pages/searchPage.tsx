@@ -8,11 +8,11 @@ function SearchPage() {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value.trim());
         if (listRef.current) {
-            Array.from(listRef.current.children).forEach((child) => {
-                if (child.textContent?.toLowerCase().includes(inputValue.toLowerCase())) {
-                    child.classList.remove('hidden');
+            Array.from(listRef.current.children).forEach((el) => {
+                if (el.textContent?.toLowerCase().includes(inputValue.toLowerCase())) {
+                    el.classList.remove('hidden');
                 } else {
-                    child.classList.add('hidden');
+                    el.classList.add('hidden');
                 }
             });
         }
