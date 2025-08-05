@@ -6,7 +6,7 @@ function SearchPage() {
     const listRef = useRef<HTMLUListElement | null>(null);
     
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(e.target.value.trim());
+        setInputValue(e.target.value);
         if (listRef.current) {
             Array.from(listRef.current.children).forEach((el) => {
                 if (el.textContent?.toLowerCase().includes(inputValue.toLowerCase())) {
