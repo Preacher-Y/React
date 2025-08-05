@@ -65,8 +65,15 @@ function SideBar() {
             )}
           </div>
 
-          <div className="text-[#9A9B9C] overflow-hidden px-4 py-2 mb-2">
-            <button className="flex items-center gap-2 font-semibold truncate cursor-pointer transition-all duration-300 ease-in-out rounded-full px-2 py-2">
+          <a className={clsx("overflow-hidden px-4 py-2 mb-2",{
+            "text-[#9A9B9C]": !isSearchClicked,
+            "text-gray-200": isSearchClicked,
+          })}
+            href="/"
+          >
+            <button className="flex items-center gap-2 font-semibold truncate cursor-pointer transition-all duration-300 ease-in-out rounded-full px-2 py-2"
+              disabled={!isSearchClicked}
+            >
               <span className="icon-[material-symbols--edit-square-outline-rounded] cursor-pointer transition-all duration-300 ease-in-out text-[21px]" />
               {isOpen && (
                 <span className="transition-all duration-1000 ease-in-out text-md truncate">
@@ -74,7 +81,7 @@ function SideBar() {
                 </span>
               )}
             </button>
-          </div>
+          </a>
 
           {isOpen && (
             <ul className="text-gray-300/70 px-4 transition-all duration-300 ease-in-out truncate max-h-[50%] overflow-y-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:'none']">
