@@ -4,7 +4,7 @@ function Threedots() {
     const [isClicked,setIsClicked] = useState(false);
   return (
     <>
-        <button className="flex text-gray-200 gap-2 text-lg/1 absolute right-2 hover:bg-gray-500/20 cursor-pointer rounded-full duration-300 transition-all ease-in-out px-2 py-2"
+        <button className="flex text-gray-200 gap-2 text-lg/1 hover:bg-gray-500/20 cursor-pointer rounded-full duration-300 transition-all ease-in-out px-2 py-2"
           onClick={() => setIsClicked(!isClicked)}
         >
             <h1 className="icon-[bi--three-dots-vertical] cursor-pointer" />
