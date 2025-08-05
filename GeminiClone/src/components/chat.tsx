@@ -16,15 +16,15 @@ function Chat() {
                 <div className=" text-[#9A9B9C] font-bold flex justify-between items-center">
                     <div className="flex items-center gap-1">
                         <AddFile/>
-                        <div className="flex items-center text-sm gap-1 cursor-pointer hover:bg-gray-500/20 rounded-full px-2 py-1.5">
+                        <div className="flex items-center text-sm gap-2 cursor-pointer hover:bg-gray-500/20 rounded-full px-2 py-1.5">
                             <span className="icon-[hugeicons--global-search] text-lg"/>
                             Deep Research
                         </div>
-                        <div className="flex items-center text-sm gap-1 cursor-pointer hover:bg-gray-500/20 rounded-full px-2 py-1.5">
+                        <div className="flex items-center text-sm gap-2 cursor-pointer hover:bg-gray-500/20 rounded-full px-2 py-1.5">
                             <span className="icon-[material-symbols--note-stack-add-outline] text-lg"/>
                             Canvas
                         </div>
-                        <div className="flex items-center gap-1 text-sm cursor-pointer hover:bg-gray-500/20 rounded-full px-2 py-1.5">
+                        <div className="flex items-center gap-2 text-sm cursor-pointer hover:bg-gray-500/20 rounded-full px-2 py-1.5">
                             <span className="icon-[material-symbols--photo-prints-outline] text-lg "/>
                             Images
                         </div>
