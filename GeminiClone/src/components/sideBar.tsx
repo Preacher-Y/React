@@ -1,9 +1,9 @@
 import { memo, useEffect, useState } from "react";
-import clsx from "clsx";
 import { useOpenContext } from "../hooks/openContext";
 import { useOpen2Context } from "../hooks/open2Context";
 import { useSearchContext } from "../hooks/searchContext";
 import Threedots from "./threeDots";
+import clsx from "clsx";
 
 function SideBar() {
   const { isOpen, setIsOpen } = useOpenContext();
