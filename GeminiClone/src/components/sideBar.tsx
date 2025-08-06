@@ -7,6 +7,7 @@ import Threedots from "./threeDots";
 
 function SideBar() {
   const { isOpen, setIsOpen } = useOpenContext();
+  
   const { isSearchClicked, setIsSearchClicked } = useSearchContext();
   const { isOpen2 } = useOpen2Context();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
