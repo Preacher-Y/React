@@ -1,8 +1,8 @@
 import  { memo, useState } from "react";
 
 function Threedots() {
-  
-    const [isClicked,setIsClicked] = useState(false);
+
+  const [isClicked,setIsClicked] = useState(false);
   return (
     <>
         <button className="flex text-gray-200 gap-2 text-lg/1 hover:bg-gray-500/20 cursor-pointer rounded-full duration-300 transition-all ease-in-out px-2 py-2"
