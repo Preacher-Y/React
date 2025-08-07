@@ -3,6 +3,7 @@ import { useSearchContext } from '../hooks/searchContext';
 import SearchPage from '../pages/searchPage';
 
 function Body() {
+  
   const {isSearchClicked} = useSearchContext();
 
   if (isSearchClicked) {
