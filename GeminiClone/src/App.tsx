@@ -8,10 +8,11 @@ import { open2Context } from './hooks/open2Context';
 import { searchContext } from './hooks/searchContext';
 
 function App() {
+  
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
-  
+
   return (
     <searchContext.Provider value={{ isSearchClicked, setIsSearchClicked }}>  
       <openContext.Provider value={{ isOpen, setIsOpen }}>
