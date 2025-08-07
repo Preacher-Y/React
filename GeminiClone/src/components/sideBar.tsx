@@ -110,7 +110,7 @@ function SideBar() {
           )}
         </div>
 
-        <button className="text-gray-300 z-50 absolute bottom-0 mb-4 mx-2 px-4 py-2 flex items-center gap-2 truncate hover:bg-gray-500/20 cursor-pointer rounded-full">
+        <button className="text-gray-300 w-[93%] z-50 absolute bottom-0 mb-4 mx-2 px-4 py-2 flex items-center gap-2 truncate hover:bg-gray-500/20 cursor-pointer rounded-full">
           <span className="icon-[clarity--settings-solid] cursor-pointer text-[21px]" />
           {isOpen && <span className="truncate">Settings & Help</span>}
         </button>
