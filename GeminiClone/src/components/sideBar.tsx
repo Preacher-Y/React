@@ -12,6 +12,7 @@ function SideBar() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
+    
     if (isOpen2) {
       setIsOpen(false);
     }
