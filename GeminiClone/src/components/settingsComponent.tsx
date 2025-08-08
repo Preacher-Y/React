@@ -19,12 +19,12 @@ export default function Settings() {
                     setIsSpinning(true)
                     setTimeout(() => {
                      setIsSpinning(false)
-                }, 500)}}
+                }, 300)}}
                 onMouseLeave={() =>{ 
                     setIsSpinning(true)
                     setTimeout(() => {
                      setIsSpinning(false)
-                }, 500)}}
+                }, 300)}}
                 onClick={()=>setIsOpen3(prev=>!prev)}
             >
                 <span className={clsx("icon-[clarity--settings-solid] cursor-pointer text-[21px]",{
