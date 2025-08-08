@@ -11,13 +11,27 @@ function SideBar() {
   const { isSearchClicked, setIsSearchClicked } = useSearchContext();
   const { isOpen2 } = useOpen2Context();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   useEffect(() => {
-    
+    const handleClickOutside = (event: MouseEvent) => {
+      const sidebar = document.querySelector('aside');
+      if (isMenuClicked && sidebar && !sidebar.contains(event.target as Node)) {
+        setIsMenuClicked(false);
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuClicked, setIsOpen]);
+
+  useEffect(() => {
     if (isOpen2) {
       setIsOpen(false);
+      setIsMenuClicked(false);
     }
-  }, [isOpen,isOpen2, setIsOpen]);
+  }, [isOpen, isOpen2, setIsOpen]);
 
   const items = [
     { title: "Clone the Gemini", date: "Aug 7" },
@@ -38,14 +52,20 @@ function SideBar() {
         "h-screen bg-[#282A2C] flex fixed top-0 z-20 flex-col justify-between transition-all ease-in-out duration-300",
         isOpen ? "w-64" : "w-18"
       )}
-      onMouseEnter={() => !isOpen2&&setIsOpen(true)}
-      onMouseLeave={() => !isOpen2&&setIsOpen(false)}
+      onMouseEnter={() => !isOpen2 && !isMenuClicked && setIsOpen(true)}
+      onMouseLeave={() => !isOpen2 && !isMenuClicked && setIsOpen(false)}
     >
-      <div className="flex flex-col h-screen truncate ">
+      <div className="flex flex-col h-screen truncate">
         <nav className="h-full flex flex-col justify-between">
           <div className="flex flex-col">
             <div className="flex items-center justify-between mb-4 p-4 pb-2 transition-all duration-300 text-gray-100">
-              <button className="flex items-center gap-2 text-xl hover:bg-gray-500/20 cursor-pointer rounded-full px-2 py-2">
+              <button 
+                className="flex items-center gap-2 text-xl hover:bg-gray-500/20 cursor-pointer rounded-full px-2 py-2"
+                onClick={() => {
+                  setIsMenuClicked(!isMenuClicked);
+                  setIsOpen(true);
+                }}
+              >
                 <span className="icon-[lucide--menu] cursor-pointer" />
               </button>
               {isOpen && (
