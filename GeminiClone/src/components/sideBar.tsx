@@ -37,8 +37,8 @@ function SideBar() {
         "h-screen bg-[#282A2C] flex fixed top-0 z-20 truncate flex-col justify-between transition-all ease-in-out duration-300",
         isOpen ? "w-64" : "w-18"
       )}
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseEnter={() => !isOpen2&&setIsOpen(true)}
+      onMouseLeave={() => !isOpen2&&setIsOpen(false)}
     >
       <nav className="h-full flex flex-col justify-between">
         <div className="flex flex-col">
@@ -111,9 +111,12 @@ function SideBar() {
           )}
         </div>
 
-        <button className="text-gray-300 w-[93%] z-50 absolute bottom-0 mb-4 mx-2 px-4 py-2 flex items-center gap-2 truncate hover:bg-gray-500/20 cursor-pointer rounded-full">
+        <button className={clsx("text-gray-300 z-50 absolute bottom-0 mb-4 mx-4 px-2 py-2 flex items-center gap-2 truncate hover:bg-gray-500/20 cursor-pointer rounded-full",{
+          "w-[88%]": isOpen&&!isOpen2,
+          "":isOpen2&&!isOpen,
+        })}>
           <span className="icon-[clarity--settings-solid] cursor-pointer text-[21px]" />
-          {isOpen && <span className="truncate">Settings & Help</span>}
+          {!isOpen2&&isOpen && <span className="truncate">Settings & Help</span>}
         </button>
       </nav>
     </aside>
