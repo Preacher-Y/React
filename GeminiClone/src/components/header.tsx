@@ -15,12 +15,12 @@ function Header() {
                 "left-16": !isOpen,
                 "pt-4":isSearchClicked,
               })}>
-      <div>
+      <div className="mt-1">
         <h1 className="pl-1 text-[#9A9B9C]">Gemini</h1>
         {!isSearchClicked&&<DropdownMenu/>}
       </div>
-      <div className="flex gap-4 items-center">
-        <button className="flex text-white gap-1.5 rounded-md text-xs  bg-gray-500/50 hover:bg-gray-500/70 px-6 py-2">
+      <div className="flex gap-5 mt-1.5 items-center">
+        <button className="flex text-white gap-2 rounded-lg text-[13px]  bg-[#4D4E50]/70 hover:bg-gray-500/70 px-6 py-[9px]">
           <img src={Logo} alt="star" className="h-4 w-4"/>
           Upgrade
         </button>
