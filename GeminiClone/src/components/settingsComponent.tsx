@@ -19,15 +19,15 @@ export default function Settings() {
                     setIsSpinning(true)
                     setTimeout(() => {
                      setIsSpinning(false)
-                }, 1000)}}
+                }, 500)}}
                 onMouseLeave={() =>{ 
                     setIsSpinning(true)
                     setTimeout(() => {
                      setIsSpinning(false)
-                }, 1000)}}
+                }, 500)}}
                 onClick={()=>setIsOpen3(prev=>!prev)}
             >
-                <span className={clsx("icon-[clarity--settings-solid] group-hover:animate-spin cursor-pointer text-[21px]",{
+                <span className={clsx("icon-[clarity--settings-solid] cursor-pointer text-[21px]",{
                     "animate-spin": isSpining,
                 })} />
                 {!isOpen2 && isOpen && <span className="truncate">Settings & Help</span>}
