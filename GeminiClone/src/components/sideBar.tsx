@@ -75,7 +75,7 @@ function SideBar() {
               disabled={!isSearchClicked}
             >
               <span className="icon-[material-symbols--edit-square-outline-rounded] cursor-pointer transition-all duration-300 ease-in-out text-[21px]" />
-              {isOpen && (
+              {!isOpen2 && isOpen && (
                 <span className="transition-all duration-1000 ease-in-out text-md truncate">
                   New Chat
                 </span>
@@ -83,7 +83,7 @@ function SideBar() {
             </button>
           </a>
 
-          {isOpen && (
+          {!isOpen2 && isOpen && (
             <ul className="text-gray-300/70 px-4 transition-all duration-300 ease-in-out truncate max-h-[50%] overflow-y-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:'none']">
               <h1 className="px-2 pb-3">Recent</h1>
               {items.map((item, index) => (
@@ -116,7 +116,7 @@ function SideBar() {
           "":isOpen2&&!isOpen,
         })}>
           <span className="icon-[clarity--settings-solid] cursor-pointer text-[21px]" />
-          {!isOpen2&&isOpen && <span className="truncate">Settings & Help</span>}
+          {!isOpen2 && isOpen && <span className="truncate">Settings & Help</span>}
         </button>
       </nav>
     </aside>
