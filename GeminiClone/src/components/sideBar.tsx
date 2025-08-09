@@ -1,7 +1,7 @@
 import { memo, useEffect, useState } from "react";
 import Settings from "./settingsComponent";
 import { useOpenContext } from "../hooks/openContext";
-import { useOpen2Context } from "../hooks/open2Context";
+import { useOpenModelContext } from "../hooks/openModelContext";
 import { useSearchContext } from "../hooks/searchContext";
 import Threedots from "./threeDots";
 import clsx from "clsx";
@@ -9,7 +9,7 @@ import clsx from "clsx";
 function SideBar() {
   const { isOpen, setIsOpen } = useOpenContext();
   const { isSearchClicked, setIsSearchClicked } = useSearchContext();
-  const { isOpen2 } = useOpen2Context();
+  const { isOpenModel } = useOpenModelContext();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [isMenuClicked, setIsMenuClicked] = useState(false);
 
@@ -27,11 +27,11 @@ function SideBar() {
   }, [isMenuClicked, setIsOpen]);
 
   useEffect(() => {
-    if (isOpen2) {
+    if (isOpenModel) {
       setIsOpen(false);
       setIsMenuClicked(false);
     }
-  }, [isOpen, isOpen2, setIsOpen]);
+  }, [isOpen, isOpenModel, setIsOpen]);
 
   const items = [
     { title: "Clone the Gemini", date: "Aug 7" },
@@ -52,8 +52,8 @@ function SideBar() {
         "h-screen bg-[#282A2C] flex fixed top-0 z-20 flex-col justify-between transition-all ease-in-out duration-300",
         isOpen ? "w-64" : "w-18"
       )}
-      onMouseEnter={() => !isOpen2 && !isMenuClicked && setIsOpen(true)}
-      onMouseLeave={() => !isOpen2 && !isMenuClicked && setIsOpen(false)}
+      onMouseEnter={() => !isOpenModel && !isMenuClicked && setIsOpen(true)}
+      onMouseLeave={() => !isOpenModel && !isMenuClicked && setIsOpen(false)}
     >
       <div className="flex flex-col h-screen truncate">
         <nav className="h-full flex flex-col justify-between">
@@ -97,7 +97,7 @@ function SideBar() {
                 disabled={!isSearchClicked}
               >
                 <span className="icon-[material-symbols--edit-square-outline-rounded] cursor-pointer transition-all duration-300 ease-in-out text-[21px]" />
-                {!isOpen2 && isOpen && (
+                {!isOpenModel && isOpen && (
                   <span className="transition-all duration-1000 ease-in-out text-md truncate">
                     New Chat
                   </span>
@@ -105,7 +105,7 @@ function SideBar() {
               </button>
             </a>
 
-            {!isOpen2 && isOpen && (
+            {!isOpenModel && isOpen && (
               <ul className="text-gray-300/70 px-4 transition-all duration-300 ease-in-out truncate max-h-[50%] overflow-y-auto [&::-webkit-scrollbar]:hidden [scrollbar-width:'none']">
                 <h1 className="px-2 pb-3">Recent</h1>
                 {items.map((item, index) => (
@@ -123,7 +123,7 @@ function SideBar() {
                       </span>
                     </div>
                     {hoveredIndex === index && (
-                      <div className="absolute right-2">
+                      <div key={index} className="absolute right-2">
                         <Threedots />
                       </div>
                     )}
