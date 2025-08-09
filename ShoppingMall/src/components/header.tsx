@@ -8,11 +8,11 @@ function Header() {
       <div className='flex items-center'>
         <motion.img 
             src={Logo} 
-            alt="words" 
+            alt="Logo" 
             width={60} 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.15 , ease: "easeIn" }}
+            transition={{ duration: 0.5, delay: 0.1 , ease: "easeIn" }}
         />
         <motion.img 
             src={Words} 
@@ -21,7 +21,7 @@ function Header() {
             className='-mb-4'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.1 , ease: "easeIn" }}
+            transition={{ duration: 0.5, delay: 0.17 , ease: "easeIn" }}
         />
       </div>
       <nav className='flex gap-6 items-center mt-4'>
