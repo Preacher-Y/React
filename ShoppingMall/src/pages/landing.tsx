@@ -21,7 +21,7 @@ export default function Landing() {
                 className='-mt-24 mr-3'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.9 }}
+                transition={{ duration: 1.2, delay: 1 , ease: "easeIn" }}
             />
             <motion.h1 
                 className="text-4xl font-bold text-center -mt-10"
