@@ -4,30 +4,34 @@ import Chat from './components/chat';
 import Header from './components/header';
 import SideBar from './components/sideBar';
 import { openContext } from './hooks/openContext';
-import { open2Context } from './hooks/open2Context';
+import { openModelContext } from './hooks/openModelContext';
 import { searchContext } from './hooks/searchContext';
-import { open3Context } from './hooks/open3Context';
+import { openSettingsContext } from './hooks/openSettingsContext';
+import { openThreeDotsContext } from './hooks/openThreeDotsContext';
 
 function App() {
   
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-  const [isOpen3, setIsOpen3] = useState(false);
+  const [isOpenModel, setIsOpenModel] = useState(false);
+  const [isOpenSettings, setIsOpenSettings] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
+  const [isThreeDotsClicked,setIsThreeDotsClicked] = useState(false);
 
   return (
-    <open3Context.Provider value={{ isOpen3, setIsOpen3 }}>
+    <openThreeDotsContext.Provider value={{ isThreeDotsClicked, setIsThreeDotsClicked }}>
+    <openSettingsContext.Provider value={{ isOpenSettings, setIsOpenSettings }}>
     <searchContext.Provider value={{ isSearchClicked, setIsSearchClicked }}>  
       <openContext.Provider value={{ isOpen, setIsOpen }}>
-      <open2Context.Provider value={{ isOpen2, setIsOpen2 }}>
+      <openModelContext.Provider value={{ isOpenModel, setIsOpenModel }}>
         <Header/>
         <SideBar/>
-      </open2Context.Provider>
+      </openModelContext.Provider>
       </openContext.Provider>
         <Body/>
         <Chat/>
     </searchContext.Provider>
-    </open3Context.Provider>
+    </openSettingsContext.Provider>
+    </openThreeDotsContext.Provider>
   );
 }
 
