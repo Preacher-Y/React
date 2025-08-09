@@ -48,6 +48,8 @@ function SideBar() {
 
   return (
     <aside
+      role="complementary"
+      aria-label="Main navigation"
       className={clsx(
         "h-screen bg-[#282A2C] flex fixed top-0 z-20 flex-col justify-between transition-all ease-in-out duration-300",
         isOpen ? "w-64" : "w-18"
