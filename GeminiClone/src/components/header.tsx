@@ -20,7 +20,7 @@ function Header() {
         {!isSearchClicked&&<DropdownMenu/>}
       </div>
       <div className="flex gap-5 mt-1.5 items-center">
-        <button className="flex text-white gap-2 rounded-lg text-[13px]  bg-[#4D4E50]/70 hover:bg-gray-500/70 px-6 py-[9px]">
+        <button className="flex text-white gap-2 rounded-lg text-[13px]  bg-[#4D4E50]/70 hover:bg-[#4D4E50] px-6 py-[9px]">
           <img src={Logo} alt="star" className="h-4 w-4"/>
           Upgrade
         </button>
