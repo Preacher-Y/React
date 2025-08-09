@@ -4,7 +4,7 @@ import Words from '../assets/android-chrome-512x512.png'
 
 function Header() {
   return (
-    <header className="flex justify-between items-center dark:bg-[#26272a] bg-orange-50 px-32 text-center text-lg font-semibold text-gray-800">
+    <header className="flex justify-between items-center px-32 text-center text-lg font-semibold text-gray-800">
       <div className='flex items-center'>
         <motion.img 
             src={Logo} 
@@ -12,7 +12,7 @@ function Header() {
             width={60} 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.55 , ease: "easeIn" }}
+            transition={{ duration: 1.2, delay: 0.15 , ease: "easeIn" }}
         />
         <motion.img 
             src={Words} 
@@ -21,29 +21,46 @@ function Header() {
             className='-mb-4'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, delay: 0.6 , ease: "easeIn" }}
+            transition={{ duration: 1.2, delay: 0.1 , ease: "easeIn" }}
         />
       </div>
-      <div className='flex gap-6 items-center mt-4'>
-        <button>
-          Home
+      <nav className='flex gap-6 items-center mt-4'>
+        <div className='group relative'>
+          <button className='group-hover:text-[#ED573E] group-hover:-translate-y-1.5 transition-all duration-300'>
+            Home
+          </button>
+          <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#ED573E] opacity-0 group-hover:opacity-100 transition-all duration-300'></div>
+        </div>
+
+        <div className='group relative'>
+          <button className='group-hover:text-[#ED573E] group-hover:-translate-y-1.5 transition-all duration-300'>
+            About
+          </button>
+          <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#ED573E] opacity-0 group-hover:opacity-100 transition-all duration-300'></div>
+        </div>
+
+        <div className='group relative'>
+          <button className='group-hover:text-[#ED573E] group-hover:-translate-y-1.5 transition-all duration-300'>
+            Testimonials
+          </button>
+          <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#ED573E] opacity-0 group-hover:opacity-100 transition-all duration-300'></div>
+        </div>
+
+        <div className='group relative'>
+          <button className='group-hover:text-[#ED573E] group-hover:-translate-y-1.5 transition-all duration-300'>
+            Contact
+          </button>
+          <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#ED573E] opacity-0 group-hover:opacity-100 transition-all duration-300'></div>
+        </div>
+
+        <button className='items-center flex'>
+          <h1 className='icon-[mdi--cart-outline] text-[22px] hover:text-[#ED573E]'/>
         </button>
-        <button>
-          About
-        </button>
-        <button>
-          Testimonials
-        </button>
-        <button>
-          Contact
-        </button>
-        <button>
-          <h1 className='icon-[mdi--cart-outline]'></h1>
-        </button>
-        <button>
+        
+        <button className='bg-white px-4 py-2 rounded-full hover:bg-white/70 transition-colors duration-300'>
           Booking Now
         </button>
-      </div>
+      </nav>
     </header>
   );
 }

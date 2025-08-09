@@ -9,7 +9,7 @@ function App() {
   React.useEffect(() => {
     setTimeout(() => {
       setIsDisplayed(true);
-    }, 5000);
+    }, 4700);
   }, []);
 
   return (
