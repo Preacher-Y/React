@@ -31,6 +31,7 @@ echo.
 :: Install Tailwind CSS v4.0 with Vite plugin
 echo %CYAN%Installing Tailwind v4.0 and vite plugin...%RESET%
 call npm install tailwindcss @tailwindcss/vite
+call npm i @iconify/json @iconify/tailwind4 -D
 
 echo.
 :: Add @import to index.css
@@ -38,6 +39,9 @@ echo %CYAN%Writing to src\index.css...%RESET%
 (
 echo @import 'tailwindcss';
 ) > src\index.css
+(
+echo @plugin "@iconify/tailwind4";
+) >> src\index.css
 
 echo.
 :: Delete App.css
