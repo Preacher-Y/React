@@ -1,4 +1,5 @@
 import Header from './components/header';
+import Hero from './components/hero';
 import Landing from './pages/landing';
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
@@ -30,9 +31,9 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Header />
-          <div className="text-center mt-20 text-3xl font-bold text-blue-600">
-            Tailwind 4 + Vite
+          <div className='relative w-full h-screen overflow-x-hidden'>
+            <Header />
+            <Hero/>
           </div>
         </motion.div>
       )}
