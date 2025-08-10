@@ -1,3 +1,4 @@
+import About from './components/about';
 import Header from './components/header';
 import Hero from './components/hero';
 import Landing from './pages/landing';
@@ -34,6 +35,7 @@ function App() {
           <div className="relative w-full h-screen overflow-x-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
             <Header />
             <Hero/>
+            <About/>
           </div>
         </motion.div>
       )}
