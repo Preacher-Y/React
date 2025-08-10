@@ -31,7 +31,7 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className='relative w-full h-screen overflow-x-hidden'>
+          <div className="relative w-full h-screen overflow-x-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
             <Header />
             <Hero/>
           </div>

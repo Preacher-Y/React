@@ -4,7 +4,7 @@ import Words from '../assets/android-chrome-512x512.png'
 
 function Header() {
   return (
-    <header className="flex z-50 pt-4 justify-between items-center px-32 text-center text-lg font-semibold text-gray-800">
+    <header className="flex z-50 pt-4 justify-between items-center px-32 text-center text-lg font-semibold text-gray-800 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
       <div className='flex items-center'>
         <motion.img 
             src={Logo} 
@@ -57,7 +57,7 @@ function Header() {
           <h1 className='icon-[mdi--cart-outline] text-[22px] hover:text-white'/>
         </button>
         
-        <button className='bg-white px-4 py-2 rounded-full hover:bg-transparent hover:text-white hover:ring-2 transition-all duration-700 ease-in-out'>
+        <button className='bg-white px-4 py-2 rounded-full hover:bg-[#ED573E] hover:text-white hover:ring-2 transition-all duration-700 ease-in-out'>
           Order Now
         </button>
       </nav>
