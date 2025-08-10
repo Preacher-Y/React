@@ -1,9 +1,9 @@
 import FirstFig from '../assets/first-figure.svg'
 import FirstPlate from '../assets/first plate.png';
 import { motion } from 'framer-motion';
+import { memo } from 'react';
 
-
-export default function Hero() {
+function Hero() {
 
     return (
         <div 
@@ -53,3 +53,4 @@ export default function Hero() {
         </div>
     )
 }
+export default memo(Hero);

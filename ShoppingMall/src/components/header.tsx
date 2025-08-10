@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Logo from '../assets/android-app-top-banner.png'
 import Words from '../assets/android-chrome-512x512.png'
+import { memo } from 'react';
 
 function Header() {
   return (
@@ -65,4 +66,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default memo(Header);
