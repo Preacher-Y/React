@@ -2,6 +2,8 @@ import About from './components/about';
 import Header from './components/header';
 import Hero from './components/hero';
 import Landing from './pages/landing';
+import How from './components/how';
+
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 
@@ -36,6 +38,7 @@ function App() {
             <Header />
             <Hero/>
             <About/>
+            <How/>
           </div>
         </motion.div>
       )}
