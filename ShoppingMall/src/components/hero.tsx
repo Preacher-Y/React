@@ -41,12 +41,12 @@ function Hero() {
                     <img 
                         src={FirstFig} 
                         alt="Background Shape" 
-                        className="absolute -top-40 -right-14 w-full scale-75 md:scale-88 lg:scale-120 lg:-top-102 lg:-right-22 -z-10" 
+                        className="absolute -top-40 -right-14 w-full scale-75 md:scale-88 lg:scale-120 lg:-top-102 lg:-right-22 -z-40" 
                     />
                     <motion.img
                         src={FirstPlate}
                         alt="Food Plate"
-                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] md:w-[80%] lg:scale-150"
+                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -z-40 -translate-y-1/2 w-[90%] md:w-[80%] lg:scale-150"
                     />
                 </div>
             </motion.div>
