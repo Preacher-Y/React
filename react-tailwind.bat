@@ -43,6 +43,8 @@ echo @import 'tailwindcss';
 echo @plugin "@iconify/tailwind4";
 ) >> src\index.css
 
+echo %CYAN%Installing React Router ...%RESET%
+call npm install react-router-dom
 echo.
 :: Delete App.css
 echo %CYAN%Removing App.css...%RESET%
