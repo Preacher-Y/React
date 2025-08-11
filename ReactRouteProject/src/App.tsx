@@ -1,12 +1,14 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/header';
 
 function App() {
   return (
     <>
-        <Header/>
-        <div className="text-center mt-20 text-3xl font-bold text-blue-600">
-            Tailwind 4 + Vite
-        </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Header />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
