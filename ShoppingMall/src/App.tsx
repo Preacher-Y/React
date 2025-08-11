@@ -1,8 +1,5 @@
-import About from './components/about';
-import Header from './components/header';
-import Hero from './components/hero';
 import Landing from './pages/landing';
-import How from './components/how';
+import Home from './pages/home';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
@@ -34,12 +31,7 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="relative w-full h-screen overflow-x-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-            <Header />
-            <Hero/>
-            <About/>
-            <How/>
-          </div>
+          <Home/>
         </motion.div>
       )}
     </AnimatePresence>
