@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <header className="bg-gray-50 py-4 text-center text-lg font-semibold text-gray-800">
-      <div className='flex items-center justify-around gap-14 max-w-6xl mx-auto px-4'>
+      <div className='flex items-center justify-between gap-14 max-w-6xl mx-auto px-6'>
         <Link to="/" className="text-blue-600 hover:text-blue-800">
           <img src={Logo} alt="Van Logo" className="mx-auto w-28" />
         </Link>
