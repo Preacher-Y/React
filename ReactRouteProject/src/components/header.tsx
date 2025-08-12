@@ -1,6 +1,13 @@
-import { Link } from 'react-router-dom';
 import Logo from '../assets/VanLogo.svg'
+import { NavLink, Link } from 'react-router-dom';
+import clsx from 'clsx';
+
+
 function Header() {
+
+  const normal = "text-gray-600 underline-offset-3 text-sm hover:text-gray-950 hover:underline"
+  const active = "text-gray-950 underline"
+
   return (
     <header className="bg-gray-50 py-4 text-center text-lg font-semibold text-gray-800">
       <div className='flex items-center justify-around gap-14 max-w-6xl mx-auto px-4'>
@@ -9,11 +16,11 @@ function Header() {
         </Link>
         <nav>
           <ul className="flex justify-center space-x-6">
-            <li>
-              <Link to="/about" className="text-gray-600  text-sm">About</Link>
+            <li id='about' aria-label='about'>
+              <NavLink to="/about" className={({isActive})=>clsx(normal,isActive&&active)}>About</NavLink>
             </li>
-            <li>
-              <Link to="/vans" className=" text-gray-600 text-sm">Vans</Link>
+            <li id='vans' aria-label='van'>
+              <NavLink to="/vans" className={({isActive})=>clsx(normal,isActive&&active)}>Vans</NavLink>
             </li>
           </ul>
         </nav>
