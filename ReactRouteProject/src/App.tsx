@@ -4,6 +4,7 @@ import About from './pages/about';
 import Footer from './components/footer';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import "./server"
 
 function App() {
   return (
