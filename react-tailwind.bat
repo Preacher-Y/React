@@ -43,8 +43,14 @@ echo @import 'tailwindcss';
 echo @plugin "@iconify/tailwind4";
 ) >> src\index.css
 
+echo.
 echo %CYAN%Installing React Router ...%RESET%
 call npm install react-router-dom
+
+echo.
+echo %CYAN%Installing mirage Sever ...%RESET%
+call npm install --save-dev miragejs
+
 echo.
 :: Delete App.css
 echo %CYAN%Removing App.css...%RESET%
