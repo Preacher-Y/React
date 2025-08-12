@@ -36,8 +36,8 @@ function App() {
         <button onClick={handlePrevious} disabled={currentQuoteNum === 0} className={clsx("ring px-4 py-2 rounded-lg ring-gray-200 ",{"":currentQuoteNum!==0, "cursor-not-allowed":currentQuoteNum===0})}>
           <h1 className="text-gray-500 text-sm">{'< Previous'}</h1>
         </button>
-        <p className="text-gray-400">{`${currentQuoteNum} of ${arrOfQuoteElements.length}`}</p>
-        <button onClick={handleNext} disabled={currentQuoteNum>=9} className={clsx("ring px-4 py-2 rounded-lg ring-gray-200 ",{"":currentQuoteNum!==0, "cursor-not-allowed":currentQuoteNum>=9})}>
+        <p className="text-gray-400">{`${currentQuoteNum} of ${arrOfQuoteElements.length-1}`}</p>
+        <button onClick={handleNext} disabled={currentQuoteNum>=9} className={clsx("ring px-4 py-2 rounded-lg ring-gray-200 ",{"":currentQuoteNum!==0, "cursor-not-allowed":currentQuoteNum>=arrOfQuoteElements.length-1})}>
           <h1 className="text-gray-500 text-sm">{'Next >'}</h1>
         </button>
       </div>
