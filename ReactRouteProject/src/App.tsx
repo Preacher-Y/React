@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import "./server"
 import Vans from './pages/vans';
+import DetailsVan from './pages/detailsVan';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/vans" element={<Vans/>} />
+          <Route path="/vans/:id" element={<DetailsVan/>} />
         </Routes>
         <Footer/>
       </BrowserRouter>

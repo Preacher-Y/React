@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 type VanType = {
   id: string;
@@ -48,9 +49,9 @@ function Vans(){
             </div>
             <div className="grid grid-cols-2 gap-4 mt-4 mb-12">
                 {data.map(el=>(
-                    <article key={el.id} className="rounded-lg bg-white overflow-hidden">
+                    <Link to={`/vans/${el.id}`} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
                         <img src={el.imageUrl} alt={el.name} className="h-40 w-full object-cover" />
-                        <div className="py-2">
+                        <div className="py-2 pb-4 px-1">
                             <div className="flex items-start justify-between">
                                 <div className="-space-y-1">
                                     <h3 className="font-semibold">{el.name}</h3>
@@ -73,7 +74,7 @@ function Vans(){
                                 </p>
                             </div>
                         </div>
-                    </article>
+                    </Link>
                 ))}
             </div>
         </div>
