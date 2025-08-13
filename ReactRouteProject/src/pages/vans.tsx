@@ -1,25 +1,16 @@
-import { memo, useEffect, useState } from "react"
+import { memo, useEffect } from "react"
 import { Link } from "react-router-dom";
-
-type VanType = {
-  id: string;
-  name: string;
-  price: number;
-  imageUrl: string;
-  type: "Simple" | "Luxury" | "Rugged";
-};
+import type { VanType } from "../type";
 
 
-function Vans(){
-
-    const [data, setData]=useState<VanType[]>([])
+function Vans({data,setData}:{data:VanType,setData:React.Dispatch<React.SetStateAction<VanType>>}){
 
     useEffect(()=>{
         const abort = new AbortController();
         (async () => {
             try {
                 const response = await fetch('/api/vans',{signal:abort.signal})
-                const json = (await response.json()) as {vans:VanType[]}
+                const json = (await response.json()) as {vans:VanType}
                 setData(json.vans)
                 
             } catch (error) {
@@ -49,7 +40,7 @@ function Vans(){
             </div>
             <div className="grid grid-cols-2 gap-4 mt-4 mb-12">
                 {data.map(el=>(
-                    <Link to={`/vans/${el.id}`} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
+                    <Link to={`/vans/${el.name.split(' ').join('')}`} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
                         <img src={el.imageUrl} alt={el.name} className="h-40 w-full object-cover" />
                         <div className="py-4 pb-4 px-4">
                             <div className="flex items-start justify-between">
@@ -58,7 +49,7 @@ function Vans(){
                                     <span
                                         className={[
                                         "mt-3 inline-block rounded px-3 py-1 text-xs text-white tracking-wide",
-                                        el.type === "Simple" && "bg-amber-600",
+                                        el.type === "Simple" && "bg-[#E17654]",
                                         el.type === "Luxury" && "bg-black",
                                         el.type === "Rugged" && "bg-emerald-800"
                                         ]
