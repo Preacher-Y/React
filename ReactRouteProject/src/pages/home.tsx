@@ -13,7 +13,7 @@ function Home(){
             <p className="text-gray-200 font-medium ">Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip.</p>
             <Link
                 to="/vans"
-                className="bg-[#FF8C38] py-3 w-full text-lg text-white font-semibold tracking-wider block text-center"
+                className="bg-[#FF8C38] rounded-md py-3 w-full text-lg text-white font-semibold tracking-wider block text-center"
             >Find your van</Link>
         </div>
 
