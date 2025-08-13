@@ -5,7 +5,7 @@ type VanType = {
   name: string;
   price: number;
   imageUrl: string;
-  type: "simple" | "luxury" | "rugged";
+  type: "Simple" | "Luxury" | "Rugged";
 };
 
 
@@ -46,31 +46,33 @@ function Vans(){
                     Clear filters
                 </button>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 mt-4 mb-12">
                 {data.map(el=>(
                     <article key={el.id} className="rounded-lg bg-white overflow-hidden">
                         <img src={el.imageUrl} alt={el.name} className="h-40 w-full object-cover" />
-                        <div className="p-4 grid">
+                        <div className="py-2">
                             <div className="flex items-start justify-between">
-                                <h3 className="font-semibold">{el.name}</h3>
-                                <p className="text-right">
-                                <span className="font-bold">${el.price}</span>
-                                <span className="text-sm text-gray-500">/day</span>
+                                <div className="-space-y-1">
+                                    <h3 className="font-semibold">{el.name}</h3>
+                                    <span
+                                        className={[
+                                        "mt-3 inline-block rounded px-3 py-1 text-xs text-white tracking-wide",
+                                        el.type === "Simple" && "bg-amber-600",
+                                        el.type === "Luxury" && "bg-black",
+                                        el.type === "Rugged" && "bg-emerald-800"
+                                        ]
+                                        .filter(Boolean)
+                                        .join(" ")}
+                                    >
+                                        {el.type}
+                                    </span>
+                                </div>
+                                <p className="text-right grid -space-y-1">
+                                    <span className="font-bold">${el.price}</span>
+                                    <span className="text-sm text-gray-500">/day</span>
                                 </p>
                             </div>
-                            <span
-                                className={[
-                                "mt-3 inline-block rounded px-2 py-0.5 text-xs uppercase tracking-wide",
-                                el.type === "simple" && "bg-amber-100 text-amber-800",
-                                el.type === "luxury" && "bg-purple-100 text-purple-800",
-                                el.type === "rugged" && "bg-emerald-100 text-emerald-800"
-                                ]
-                                .filter(Boolean)
-                                .join(" ")}
-                            >
-                                {el.type}
-                            </span>
-                            </div>
+                        </div>
                     </article>
                 ))}
             </div>
