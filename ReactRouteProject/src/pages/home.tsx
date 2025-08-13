@@ -14,7 +14,7 @@ function Home(){
             <Link
                 to="/van"
                 className="bg-[#FF8C38] py-3 w-full text-lg text-white font-semibold tracking-wider block text-center"
-                >Find your van</Link>
+            >Find your van</Link>
         </div>
 
     )
