@@ -16,6 +16,9 @@ function Header() {
         </Link>
         <nav>
           <ul className="flex justify-center space-x-6">
+            <li id='host'>
+              <NavLink to="/host" className={({isActive})=>clsx(normal,isActive&&active)}>Host</NavLink>
+            </li>
             <li id='about' aria-label='about'>
               <NavLink to="/about" className={({isActive})=>clsx(normal,isActive&&active)}>About</NavLink>
             </li>
