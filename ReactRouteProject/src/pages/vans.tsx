@@ -33,13 +33,13 @@ function Vans(){
         <div className="grid gap-4 px-6 mt-8">
             <h1 className=" text-2xl font-bold">Explore our van options</h1>
             <div className="flex items-center justify-between">
-                <button className="bg-[#FFEAD0] px-4 py-1 text-sm rounded-sm">
+                <button className="bg-[#FFEAD0] px-4 py-1 font-semibold text-sm rounded-sm">
                     Simple
                 </button>
-                <button className="bg-[#FFEAD0] px-4 py-1 text-sm rounded-sm">
+                <button className="bg-[#FFEAD0] px-4 py-1 font-semibold text-sm rounded-sm">
                     Luxury
                 </button>
-                <button className="bg-[#FFEAD0] px-4 py-1 text-sm rounded-sm">
+                <button className="bg-[#FFEAD0] px-4 py-1 font-semibold text-sm rounded-sm">
                     Rugged
                 </button>
                 <button className="text-gray-700 text-sm ml-2 underline underline-offset-2 hover:text-red-700">
