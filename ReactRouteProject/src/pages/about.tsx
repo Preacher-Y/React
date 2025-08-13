@@ -15,9 +15,9 @@ function About(){
                 <div className="flex flex-col w-full px-6 py-4 rounded-md bg-orange-300">
                     <h2 className="text-lg font-bold">Your destination is waiting.</h2>
                     <p className="text-lg font-bold">Your van is ready.</p>
-                    <button className="bg-black text-white px-2 py-2 rounded-lg mt-6 w-[50%]">
-                        <Link to="/van" >Explore our vans</Link>
-                    </button>
+                    <Link to="/vans" className="bg-black text-center font-semibold text-white px-2 py-2 rounded-lg mt-6 w-[50%]">
+                       Explore our vans
+                    </Link>
                 </div>
             </div>
         </div>
