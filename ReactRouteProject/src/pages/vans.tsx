@@ -51,7 +51,7 @@ function Vans(){
                 {data.map(el=>(
                     <Link to={`/vans/${el.id}`} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
                         <img src={el.imageUrl} alt={el.name} className="h-40 w-full object-cover" />
-                        <div className="py-2 pb-4 px-1">
+                        <div className="py-4 pb-4 px-4">
                             <div className="flex items-start justify-between">
                                 <div className="-space-y-1">
                                     <h3 className="font-semibold">{el.name}</h3>
