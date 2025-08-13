@@ -10,10 +10,10 @@ function LayoutHost(){
 
     return(
         <>
-            <nav>
-                <NavLink to="/host" className={({isActive})=>clsx(normal,isActive&&active)}>Dashboard</NavLink>
-                <NavLink to="/host/income" className={({isActive})=>clsx(normal,isActive&&active)}>Income</NavLink>
-                <NavLink to="/host/reviews" className={({isActive})=>clsx(normal,isActive&&active)}>Reviews</NavLink>
+            <nav className="flex gap-6 my-8">
+                <NavLink to="" className={({isActive})=>clsx(normal,isActive&&active)}>Dashboard</NavLink>
+                <NavLink to="income" className={({isActive})=>clsx(normal,isActive&&active)}>Income</NavLink>
+                <NavLink to="reviews" className={({isActive})=>clsx(normal,isActive&&active)}>Reviews</NavLink>
             </nav>
             <Outlet/>
         </>

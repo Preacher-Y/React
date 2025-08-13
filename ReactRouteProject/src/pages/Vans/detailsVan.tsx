@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { Link,useParams } from "react-router-dom";
 
-import type { VanType } from "../type";
+import type { VanType } from "../../type";
 
 function VanDetails({data}:{data:VanType}){
 
