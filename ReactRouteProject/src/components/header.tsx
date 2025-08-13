@@ -9,7 +9,7 @@ function Header() {
   const active = "text-gray-950 underline"
 
   return (
-    <header className="bg-gray-50 py-4 text-center text-lg font-semibold text-gray-800">
+    <header className="bg-gray-50 py-4 text-center text-lg shadow-[0px_1px_0px_gray]/30 font-semibold text-gray-800">
       <div className='flex items-center justify-between gap-14 max-w-6xl mx-auto px-6'>
         <Link to="/" className="text-blue-600 hover:text-blue-800">
           <img src={Logo} alt="Van Logo" className="mx-auto w-28" />
