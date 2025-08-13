@@ -30,13 +30,13 @@ function Vans({data,setData}:{data:VanType,setData:React.Dispatch<React.SetState
         <div className="grid gap-4 px-6 mt-8">
             <h1 className=" text-2xl font-bold">Explore our van options</h1>
             <div className="flex items-center justify-between">
-                <button className="bg-[#FFEAD0] px-4 py-1 font-semibold text-sm rounded-sm">
+                <button className="bg-[#FFEAD0] hover:bg-[#E17654] hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
                     Simple
                 </button>
-                <button className="bg-[#FFEAD0] px-4 py-1 font-semibold text-sm rounded-sm">
+                <button className="bg-[#FFEAD0] hover:bg-black hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
                     Luxury
                 </button>
-                <button className="bg-[#FFEAD0] px-4 py-1 font-semibold text-sm rounded-sm">
+                <button className="bg-[#FFEAD0] hover:bg-emerald-800 hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
                     Rugged
                 </button>
                 <button className="text-gray-700 text-sm ml-2 underline underline-offset-2 hover:text-red-700">
