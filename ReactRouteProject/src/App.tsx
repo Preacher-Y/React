@@ -1,28 +1,43 @@
 import Home from './pages/home';
-import Vans from './pages/vans';
+import Vans from './pages/Vans/vans';
 import About from './pages/about';
-import DetailsVan from './pages/detailsVan';
+import DetailsVan from './pages/Vans/detailsVan';
+import Dashboard from './pages/Hosts/dashboard';
+import Reviews from './pages/Hosts/reviews';
+import Income from './pages/Hosts/income';
 
 import type { VanType } from './type';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import "./server"
-import Layout from './components/Layout';
+import LayoutHeader from './components/LayoutHeader';
+import LayoutHost from './components/LayoutHost';
 
 
 function App() {
-  const [data, setData]=useState<VanType>([])
+  const [data, setData]=useState<VanType>(()=>{
+    const cached = localStorage.getItem("VansData");
+    return cached ? (JSON.parse(cached)as VanType):[]
+  })
 
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route element={<Layout/>}>
+          <Route element={<LayoutHeader/>}>
+
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/vans" element={<Vans data={data} setData={setData}/>} />
             <Route path="/vans/:name" element={<DetailsVan data={data}/>} />
+            
+            <Route path="/host" element={<LayoutHost/>} >
+              <Route path='/host' element={<Dashboard/>}/>
+              <Route path="/host/reviews" element={<Reviews/>} />
+              <Route path="/host/income" element={<Income/>} />
+            </Route>
+
           </Route>
         </Routes>
       </BrowserRouter>
