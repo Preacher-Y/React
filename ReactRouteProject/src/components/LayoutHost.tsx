@@ -15,7 +15,9 @@ function LayoutHost(){
                 <NavLink to="income" className={({isActive})=>clsx(normal,isActive&&active)}>Income</NavLink>
                 <NavLink to="reviews" className={({isActive})=>clsx(normal,isActive&&active)}>Reviews</NavLink>
             </nav>
-            <Outlet/>
+            <main>
+                <Outlet/>
+            </main>
         </>
     )
 }
