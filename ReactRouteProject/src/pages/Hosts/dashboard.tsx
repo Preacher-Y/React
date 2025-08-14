@@ -1,9 +1,51 @@
 import { memo } from "react"
+import type { VanType } from "../../type"
 
-function Dashboard(){
+function Dashboard({data}:{data:VanType}){
     return(
-        <>
-        </>
+        <div className="mb-16">
+            <div className="bg-[#FFEAD0] grid items-center gap-4 px-6 py-4">
+                <h1 className="font-bold text-3xl">Welcome!</h1>
+                <h1 className="flex justify-between text-gray-600">
+                    <h2 className="">Income last <span className="font-bold cursor-pointer text-gray-950 underline underline-offset-3">30 days</span></h2>
+                    <button className="hover:underline underline-offset-2 cursor-pointer">Details</button>
+                </h1>
+                <h1 className="font-extrabold text-4xl">$2,260</h1>
+
+            </div>
+            <div className="flex justify-between items-center px-6 py-4 bg-[#FFDDB2]">
+                <div className="flex space-x-6 items-center">
+                    <h1 className="font-bold text-lg">Review score</h1>
+                    <p className="flex items-center gap-2">
+                        <span className="icon-[twemoji--star] -mt-1"/>
+                        <p className="text-gray-600 text-sm">
+                            <span className="font-semibold text-base text-gray-950">5.0</span>
+                            /5
+                        </p>
+                    </p>
+                </div>
+                <button className="hover:underline text-gray-600 cursor-pointer underline-offset-2">Details</button>
+            </div>
+            <div className="grid px-6 mt-6">
+                <div className="flex justify-between items-center my-4">
+                    <h1 className="font-bold text-xl">Your listed vans</h1>
+                    <button className="hover:underline text-gray-600 cursor-pointer underline-offset-2">View all</button>
+                </div>
+                <div className="h-74 flex flex-col gap-5  py-2 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] ">
+                    {data.map(el=>
+                    <article className="flex justify-between rounded-md hover:shadow-xl items-center pr-3 mx-4 bg-white">
+                        <div className="flex gap-3">
+                            <img src={el.imageUrl} alt="" className="w-20 h-20 rounded-md "/>
+                            <div className="grid py-2">
+                                <h1>{el.name}</h1>
+                                <p>{el.price}</p>
+                            </div>
+                        </div>
+                        <button className="hover:underline text-gray-600 cursor-pointer underline-offset-2">Edit</button>
+                    </article>)}
+                </div>
+            </div>
+        </div>
     )
 }
 
