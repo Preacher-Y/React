@@ -40,7 +40,7 @@ function Income() {
       </div>
 
       <div className="mt-1 text-3xl font-extrabold my-8">${incomeTotal.toLocaleString()}</div>
-      <div className="mt-3 w-full h-56">
+      <div className="mt-3 w-full h-80">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={chartData} margin={{ top: 4, right: 8, bottom: 8, left: 0 }}>
             <CartesianGrid stroke="#d7cfc6" strokeDasharray="4 6" vertical={false} />
