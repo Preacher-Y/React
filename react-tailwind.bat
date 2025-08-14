@@ -52,6 +52,10 @@ echo %CYAN%Installing mirage Sever ...%RESET%
 call npm install --save-dev miragejs
 
 echo.
+echo %CYAN%Installing react Chart package ... %RESET%
+call npm install recharts
+
+echo.
 :: Delete App.css
 echo %CYAN%Removing App.css...%RESET%
 del src\App.css >nul 2>&1
