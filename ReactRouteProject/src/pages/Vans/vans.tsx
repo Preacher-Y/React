@@ -1,11 +1,9 @@
 import { memo, useEffect } from "react"
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import type { VanType } from "../../type";
 
 
 function Vans({data,setData}:{data:VanType,setData:React.Dispatch<React.SetStateAction<VanType>>}){
-
-    const [searchEl, setSearchEl] = useSearchParams()
 
     useEffect(()=>{
         if(data.length>0) return;
