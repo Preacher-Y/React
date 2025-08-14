@@ -1,5 +1,6 @@
 import Home from './pages/home';
 import Vans from './pages/Vans/vans';
+import VansHost from './pages/Hosts/vans';
 import About from './pages/about';
 import DetailsVan from './pages/Vans/detailsVan';
 import Dashboard from './pages/Hosts/dashboard';
@@ -35,6 +36,7 @@ function App() {
             <Route path="host" element={<LayoutHost/>} >
               <Route index element={<Dashboard data={data}/>}/>
               <Route path="reviews" element={<Reviews/>} />
+              <Route path="vans" element={<VansHost/>} />
               <Route path="income" element={<Income/>} />
             </Route>
 
