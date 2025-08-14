@@ -10,7 +10,7 @@ function Dashboard({data}:{data:VanType}){
                     <h2 className="">Income last <span className="font-bold cursor-pointer text-gray-950 underline underline-offset-3">30 days</span></h2>
                     <button className="hover:underline underline-offset-2 cursor-pointer">Details</button>
                 </h1>
-                <h1 className="font-extrabold text-4xl">{`$ ${(2260).toLocaleString()}`}</h1>
+                <h1 className="font-extrabold text-4xl">{`$${(2260).toLocaleString()}`}</h1>
 
             </div>
             <div className="flex justify-between items-center px-6 py-4 bg-[#FFDDB2]">
