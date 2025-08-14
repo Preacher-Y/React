@@ -26,14 +26,14 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LayoutHeader/>}>
-          
+
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans data={data} setData={setData}/>} />
             <Route path="vans/:name" element={<DetailsVan data={data}/>} />
             
             <Route path="host" element={<LayoutHost/>} >
-              <Route index element={<Dashboard/>}/>
+              <Route index element={<Dashboard data={data}/>}/>
               <Route path="reviews" element={<Reviews/>} />
               <Route path="income" element={<Income/>} />
             </Route>
