@@ -24,7 +24,7 @@ function Vans({data}:{data:VanType}){
             </div>
             <div className="grid grid-cols-2 gap-4 mt-4 mb-12">
                 {data.map(el=>(
-                    <Link to={`/vans/${el.name.split(' ').join('')}`} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
+                    <Link to={`${el.name.split(' ').join('')}`} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
                         <img src={el.imageUrl} alt={el.name} className="h-40 w-full object-cover" />
                         <div className="py-4 pb-4 px-4">
                             <div className="flex items-start justify-between">
