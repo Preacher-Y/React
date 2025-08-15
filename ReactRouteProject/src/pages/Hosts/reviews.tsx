@@ -7,7 +7,6 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Cell,
   LabelList,
 } from "recharts";
 
@@ -90,13 +89,6 @@ function Reviews() {
               fill="#FF8B2C"
               background={{ fill: "#e5e7eb", radius: 999 }}
             >
-                 {dist.map((entry, index) => (
-                    <Cell
-                    key={`cell-${index}`}
-                    fill={entry.pct > 0 ? "#FF8B2C" : "#9ca3af"} // orange if > 0, gray if 0
-                    />
-                ))}
-
               <LabelList
                 dataKey="pct"
                 position="right"
