@@ -14,6 +14,10 @@ import { useState, useEffect } from 'react';
 import "./server"
 import LayoutHeader from './components/LayoutHeader';
 import LayoutHost from './components/LayoutHost';
+import HostVanDetails from './pages/Hosts/vans/hostVanDetails';
+import Details from './pages/Hosts/vans/details';
+import Pricing from './pages/Hosts/vans/pricing';
+import Pic from './pages/Hosts/vans/pic';
 
 
 function App() {
@@ -55,8 +59,14 @@ function App() {
             <Route path="host" element={<LayoutHost/>} >
               <Route index element={<Dashboard data={data}/>}/>
               <Route path="reviews" element={<Reviews/>} />
-              <Route path="vans" element={<VansHost data={data}/>} />
               <Route path="income" element={<Income/>} />
+
+              <Route path="vans" element={<VansHost data={data}/>} />
+              <Route path="vans/:name" element={<HostVanDetails data={data}/>}>
+                <Route index element={<Details/>}/>
+                <Route path="pricing" element={<Pricing/>}/>
+                <Route path="Photos" element={<Pic/>}/>
+              </Route>
             </Route>
 
           </Route>
