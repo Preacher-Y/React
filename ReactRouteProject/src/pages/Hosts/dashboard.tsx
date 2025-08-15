@@ -1,5 +1,6 @@
 import { memo } from "react"
 import type { VanType } from "../../type"
+import { Link } from "react-router-dom"
 
 function Dashboard({data}:{data:VanType}){
     return(
@@ -8,7 +9,7 @@ function Dashboard({data}:{data:VanType}){
                 <h1 className="font-bold text-3xl">Welcome!</h1>
                 <h1 className="flex justify-between text-gray-600">
                     <h2 className="">Income last <span className="font-bold cursor-pointer text-gray-950 underline underline-offset-3">30 days</span></h2>
-                    <button className="hover:underline underline-offset-2 cursor-pointer">Details</button>
+                    <Link to="income" className="hover:underline underline-offset-2 cursor-pointer">Details</Link>
                 </h1>
                 <h1 className="font-extrabold text-4xl">{`$${(2260).toLocaleString()}`}</h1>
 
@@ -24,16 +25,16 @@ function Dashboard({data}:{data:VanType}){
                         </p>
                     </p>
                 </div>
-                <button className="hover:underline text-gray-600 cursor-pointer underline-offset-2">Details</button>
+                <Link to='reviews' className="hover:underline text-gray-600 cursor-pointer underline-offset-2">Details</Link>
             </div>
             <div className="grid px-6 mt-6">
                 <div className="flex justify-between items-center my-4">
                     <h1 className="font-bold text-xl">Your listed vans</h1>
-                    <button className="hover:underline text-gray-600 cursor-pointer underline-offset-2">View all</button>
+                    <Link to="vans" className="hover:underline text-gray-600 cursor-pointer underline-offset-2">View all</Link>
                 </div>
                 <div className=" flex flex-col gap-5  py-2 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] ">
                     {data.map(el=>
-                    <article className="flex justify-between rounded-md hover:shadow-xl items-center pr-3 mx-4 bg-white">
+                    <Link to={`vans/${el.name.split(' ').join('')}`} className="flex justify-between rounded-md hover:shadow-xl items-center pr-3 mx-4 bg-white">
                         <div className="flex gap-3">
                             <img src={el.imageUrl} alt="" className="w-20 h-20 rounded-md "/>
                             <div className="grid py-2">
@@ -42,7 +43,7 @@ function Dashboard({data}:{data:VanType}){
                             </div>
                         </div>
                         <button className="hover:underline text-gray-600 cursor-pointer underline-offset-2">Edit</button>
-                    </article>)}
+                    </Link>)}
                 </div>
             </div>
         </div>
