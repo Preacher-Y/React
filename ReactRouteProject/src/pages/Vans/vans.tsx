@@ -1,28 +1,9 @@
-import { memo, useEffect } from "react"
+import { memo } from "react"
 import { Link } from "react-router-dom";
 import type { VanType } from "../../type";
 
 
-function Vans({data,setData}:{data:VanType,setData:React.Dispatch<React.SetStateAction<VanType>>}){
-
-    useEffect(()=>{
-        if(data.length>0) return;
-
-        const abort = new AbortController();
-        (async () => {
-            try {
-                const response = await fetch('/api/vans',{signal:abort.signal})
-                const json = (await response.json()) as {vans:VanType}
-                setData(json.vans)
-                localStorage.setItem("VansData",JSON.stringify(json.vans))
-                
-            } catch (error) {
-                console.log(error);   
-            }
-
-        })()
-        return ()=>abort.abort()
-    },[data.length])
+function Vans({data}:{data:VanType}){
 
     return(
         <div className="grid gap-4 px-6 mt-8">
