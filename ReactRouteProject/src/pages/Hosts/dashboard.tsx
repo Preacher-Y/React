@@ -16,9 +16,9 @@ function Dashboard({data}:{data:VanType}){
             <div className="flex justify-between items-center px-6 py-4 bg-[#FFDDB2]">
                 <div className="flex space-x-6 items-center">
                     <h1 className="font-bold text-lg">Review score</h1>
-                    <p className="flex items-center gap-2">
-                        <span className="icon-[twemoji--star] -mt-1"/>
-                        <p className="text-gray-600 text-sm">
+                    <p className="flex items-center gap-1">
+                        <span className="text-orange-500 text-xl">★</span>
+                        <p className="text-gray-600 text-sm flex mt-1 items-center">
                             <span className="font-semibold text-base text-gray-950">5.0</span>
                             /5
                         </p>
