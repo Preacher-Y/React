@@ -55,7 +55,7 @@ function App() {
             <Route path="host" element={<LayoutHost/>} >
               <Route index element={<Dashboard data={data}/>}/>
               <Route path="reviews" element={<Reviews/>} />
-              <Route path="vans" element={<VansHost/>} />
+              <Route path="vans" element={<VansHost data={data}/>} />
               <Route path="income" element={<Income/>} />
             </Route>
 
