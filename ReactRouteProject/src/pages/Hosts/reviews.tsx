@@ -43,7 +43,7 @@ function Reviews() {
   }, [reviews]);
 
   return (
-    <div className="px-6 mb-16 grid gap-3">
+    <div className="px-6 h-full mb-16 grid gap-3">
 
       <div className="flex gap-4 items-center">
         <h2 className="text-2xl font-bold">Your reviews</h2>
