@@ -8,7 +8,7 @@ function VanDetails({data}:{data:VanType}){
     const name = useParams()
 
     return(
-        <div className="max-sm:px-32 px-6 my-8 mb-18 grid gap-4">
+        <div className="max-sm:px-32 h-screen px-6 my-8 mb-18 grid gap-4">
             <Link to="/vans" className="text-black/60 text-sm flex items-center gap-1 underline underline-offset-2 ">
                 <span className="icon-[material-symbols--arrow-left-alt]"/>
                 Back to vans
