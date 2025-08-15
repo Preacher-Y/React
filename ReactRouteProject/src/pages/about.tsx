@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function About(){
     return(
-        <div id="about" className="flex flex-col items-center mb-6 gap-6">
+        <div id="about" className="flex flex-col h-screen items-center mb-6 gap-6">
             <img src={AboutPic} alt="About Us" />
             <div className="flex flex-col items-center gap-4 px-6">
                 <div className="flex flex-col justify-center gap-4 items-center ">
