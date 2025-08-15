@@ -7,6 +7,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Cell,
   LabelList,
 } from "recharts";
 
@@ -47,7 +48,7 @@ function Reviews() {
 
       <div className="flex gap-4 items-center">
         <h2 className="text-2xl font-bold">Your reviews</h2>
-        <a href="#" className=" text-gray-600 text-sm">last <span className="underline text-gray-900 underline-offset-3">30 days</span></a>
+        <a href="#" className=" text-gray-600 text-sm">last <span className="underline text-gray-600 font-semibold underline-offset-3 ">30 days</span></a>
       </div>
 
       <div className="flex items-center space-x-2 mt-1">
@@ -56,7 +57,7 @@ function Reviews() {
         <span className="text-sm">overall rating</span>
       </div>
 
-      <div className="mt-2 w-full h-40">
+      <div className="mt-2 w-full z-10 h-40">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={dist}
@@ -89,6 +90,13 @@ function Reviews() {
               fill="#FF8B2C"
               background={{ fill: "#e5e7eb", radius: 999 }}
             >
+                 {dist.map((entry, index) => (
+                    <Cell
+                    key={`cell-${index}`}
+                    fill={entry.pct > 0 ? "#FF8B2C" : "#9ca3af"} // orange if > 0, gray if 0
+                    />
+                ))}
+
               <LabelList
                 dataKey="pct"
                 position="right"
@@ -101,6 +109,7 @@ function Reviews() {
       </div>
 
       <div className="mt-4 space-y-4">
+        <h1 className="font-bold">Reviews {`(${reviews.length})`} </h1>
         {reviews.map((r, idx) => (
           <div key={idx}>
             <div className="flex items-center space-x-1 text-orange-500">
@@ -112,7 +121,7 @@ function Reviews() {
               {r.name} <span className="text-xs text-stone-500">{r.date}</span>
             </p>
             <p className="text-sm mt-1 text-stone-700">{r.text}</p>
-            {idx < reviews.length - 1 && <hr className="mt-3" />}
+            {idx < reviews.length && <hr className="mt-4 text-gray-300" />}
           </div>
         ))}
       </div>
