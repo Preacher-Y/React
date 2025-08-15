@@ -10,7 +10,7 @@ import Income from './pages/Hosts/income';
 import type { VanType } from './type';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "./server"
 import LayoutHeader from './components/LayoutHeader';
 import LayoutHost from './components/LayoutHost';
@@ -22,6 +22,25 @@ function App() {
     return cached ? (JSON.parse(cached)as VanType):[]
   })
 
+  useEffect(()=>{
+        if(data.length>0) return;
+
+        const abort = new AbortController();
+        (async () => {
+            try {
+                const response = await fetch('/api/vans',{signal:abort.signal})
+                const json = (await response.json()) as {vans:VanType}
+                setData(json.vans)
+                localStorage.setItem("VansData",JSON.stringify(json.vans))
+                
+            } catch (error) {
+                console.log(error);   
+            }
+
+        })()
+        return ()=>abort.abort()
+    },[data.length])
+
   return (
     <>
       <BrowserRouter>
@@ -30,7 +49,7 @@ function App() {
 
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
-            <Route path="vans" element={<Vans data={data} setData={setData}/>} />
+            <Route path="vans" element={<Vans data={data}/>} />
             <Route path="vans/:name" element={<DetailsVan data={data}/>} />
             
             <Route path="host" element={<LayoutHost/>} >
