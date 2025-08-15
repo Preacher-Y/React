@@ -3,7 +3,7 @@ import type { VanType } from "../../type"
 
 function Dashboard({data}:{data:VanType}){
     return(
-        <div className="mb-16">
+        <div className="mb-16 h-full">
             <div className="bg-[#FFEAD0] grid items-center gap-4 px-6 py-4">
                 <h1 className="font-bold text-3xl">Welcome!</h1>
                 <h1 className="flex justify-between text-gray-600">
@@ -31,7 +31,7 @@ function Dashboard({data}:{data:VanType}){
                     <h1 className="font-bold text-xl">Your listed vans</h1>
                     <button className="hover:underline text-gray-600 cursor-pointer underline-offset-2">View all</button>
                 </div>
-                <div className="h-screen flex flex-col gap-5  py-2 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] ">
+                <div className=" flex flex-col gap-5  py-2 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] ">
                     {data.map(el=>
                     <article className="flex justify-between rounded-md hover:shadow-xl items-center pr-3 mx-4 bg-white">
                         <div className="flex gap-3">
