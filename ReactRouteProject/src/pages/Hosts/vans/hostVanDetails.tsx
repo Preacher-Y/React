@@ -41,12 +41,13 @@ function HostVansDetails({data}:{data:VanType}){
                             </div>
                         </article>
                     </div>
-                    
+
                     <nav className="flex gap-6 my-4">
                         <NavLink to="" end className={({isActive})=>clsx(normal,isActive&&active)}>Details</NavLink>
                         <NavLink to="pricing" className={({isActive})=>clsx(normal,isActive&&active)}>Pricing</NavLink>
                         <NavLink to="photos" className={({isActive})=>clsx(normal,isActive&&active)}>Photos</NavLink>
                     </nav>
+                    
                     <main>
                         <Outlet context={{van:el}}/>
                     </main>
