@@ -34,7 +34,7 @@ function Header() {
             </li>
 
             <li id='user' aria-label='user' className='flex'>
-              <NavLink to="/user" className="icon-[solar--user-circle-outline] text-xl text-gray-600 hover:text-gray-900 hover:scale-110 transition-all duration-300"/>
+              <NavLink to="/SignIn" className="icon-[solar--user-circle-outline] text-xl text-gray-600 hover:text-gray-900 hover:scale-110 transition-all duration-300"/>
             </li>
 
           </ul>
