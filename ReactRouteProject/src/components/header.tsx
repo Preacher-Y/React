@@ -10,28 +10,41 @@ function Header() {
 
   return (
     <header className="bg-gray-50 py-4 text-center text-lg shadow-[0px_1px_0px_gray]/30 font-semibold text-gray-800">
+
       <div className='flex items-center justify-between gap-14 max-w-6xl mx-auto px-6'>
+
         <Link to="/" className="text-blue-600 hover:text-blue-800">
           <img src={Logo} alt="Van Logo" className="mx-auto w-28" />
         </Link>
+
         <nav>
+
           <ul className="flex justify-center items-center space-x-6">
+
             <li id='host'>
               <NavLink to="/host" className={({isActive})=>clsx(normal,isActive&&active)}>Host</NavLink>
             </li>
+
             <li id='about' aria-label='about'>
               <NavLink to="/about" className={({isActive})=>clsx(normal,isActive&&active)}>About</NavLink>
             </li>
+
             <li id='vans' aria-label='van'>
               <NavLink to="/vans" className={({isActive})=>clsx(normal,isActive&&active)}>Vans</NavLink>
             </li>
+
             <li id='user' aria-label='user' className='flex'>
               <NavLink to="/user" className="icon-[solar--user-circle-outline] text-xl text-gray-600 hover:text-gray-900 hover:scale-110 transition-all duration-300"/>
             </li>
+
           </ul>
+
         </nav>
+
       </div>
+
     </header>
+    
   );
 }
 
