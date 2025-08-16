@@ -18,6 +18,7 @@ import HostVanDetails from './pages/Hosts/vans/hostVanDetails';
 import Details from './pages/Hosts/vans/details';
 import Pricing from './pages/Hosts/vans/pricing';
 import Pic from './pages/Hosts/vans/pic';
+import Login from './pages/login';
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans data={data}/>} />
             <Route path="vans/:name" element={<DetailsVan data={data}/>} />
+            <Route path="user" element={<Login/>}/>
             
             <Route path="host" element={<LayoutHost/>} >
               <Route index element={<Dashboard data={data}/>}/>
