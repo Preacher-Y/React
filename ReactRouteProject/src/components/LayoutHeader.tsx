@@ -9,7 +9,7 @@ function Layout(){
         <>
             <Header/>
 
-            <main className="h-screen">
+            <main className="md:h-screen lg:h-full">
                 <Outlet/>
             </main>
 
