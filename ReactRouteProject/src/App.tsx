@@ -57,6 +57,7 @@ function App() {
             <Route path="vans" element={<Vans data={data}/>} />
             <Route path="vans/:name" element={<DetailsVan data={data}/>} />
             <Route path="SignIn" element={<Login/>}/>
+            <Route path="SignUp" element={<Login/>}/>
             
             <Route path="host" element={<LayoutHost/>} >
               <Route index element={<Dashboard data={data}/>}/>
