@@ -11,12 +11,14 @@ function HostVansDetails({data}:{data:VanType}){
 
     return(
         <div className="px-6 mt-8 mb-16">
+
             <Link to="/host/vans" className="text-black/60 text-sm flex items-center gap-1 underline underline-offset-2 ">
                 <span className="icon-[material-symbols--arrow-left-alt]"/>
                 Back to vans
             </Link>
 
             <div className="flex flex-col px-2">
+
                 {data.map(el=> el.name.split(' ').join('')===name.name &&(
                 <>
                     <div className="my-4">
@@ -39,6 +41,7 @@ function HostVansDetails({data}:{data:VanType}){
                             </div>
                         </article>
                     </div>
+                    
                     <nav className="flex gap-6 my-4">
                         <NavLink to="" end className={({isActive})=>clsx(normal,isActive&&active)}>Details</NavLink>
                         <NavLink to="pricing" className={({isActive})=>clsx(normal,isActive&&active)}>Pricing</NavLink>
