@@ -19,6 +19,7 @@ import Details from './pages/Hosts/vans/details';
 import Pricing from './pages/Hosts/vans/pricing';
 import Pic from './pages/Hosts/vans/pic';
 import Login from './pages/login';
+import SignUp from './pages/signUp';
 
 
 function App() {
@@ -57,7 +58,7 @@ function App() {
             <Route path="vans" element={<Vans data={data}/>} />
             <Route path="vans/:name" element={<DetailsVan data={data}/>} />
             <Route path="SignIn" element={<Login/>}/>
-            <Route path="SignUp" element={<Login/>}/>
+            <Route path="SignUp" element={<SignUp/>}/>
             
             <Route path="host" element={<LayoutHost/>} >
               <Route index element={<Dashboard data={data}/>}/>
