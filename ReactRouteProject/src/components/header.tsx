@@ -15,7 +15,7 @@ function Header() {
           <img src={Logo} alt="Van Logo" className="mx-auto w-28" />
         </Link>
         <nav>
-          <ul className="flex justify-center space-x-6">
+          <ul className="flex justify-center items-center space-x-6">
             <li id='host'>
               <NavLink to="/host" className={({isActive})=>clsx(normal,isActive&&active)}>Host</NavLink>
             </li>
@@ -24,6 +24,9 @@ function Header() {
             </li>
             <li id='vans' aria-label='van'>
               <NavLink to="/vans" className={({isActive})=>clsx(normal,isActive&&active)}>Vans</NavLink>
+            </li>
+            <li id='user' aria-label='user' className='flex'>
+              <NavLink to="/user" className="icon-[solar--user-circle-outline] text-xl text-gray-600 hover:text-gray-900 hover:scale-110 transition-all duration-300"/>
             </li>
           </ul>
         </nav>
