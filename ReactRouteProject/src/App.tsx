@@ -29,6 +29,7 @@ function App() {
     return cached ? (JSON.parse(cached)as VanType):[]
   })
 
+
   useEffect(()=>{
         if(data.length>0) return;
 
@@ -57,7 +58,7 @@ function App() {
 
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
-            <Route path="vans" element={<Vans data={data}/>} />
+            <Route path="vans" element={<Vans data={data} />} />
             <Route path="vans/:name" element={<DetailsVan data={data}/>} />
             <Route path="SignIn" element={<Login/>}/>
             <Route path="SignUp" element={<SignUp/>}/>
