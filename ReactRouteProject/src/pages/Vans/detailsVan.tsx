@@ -5,7 +5,7 @@ import type { VanType } from "../../type";
 
 function VanDetails({data}:{data:VanType}){
 
-    const name = useParams()
+    const {name} = useParams()
 
     return(
         <div className="max-sm:px-32 h-full px-6 my-8 mb-18 grid gap-4">
@@ -14,7 +14,7 @@ function VanDetails({data}:{data:VanType}){
                 Back to vans
             </Link>
             
-            {data.map(el=>el.name.split(' ').join('')==name.name? 
+            {data.map(el=>el.name.split(' ').join('')==name&& 
                 (<div key={el.id} className="grid space-y-4">
                     <img src={el.imageUrl} alt={el.name} className="w-full h-110"/>
                     <span
@@ -33,7 +33,7 @@ function VanDetails({data}:{data:VanType}){
                     <button className="bg-amber-500 rounded-md text-white py-2 font-semibold">
                         Rent this van
                     </button>
-                </div>):'')
+                </div>))
             }
         </div>
     )
