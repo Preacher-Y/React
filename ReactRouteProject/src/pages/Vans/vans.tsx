@@ -1,5 +1,6 @@
 import { memo, useState } from "react"
 import { Link, useSearchParams } from "react-router-dom";
+import clsx from "clsx";
 import type { VanType } from "../../type";
 
 
@@ -16,13 +17,22 @@ function Vans({data}:{data:VanType}){
         <div className="grid gap-4 px-6 mt-8">
             <h1 className=" text-2xl font-bold">Explore our van options</h1>
             <div className="flex items-center justify-between transition-all duration-400 ease-in-out">
-                <button onClick={()=>{setSearchType({type:'Simple'});setShow(true)}} className="bg-[#FFEAD0] hover:bg-[#E17654] hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
+                <button onClick={()=>{setSearchType({type:'Simple'});setShow(true)}} className={clsx("px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out",{
+                    "bg-[#FFEAD0] hover:bg-[#E17654] hover:text-white":typeFilter!=='Simple',
+                    "bg-[#E17654] text-white": typeFilter==='Simple'
+                })}>
                     Simple
                 </button>
-                <button onClick={()=>{setSearchType({type:'Luxury'});setShow(true)}} className="bg-[#FFEAD0] hover:bg-black hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
+                <button onClick={()=>{setSearchType({type:'Luxury'});setShow(true)}} className={clsx("px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out",{
+                    "bg-[#FFEAD0] hover:bg-black hover:text-white ":typeFilter!=='Luxury',
+                    "bg-black text-white":typeFilter==='Luxury'
+                })}>
                     Luxury
                 </button>
-                <button onClick={()=>{setSearchType({type:'Rugged'}); setShow(true)}} className="bg-[#FFEAD0] hover:bg-emerald-800 hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
+                <button onClick={()=>{setSearchType({type:'Rugged'}); setShow(true)}} className={clsx("px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out",{
+                    "bg-[#FFEAD0] hover:bg-emerald-800 hover:text-white ":typeFilter!=='Rugged',
+                    "bg-emerald-800 text-white ":typeFilter==='Rugged'
+                })}>
                     Rugged
                 </button>
                 {show && (<button onClick={()=>{setSearchType({}); setShow(false)}} className="text-gray-700 text-sm ml-2 underline underline-offset-2 hover:text-red-700 transition-all duration-400 ease-in-out">
