@@ -13,6 +13,7 @@ function Vans({data}:{data:VanType}){
     const displayedData = typeFilter? data.filter(el=> el.type === typeFilter) :data
 
     return(
+        
         <div className="grid gap-4 px-6 mt-8">
             <h1 className=" text-2xl font-bold">Explore our van options</h1>
             <div className="flex items-center justify-between transition-all duration-400 ease-in-out">
@@ -38,7 +39,15 @@ function Vans({data}:{data:VanType}){
                     Clear filters
                 </button>)}
             </div>
-            <div className="grid grid-cols-2 gap-4 mt-4 mb-12 transition-all duration-400 ease-in-out">
+
+            { data.length==0?
+
+            (<div className="grid place-items-center text-center h-64">
+                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
+                 <p className="animate-pulse -mt-24">Loading ...</p>
+            </div>):
+            
+            (<div className="grid grid-cols-2 gap-4 mt-4 mb-12 transition-all duration-400 ease-in-out">
                 {displayedData.map(el=>(
                     <Link to={`${el.name.split(' ').join('')}`} {...(typeFilter === null ? {} : { state: { search: searchType.toString() } })} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
                         <img src={el.imageUrl} alt={el.name} className="h-40 w-full object-cover" />
@@ -55,9 +64,7 @@ function Vans({data}:{data:VanType}){
                                         ]
                                         .filter(Boolean)
                                         .join(" ")}
-                                    >
-                                        {el.type}
-                                    </span>
+                                    >{el.type}</span>
                                 </div>
                                 <p className="text-right grid -space-y-1">
                                     <span className="font-bold">${el.price}</span>
@@ -67,7 +74,7 @@ function Vans({data}:{data:VanType}){
                         </div>
                     </Link>
                 ))}
-            </div>
+            </div>)}
         </div>
     )
 }
