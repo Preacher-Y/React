@@ -11,7 +11,7 @@ function VanDetails({data}:{data:VanType}){
 
     return(
         <div className="max-sm:px-32 h-full px-6 my-8 mb-18 grid gap-4">
-            <Link to={`..${search==''?`?${state.search}`:`${search}&${state.search}`}`} relative="path" className="text-black/60 text-sm flex items-center gap-1 underline underline-offset-2 ">
+            <Link to={`..${search==''?`?${state?.search|| ''}`:`${search}&${state.search}`}`} relative="path" className="text-black/60 text-sm flex items-center gap-1 underline underline-offset-2 ">
                 <span className="icon-[material-symbols--arrow-left-alt]"/>
                 Back to vans
             </Link>
