@@ -11,7 +11,7 @@ function LayoutHost(){
     return(
         <>
             <nav className="flex px-6 gap-6 my-8">
-                <NavLink to="" end className={({isActive})=>clsx(normal,isActive&&active)}>Dashboard</NavLink>
+                <NavLink to="." end className={({isActive})=>clsx(normal,isActive&&active)}>Dashboard</NavLink>
                 <NavLink to="income" className={({isActive})=>clsx(normal,isActive&&active)}>Income</NavLink>
                 <NavLink to="vans" className={({isActive})=>clsx(normal,isActive&&active)}>Vans</NavLink>
                 <NavLink to="reviews" className={({isActive})=>clsx(normal,isActive&&active)}>Reviews</NavLink>
