@@ -1,4 +1,5 @@
 import Home from './pages/home';
+import Error from './pages/404Error';
 import Vans from './pages/Vans/vans';
 import VansHost from './pages/Hosts/vans';
 import About from './pages/about';
@@ -52,6 +53,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LayoutHeader/>}>
+            <Route path='*' element={<Error/>}/>
 
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
