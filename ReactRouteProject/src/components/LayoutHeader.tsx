@@ -4,17 +4,18 @@ import Footer from "./footer"
 import { memo } from "react"
 import { Outlet } from "react-router-dom"
 
-function Layout(){
+function Layout() {
     return (
-        <>
-            <Header/>
+        <div className="flex flex-col min-h-screen">
 
-            <main className="md:h-screen lg:h-full">
-                <Outlet/>
+            <Header />
+
+            <main className="flex-grow">
+                <Outlet />
             </main>
 
-            <Footer/>
-        </>
+            <Footer />
+        </div>
     )
 }
 
