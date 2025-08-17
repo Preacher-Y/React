@@ -1,4 +1,4 @@
-import { memo } from "react"
+import { memo, useState } from "react"
 import { Link, useSearchParams } from "react-router-dom";
 import type { VanType } from "../../type";
 
@@ -6,6 +6,7 @@ import type { VanType } from "../../type";
 function Vans({data}:{data:VanType}){
 
     const [searchType, setSearchType] = useSearchParams()
+    const [show,setShow] = useState(false)
 
     const typeFilter = searchType.get("type")
 
@@ -14,21 +15,21 @@ function Vans({data}:{data:VanType}){
     return(
         <div className="grid gap-4 px-6 mt-8">
             <h1 className=" text-2xl font-bold">Explore our van options</h1>
-            <div className="flex items-center justify-between">
-                <button onClick={()=>setSearchType({type:'Simple'})} className="bg-[#FFEAD0] hover:bg-[#E17654] hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
+            <div className="flex items-center justify-between transition-all duration-400 ease-in-out">
+                <button onClick={()=>{setSearchType({type:'Simple'});setShow(true)}} className="bg-[#FFEAD0] hover:bg-[#E17654] hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
                     Simple
                 </button>
-                <button onClick={()=>setSearchType({type:'Luxury'})} className="bg-[#FFEAD0] hover:bg-black hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
+                <button onClick={()=>{setSearchType({type:'Luxury'});setShow(true)}} className="bg-[#FFEAD0] hover:bg-black hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
                     Luxury
                 </button>
-                <button onClick={()=>setSearchType({type:'Rugged'})} className="bg-[#FFEAD0] hover:bg-emerald-800 hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
+                <button onClick={()=>{setSearchType({type:'Rugged'}); setShow(true)}} className="bg-[#FFEAD0] hover:bg-emerald-800 hover:text-white px-4 py-1 font-semibold text-sm rounded-sm transition-all duration-400 ease-in-out">
                     Rugged
                 </button>
-                <button onClick={()=>setSearchType({})} className="text-gray-700 text-sm ml-2 underline underline-offset-2 hover:text-red-700">
+                {show && (<button onClick={()=>{setSearchType({}); setShow(false)}} className="text-gray-700 text-sm ml-2 underline underline-offset-2 hover:text-red-700 transition-all duration-400 ease-in-out">
                     Clear filters
-                </button>
+                </button>)}
             </div>
-            <div className="grid grid-cols-2 gap-4 mt-4 mb-12">
+            <div className="grid grid-cols-2 gap-4 mt-4 mb-12 transition-all duration-400 ease-in-out">
                 {displayedData.map(el=>(
                     <Link to={`${el.name.split(' ').join('')}`} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
                         <img src={el.imageUrl} alt={el.name} className="h-40 w-full object-cover" />
