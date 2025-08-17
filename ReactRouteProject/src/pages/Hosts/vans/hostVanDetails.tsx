@@ -5,7 +5,7 @@ import clsx from "clsx"
 
 function HostVansDetails({data}:{data:VanType}){
 
-    const name= useParams()
+    const {name}= useParams()
     const normal = "text-gray-600 underline-offset-3 font-semibold text-sm hover:text-gray-950 hover:underline"
     const active = "text-gray-950 underline"
 
@@ -19,7 +19,7 @@ function HostVansDetails({data}:{data:VanType}){
 
             <div className="flex flex-col px-2">
 
-                {data.map(el=> el.name.split(' ').join('')===name.name &&(
+                {data.map(el=> el.name.split(' ').join('')===name &&(
                 <>
                     <div className="my-4">
                         <article className="flex items-center gap-5">
