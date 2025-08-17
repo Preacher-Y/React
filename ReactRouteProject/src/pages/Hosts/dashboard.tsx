@@ -4,6 +4,14 @@ import { Link } from "react-router-dom"
 
 function Dashboard({data}:{data:VanType}){
     return(
+        <>
+        
+        {data.length==0?
+        (<div className="grid place-items-center text-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
+            <p className="animate-pulse -mt-24">Loading ...</p>
+        </div>):
+        (
         <div className="mb-16 h-full">
             <div className="bg-[#FFEAD0] grid items-center gap-4 px-6 py-4">
                 <h1 className="font-bold text-3xl">Welcome!</h1>
@@ -46,7 +54,8 @@ function Dashboard({data}:{data:VanType}){
                     </Link>)}
                 </div>
             </div>
-        </div>
+        </div>)}
+        </>
     )
 }
 
