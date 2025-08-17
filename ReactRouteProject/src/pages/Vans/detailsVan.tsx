@@ -17,7 +17,7 @@ function VanDetails({data}:{data:VanType}){
                 <>
                     <Link to={`..${search==''?`?${state?.search|| ''}`:`${search}&${state.search}`}`} relative="path" className="text-black/60 text-sm flex items-center gap-1 underline underline-offset-2 ">
                         <span className="icon-[material-symbols--arrow-left-alt]"/>
-                        Back to {state.search? el.type:'all'} vans
+                        Back to {state?.search? el.type:'all'} vans
                     </Link>
                     <div key={el.id} className="grid space-y-4">
                         <img src={el.imageUrl} alt={el.name} className="w-full h-110"/>
