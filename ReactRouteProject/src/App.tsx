@@ -10,7 +10,7 @@ import Income from './pages/Hosts/income';
 
 import type { VanType } from './type';
 
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import "./server"
 import LayoutHeader from './components/LayoutHeader';
@@ -49,11 +49,8 @@ function App() {
         return ()=>abort.abort()
     },[data.length])
 
-  return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LayoutHeader/>}>
+    const router = createBrowserRouter(createRoutesFromElements(
+      <Route path="/" element={<LayoutHeader/>}>
             <Route path='*' element={<Error/>}/>
 
             <Route index element={<Home />} />
@@ -77,8 +74,11 @@ function App() {
             </Route>
 
           </Route>
-        </Routes>
-      </BrowserRouter>
+    ))
+
+  return (
+    <>
+      <RouterProvider router={router}/>
     </>
   );
 }
