@@ -21,7 +21,7 @@ function HostVansDetails(){
             <div className="flex flex-col px-2">
 
                 {data.map(el=> el.name.split(' ').join('')===name &&(
-                <>
+                <div key={el.id}>
                     <div className="my-4">
                         <article className="flex items-center gap-5">
                             <img src={el.imageUrl} alt={el.name} className="h-46 "/>
@@ -52,7 +52,7 @@ function HostVansDetails(){
                     <main>
                         <Outlet context={{van:el}}/>
                     </main>
-                </>
+                </div>
                 ))}
             </div>
 
