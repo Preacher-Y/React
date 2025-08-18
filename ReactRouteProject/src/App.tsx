@@ -49,7 +49,7 @@ function Loader(){
 function App() {
 
     const router = createBrowserRouter(createRoutesFromElements(
-      <Route path="/" element={<LayoutHeader/>} errorElement={<FetchErrors/>} loader={Loader}>
+      <Route path="/" element={<LayoutHeader/>} errorElement={<FetchErrors/>}>
             <Route path='*' element={<Error/>}/>
 
             <Route index element={<Home />} />
