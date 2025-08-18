@@ -27,7 +27,9 @@ import FetchErrors from './components/Error'
 function Loader(){
   return (
     async () => {
+
       const response = await fetch('/api/vans')
+
       if (!response.ok) {
         throw new FetchError(
           "Failed to fetch the Vans. Try Refreshing or call the management",
@@ -38,7 +40,9 @@ function Loader(){
 
       const json = (await response.json()) as {vans:VanType}
       return json.vans
-  })() 
+
+  })()
+  
 }
 
 
