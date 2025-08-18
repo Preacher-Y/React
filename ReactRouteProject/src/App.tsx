@@ -7,6 +7,12 @@ import DetailsVan from './pages/Vans/detailsVan';
 import Dashboard from './pages/Hosts/dashboard';
 import Reviews from './pages/Hosts/reviews';
 import Income from './pages/Hosts/income';
+import HostVanDetails from './pages/Hosts/vans/hostVanDetails';
+import Details from './pages/Hosts/vans/details';
+import Pricing from './pages/Hosts/vans/pricing';
+import Pic from './pages/Hosts/vans/pic';
+import Login from './pages/login';
+import SignUp from './pages/signUp';
 
 import type { VanType } from './type';
 
@@ -14,12 +20,6 @@ import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route } f
 import "./server"
 import LayoutHeader from './components/LayoutHeader';
 import LayoutHost from './components/LayoutHost';
-import HostVanDetails from './pages/Hosts/vans/hostVanDetails';
-import Details from './pages/Hosts/vans/details';
-import Pricing from './pages/Hosts/vans/pricing';
-import Pic from './pages/Hosts/vans/pic';
-import Login from './pages/login';
-import SignUp from './pages/signUp';
 
 
 function Loader(){
