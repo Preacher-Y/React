@@ -42,13 +42,6 @@ function Vans(){
                 </button>)}
             </div>
 
-            { data.length==0?
-
-            (<div className="grid place-items-center text-center h-64">
-                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
-                 <p className="animate-pulse -mt-24">Loading ...</p>
-            </div>):
-            
             (<div className="grid grid-cols-2 gap-4 mt-4 mb-12 transition-all duration-400 ease-in-out">
                 {displayedData.map(el=>(
                     <Link to={`${el.name.split(' ').join('')}`} {...(typeFilter === null ? {} : { state: { search: searchType.toString() } })} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
@@ -76,7 +69,7 @@ function Vans(){
                         </div>
                     </Link>
                 ))}
-            </div>)}
+            </div>)
         </div>
     )
 }

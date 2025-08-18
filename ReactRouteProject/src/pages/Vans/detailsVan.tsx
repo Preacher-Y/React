@@ -13,14 +13,7 @@ function VanDetails(){
 
     return(
         <div className="max-sm:px-32 h-full px-6 my-8 mb-18 grid gap-4">
-            
-            {data.length==0?
-
-            (<div className="grid place-items-center text-center h-64">
-                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto"></div>
-                 <p className="animate-pulse -mt-24">Loading ...</p>
-            </div>):
-            (<>{data.map(el=>el.name.split(' ').join('')==name&& 
+           <>{data.map(el=>el.name.split(' ').join('')==name&& 
                 (
                 <>
                     <Link to={`..${search==''?`?${state?.search|| ''}`:`${search}&${state.search}`}`} relative="path" className="text-black/60 text-sm flex items-center gap-1 underline underline-offset-2 ">
@@ -46,7 +39,7 @@ function VanDetails(){
                     </div>
                 </>
                 ))
-            }</>)}
+            }</>
         </div>
     )
 }
