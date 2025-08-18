@@ -1,13 +1,15 @@
 import { memo } from "react";
-import { Link,useParams,useLocation } from "react-router-dom";
+import { Link,useParams,useLocation,useLoaderData } from "react-router-dom";
 
 import type { VanType } from "../../type";
 import clsx from "clsx";
 
-function VanDetails({data}:{data:VanType}){
+function VanDetails(){
 
     const {name} = useParams()
     const {state,search} = useLocation()
+
+    const data:VanType = useLoaderData()
 
     return(
         <div className="max-sm:px-32 h-full px-6 my-8 mb-18 grid gap-4">
