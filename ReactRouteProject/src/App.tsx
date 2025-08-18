@@ -11,7 +11,6 @@ import Income from './pages/Hosts/income';
 import type { VanType } from './type';
 
 import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route } from 'react-router-dom';
-// import { useState, useEffect } from 'react';
 import "./server"
 import LayoutHeader from './components/LayoutHeader';
 import LayoutHost from './components/LayoutHost';
@@ -21,6 +20,7 @@ import Pricing from './pages/Hosts/vans/pricing';
 import Pic from './pages/Hosts/vans/pic';
 import Login from './pages/login';
 import SignUp from './pages/signUp';
+
 
 function Loader(){
   return (
@@ -38,31 +38,8 @@ function Loader(){
   })() 
 }
 
+
 function App() {
-  // const [data, setData]=useState<VanType>(()=>{
-  //   const cached = localStorage.getItem("VansData");
-  //   return cached ? (JSON.parse(cached)as VanType):[]
-  // })
-
-
-  // useEffect(()=>{
-  //       if(data.length>0) return;
-
-  //       const abort = new AbortController();
-  //       (async () => {
-  //           try {
-                
-  //               setData(json.vans)
-  //               localStorage.setItem("VansData",JSON.stringify(json.vans))
-                
-  //           } catch (error) {
-  //               console.log(error);   
-  //           }
-
-  //       })()
-  //       return ()=>abort.abort()
-  //   },[data.length])
-
 
     const router = createBrowserRouter(createRoutesFromElements(
       <Route path="/" element={<LayoutHeader/>} loader={Loader}>
