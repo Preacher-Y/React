@@ -42,7 +42,7 @@ function Vans(){
                 </button>)}
             </div>
 
-            (<div className="grid grid-cols-2 gap-4 mt-4 mb-12 transition-all duration-400 ease-in-out">
+            <div className="grid grid-cols-2 gap-4 mt-4 mb-12 transition-all duration-400 ease-in-out">
                 {displayedData.map(el=>(
                     <Link to={`${el.name.split(' ').join('')}`} {...(typeFilter === null ? {} : { state: { search: searchType.toString() } })} key={el.id} className="rounded-lg hover:shadow-xl bg-white overflow-hidden">
                         <img src={el.imageUrl} alt={el.name} className="h-40 w-full object-cover" />
@@ -69,7 +69,7 @@ function Vans(){
                         </div>
                     </Link>
                 ))}
-            </div>)
+            </div>
         </div>
     )
 }
