@@ -15,24 +15,27 @@ import Login from './pages/login';
 import SignUp from './pages/signUp';
 
 import type { VanType } from './type';
+import { FetchError } from './type';
 
 import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route } from 'react-router-dom';
 import "./server"
 import LayoutHeader from './components/LayoutHeader';
 import LayoutHost from './components/LayoutHost';
+import FetchErrors from './components/Error'
 
 
 function Loader(){
   return (
     async () => {
       const response = await fetch('/api/vans')
-      if(!response.ok){
-        throw {
-          message: "Failed to fetch the Vans. Try Refreshing or call the management",
-          statusText: response.statusText,
-          status: response.status
-        }
+      if (!response.ok) {
+        throw new FetchError(
+          "Failed to fetch the Vans. Try Refreshing or call the management",
+          response.status,
+          response.statusText
+        );
       }
+
       const json = (await response.json()) as {vans:VanType}
       return json.vans
   })() 
@@ -42,23 +45,23 @@ function Loader(){
 function App() {
 
     const router = createBrowserRouter(createRoutesFromElements(
-      <Route path="/" element={<LayoutHeader/>} loader={Loader}>
+      <Route path="/" element={<LayoutHeader/>} errorElement={<FetchErrors/>} loader={Loader}>
             <Route path='*' element={<Error/>}/>
 
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans />}loader={Loader} />
-            <Route path="vans/:name" element={<DetailsVan/>} loader={Loader} />
+            <Route path="vans/:name" element={<DetailsVan/>} errorElement={<FetchErrors/>} loader={Loader} />
             <Route path="SignIn" element={<Login/>}/>
             <Route path="SignUp" element={<SignUp/>}/>
             
             <Route path="host" element={<LayoutHost/>} >
-              <Route index element={<Dashboard/>} loader={Loader}/>
+              <Route index element={<Dashboard/>} errorElement={<FetchErrors/>} loader={Loader}/>
               <Route path="reviews" element={<Reviews/>} />
               <Route path="income" element={<Income/>} />
-              <Route path="vans" element={<VansHost/>} loader={Loader} />
+              <Route path="vans" element={<VansHost/>} errorElement={<FetchErrors/>} loader={Loader} />
 
-              <Route path="vans/:name" element={<HostVanDetails/>} loader={Loader}>
+              <Route path="vans/:name" element={<HostVanDetails/>} errorElement={<FetchErrors/>} loader={Loader}>
                 <Route index element={<Details/>}/>
                 <Route path="pricing" element={<Pricing/>}/>
                 <Route path="Photos" element={<Pic/>}/>
