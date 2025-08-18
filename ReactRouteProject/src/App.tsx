@@ -11,7 +11,7 @@ import Income from './pages/Hosts/income';
 import type { VanType } from './type';
 
 import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import "./server"
 import LayoutHeader from './components/LayoutHeader';
 import LayoutHost from './components/LayoutHost';
@@ -22,51 +22,66 @@ import Pic from './pages/Hosts/vans/pic';
 import Login from './pages/login';
 import SignUp from './pages/signUp';
 
+function Loader(){
+  return (
+    async () => {
+      const response = await fetch('/api/vans')
+      if(!response.ok){
+        throw {
+          message: "Failed to fetch the Vans. Try Refreshing or call the management",
+          statusText: response.statusText,
+          status: response.status
+        }
+      }
+      const json = (await response.json()) as {vans:VanType}
+      return json.vans
+  })() 
+}
 
 function App() {
-  const [data, setData]=useState<VanType>(()=>{
-    const cached = localStorage.getItem("VansData");
-    return cached ? (JSON.parse(cached)as VanType):[]
-  })
+  // const [data, setData]=useState<VanType>(()=>{
+  //   const cached = localStorage.getItem("VansData");
+  //   return cached ? (JSON.parse(cached)as VanType):[]
+  // })
 
 
-  useEffect(()=>{
-        if(data.length>0) return;
+  // useEffect(()=>{
+  //       if(data.length>0) return;
 
-        const abort = new AbortController();
-        (async () => {
-            try {
-                const response = await fetch('/api/vans',{signal:abort.signal})
-                const json = (await response.json()) as {vans:VanType}
-                setData(json.vans)
-                localStorage.setItem("VansData",JSON.stringify(json.vans))
+  //       const abort = new AbortController();
+  //       (async () => {
+  //           try {
                 
-            } catch (error) {
-                console.log(error);   
-            }
+  //               setData(json.vans)
+  //               localStorage.setItem("VansData",JSON.stringify(json.vans))
+                
+  //           } catch (error) {
+  //               console.log(error);   
+  //           }
 
-        })()
-        return ()=>abort.abort()
-    },[data.length])
+  //       })()
+  //       return ()=>abort.abort()
+  //   },[data.length])
+
 
     const router = createBrowserRouter(createRoutesFromElements(
-      <Route path="/" element={<LayoutHeader/>}>
+      <Route path="/" element={<LayoutHeader/>} loader={Loader}>
             <Route path='*' element={<Error/>}/>
 
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
-            <Route path="vans" element={<Vans data={data} />} />
-            <Route path="vans/:name" element={<DetailsVan data={data}/>} />
+            <Route path="vans" element={<Vans />}loader={Loader} />
+            <Route path="vans/:name" element={<DetailsVan/>} loader={Loader} />
             <Route path="SignIn" element={<Login/>}/>
             <Route path="SignUp" element={<SignUp/>}/>
             
             <Route path="host" element={<LayoutHost/>} >
-              <Route index element={<Dashboard data={data}/>}/>
+              <Route index element={<Dashboard/>} loader={Loader}/>
               <Route path="reviews" element={<Reviews/>} />
               <Route path="income" element={<Income/>} />
-              <Route path="vans" element={<VansHost data={data}/>} />
+              <Route path="vans" element={<VansHost/>} loader={Loader} />
 
-              <Route path="vans/:name" element={<HostVanDetails data={data}/>}>
+              <Route path="vans/:name" element={<HostVanDetails/>} loader={Loader}>
                 <Route index element={<Details/>}/>
                 <Route path="pricing" element={<Pricing/>}/>
                 <Route path="Photos" element={<Pic/>}/>
