@@ -1,8 +1,11 @@
 import { memo } from "react"
 import type { VanType } from "../../type"
-import { Link } from "react-router-dom"
+import { Link,useLoaderData } from "react-router-dom"
 
-function Dashboard({data}:{data:VanType}){
+function Dashboard(){
+    
+    const data:VanType = useLoaderData()
+
     return(
         <>
         
@@ -16,7 +19,7 @@ function Dashboard({data}:{data:VanType}){
             <div className="bg-[#FFEAD0] grid items-center gap-4 px-6 py-4">
                 <h1 className="font-bold text-3xl">Welcome!</h1>
                 <h1 className="flex justify-between text-gray-600">
-                    <h2 className="">Income last <span className="font-bold cursor-pointer text-gray-950 underline underline-offset-3">30 days</span></h2>
+                    <p className="">Income last <span className="font-bold cursor-pointer text-gray-950 underline underline-offset-3">30 days</span></p>
                     <Link to="income" className="hover:underline underline-offset-2 cursor-pointer">Details</Link>
                 </h1>
                 <h1 className="font-extrabold text-4xl">{`$${(2260).toLocaleString()}`}</h1>
@@ -27,10 +30,10 @@ function Dashboard({data}:{data:VanType}){
                     <h1 className="font-bold text-lg">Review score</h1>
                     <p className="flex items-center gap-1">
                         <span className="text-orange-500 text-xl">★</span>
-                        <p className="text-gray-600 text-sm flex mt-1 items-center">
+                        <span className="text-gray-600 text-sm flex mt-1 items-center">
                             <span className="font-semibold text-base text-gray-950">5.0</span>
                             /5
-                        </p>
+                        </span>
                     </p>
                 </div>
                 <Link to='reviews' className="hover:underline text-gray-600 cursor-pointer underline-offset-2">Details</Link>
@@ -42,7 +45,7 @@ function Dashboard({data}:{data:VanType}){
                 </div>
                 <div className=" flex flex-col gap-5  py-2 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] ">
                     {data.map(el=>
-                    <Link to={`vans/${el.name.split(' ').join('')}`} className="flex justify-between rounded-md hover:shadow-xl items-center pr-3 mx-4 bg-white">
+                    <Link to={`vans/${el.name.split(' ').join('')}`} key={el.id} className="flex justify-between rounded-md hover:shadow-xl items-center pr-3 mx-4 bg-white">
                         <div className="flex gap-3">
                             <img src={el.imageUrl} alt="" className="w-20 h-20 rounded-md "/>
                             <div className="grid py-2">
