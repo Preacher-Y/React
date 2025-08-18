@@ -1,8 +1,11 @@
 import { memo } from "react"
-import { Link } from "react-router-dom"
+import { Link,useLoaderData } from "react-router-dom"
 import type { VanType } from "../../type"
 
-function Vans({data}:{data:VanType}){
+function Vans(){
+
+    const data:VanType = useLoaderData()
+
     return(
         <div className="px-6 max-md:h-[76.5vh] mt-8 mb-16">
            {data.length==0?(<div className="grid place-items-center text-center h-64">
