@@ -1,14 +1,16 @@
 import { memo } from "react"
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams,useLoaderData } from "react-router-dom";
 import clsx from "clsx";
 import type { VanType } from "../../type";
 
 
-function Vans({data}:{data:VanType}){
+function Vans(){
 
     const [searchType, setSearchType] = useSearchParams()
 
     const typeFilter = searchType.get("type")
+    
+    const data:VanType = useLoaderData()
 
     const displayedData = typeFilter? data.filter(el=> el.type === typeFilter) :data
 
