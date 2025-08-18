@@ -1,11 +1,12 @@
 import { memo } from "react"
-import { Link,NavLink,Outlet,useParams } from "react-router-dom"
+import { Link,NavLink,Outlet,useParams,useLoaderData } from "react-router-dom"
 import type { VanType } from "../../../type"
 import clsx from "clsx"
 
-function HostVansDetails({data}:{data:VanType}){
+function HostVansDetails(){
 
     const {name}= useParams()
+    const data:VanType = useLoaderData()
     const normal = "text-gray-600 underline-offset-3 font-semibold text-sm hover:text-gray-950 hover:underline"
     const active = "text-gray-950 underline"
 
