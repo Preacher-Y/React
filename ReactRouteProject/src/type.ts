@@ -5,6 +5,7 @@ export type VanType = {
   price: number;
   imageUrl: string;
   type: "Simple" | "Luxury" | "Rugged";
+  hostId:string
 }[];
 
  export class FetchError extends Error {
