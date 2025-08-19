@@ -8,7 +8,7 @@ export type VanType = {
   hostId:string
 }[];
 
- export class FetchError extends Error {
+export class FetchError extends Error {
   status: number;
   statusText: string;
 
