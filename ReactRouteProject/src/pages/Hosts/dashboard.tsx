@@ -1,6 +1,7 @@
 import { memo } from "react"
-import type { VanType } from "../../type"
 import { Link,useLoaderData } from "react-router-dom"
+
+import type { VanType } from "../../type"
 
 function Dashboard(){
     
