@@ -30,7 +30,7 @@ function Login(){
 
 
     return(
-        
+
         <section className="h-full px-6 grid w-full text-center mt-14 mb-16">
             <ToastContainer autoClose={2000} position="top-center"/>
             <h1 className="font-bold text-2xl">Sign in to your account</h1>
@@ -41,6 +41,7 @@ function Login(){
             </form>
             <Link to='/SignUp' className='cursor-pointer text-sm mt-4'>Don’t have an account? <span className="text-[#FF8C38] hover:text-[#d23a10]">Create one now</span></Link>
         </section>
+        
     )
 }
 
