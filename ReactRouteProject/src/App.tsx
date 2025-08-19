@@ -17,11 +17,12 @@ import SignUp from './pages/signUp';
 import type { VanType } from './type';
 import { FetchError } from './type';
 
-import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route, useNavigate } from 'react-router-dom';
 import "./server"
 import LayoutHeader from './components/LayoutHeader';
 import LayoutHost from './components/LayoutHost';
 import FetchErrors from './components/Error'
+import React from 'react';
 
 
 function Loader(){
@@ -45,6 +46,24 @@ function Loader(){
 
 }
 
+function ProtectedRoute({ children }:{children:React.JSX.Element}) {
+  const navigate = useNavigate();
+  const isLoggedIn = true;
+
+  React.useEffect(() => {
+    if (!isLoggedIn) {
+      console.log('Redirecting to /SignIn from ProtectedRoute');
+      navigate('/SignIn');
+    }
+  }, [isLoggedIn, navigate]);
+
+  if (!isLoggedIn) {
+    return null;
+  }
+
+  return children;
+}
+
 
 function App() {
 
@@ -59,7 +78,7 @@ function App() {
             <Route path="SignIn" element={<Login/>}/>
             <Route path="SignUp" element={<SignUp/>}/>
             
-            <Route path="host" element={<LayoutHost/>} >
+            <Route path="host" element={<ProtectedRoute><LayoutHost/></ProtectedRoute>} >
               <Route index element={<Dashboard/>} loader={Loader}/>
               <Route path="reviews" element={<Reviews/>} />
               <Route path="income" element={<Income/>} />
