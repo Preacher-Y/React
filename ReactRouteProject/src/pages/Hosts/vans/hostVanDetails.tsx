@@ -13,6 +13,7 @@ function HostVansDetails(){
     const active = "text-gray-950 underline"
 
     return(
+        
         <div className="px-6 mt-8 mb-16">
 
             <Link to=".." relative="path" className="text-black/60 text-sm flex items-center gap-1 underline underline-offset-2 ">
