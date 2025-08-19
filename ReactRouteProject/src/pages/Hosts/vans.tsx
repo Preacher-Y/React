@@ -1,5 +1,6 @@
 import { memo } from "react"
 import { Link,useLoaderData } from "react-router-dom"
+
 import type { VanType } from "../../type"
 
 function Vans(){
@@ -7,6 +8,7 @@ function Vans(){
     const data:VanType = useLoaderData()
 
     return(
+
         <div className="px-6 max-md:h-[76.5vh] mt-8 mb-16">
             <h1 className="font-bold text-3xl mb-4">Your listed vans</h1>
             <div className=" flex flex-col gap-5  py-2 overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] ">
