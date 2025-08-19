@@ -24,7 +24,7 @@ function Login(){
     const message = location.state.message
 
     useEffect(()=>{
-        const notify = () => toast.info(`${message}`);
+        const notify = () => toast.info(`${message}`,{style:{color:"black"}});
         notify()
     },[message])
 
