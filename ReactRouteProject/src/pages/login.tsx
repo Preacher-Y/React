@@ -1,5 +1,6 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link,useLocation } from "react-router-dom"
+import { ToastContainer,toast } from "react-toastify"
 
 function Login(){
 
@@ -18,9 +19,19 @@ function Login(){
             [name]: value
         }))
     }
+    
+    const location = useLocation()
+    const message = location.state.message
+
+    useEffect(()=>{
+        const notify = () => toast.info(`${message}`);
+        notify()
+    },[message])
+
 
     return(
         <section className="h-full px-6 grid w-full text-center mt-14 mb-16">
+            <ToastContainer autoClose={2000} position="top-center"/>
             <h1 className="font-bold text-2xl">Sign in to your account</h1>
             <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-6 mt-8">
                 <input name='email' onChange={handleChange} value={loginFormData.email} type="email" placeholder="Email" required className="border border-gray-300 rounded-md px-3 py-2"/>
