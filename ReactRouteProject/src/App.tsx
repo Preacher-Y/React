@@ -48,11 +48,11 @@ function Loader(){
 
 function ProtectedRoute({ children }:{children:React.JSX.Element}) {
   const navigate = useNavigate();
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   React.useEffect(() => {
     if (!isLoggedIn) {
-      navigate('/SignIn');
+      navigate('/SignIn',{state:{message:"You must first Login "}});
     }
   }, [isLoggedIn, navigate]);
 
