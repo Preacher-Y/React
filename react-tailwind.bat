@@ -48,8 +48,12 @@ echo %CYAN%Installing React Router ...%RESET%
 call npm install react-router-dom
 
 echo.
-echo %CYAN%Installing mirage Sever ...%RESET%
+echo %CYAN%Installing mirage Sever package ...%RESET%
 call npm install --save-dev miragejs
+
+echo.
+echo %CYAN%Installing Toasting notification package ...%RESET%
+call npm install --save react-toastify
 
 echo.
 echo %CYAN%Installing react Chart package ... %RESET%
