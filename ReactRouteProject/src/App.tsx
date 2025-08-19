@@ -52,7 +52,6 @@ function ProtectedRoute({ children }:{children:React.JSX.Element}) {
 
   React.useEffect(() => {
     if (!isLoggedIn) {
-      console.log('Redirecting to /SignIn from ProtectedRoute');
       navigate('/SignIn');
     }
   }, [isLoggedIn, navigate]);
