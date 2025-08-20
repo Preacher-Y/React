@@ -9,7 +9,7 @@ function Login() {
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-
+        setStatus(true)
         const fetchUser = async (creds: { email: string, password: string }) => {
             const res = await fetch('/api/login', {
                 method: 'POST',
@@ -42,7 +42,7 @@ function Login() {
                     style: { color: "red", fontWeight: 600 }
                 })
             })
-            .finally(() => setLoginFormData({ email: "", password: "" }))
+            .finally(() =>{setLoginFormData({ email: "", password: "" });setStatus(false)})
     }
 
     function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
