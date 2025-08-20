@@ -15,7 +15,7 @@ import Login from './pages/login';
 import SignUp from './pages/signUp';
 
 import type { VanType } from './type';
-import { FetchError } from './type';
+import { FetchError } from './type'; 
 
 import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route, Navigate } from 'react-router-dom';
 import "./server"
