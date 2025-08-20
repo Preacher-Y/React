@@ -16,7 +16,6 @@ import SignUp from './pages/signUp';
 
 import type { VanType } from './type';
 import { FetchError } from './type';
-import { LoginContext } from './hooks/useLogginContext';
 
 import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route, Navigate } from 'react-router-dom';
 import "./server"
@@ -55,6 +54,7 @@ function App() {
   
   function ProtectedRoute({ children }:{children:React.JSX.Element}) {
     if (!isLoggedIn) {
+      
       return <Navigate to="/SignIn" state={{ message: "You must first Login " }} replace />
     }
     return children;
@@ -69,7 +69,7 @@ function App() {
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans />}loader={Loader} />
             <Route path="vans/:name" element={<DetailsVan/>} loader={Loader} />
-            <Route path="SignIn" element={<Login/>}/>
+            <Route path="SignIn" element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
             <Route path="SignUp" element={<SignUp/>}/>
               
             <Route path="host" element={<ProtectedRoute><LayoutHost/></ProtectedRoute>}>
@@ -89,9 +89,9 @@ function App() {
     ))
 
   return (
-    <LoginContext.Provider value={{isLoggedIn,setIsLoggedIn}}>
+    <>
       <RouterProvider router={router}/>
-    </LoginContext.Provider>
+    </>
   );
 }
 
