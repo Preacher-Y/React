@@ -1,4 +1,3 @@
-import { memo } from "react"
 import { Link,useLoaderData, useLocation } from "react-router-dom"
 
 import type { VanType } from "../../type"
@@ -29,4 +28,4 @@ function Vans(){
     )
 }
 
-export default memo(Vans)
+export default Vans
