@@ -32,8 +32,8 @@ function Login() {
             .then(data => {
                 if (data.user && data.token) {
                     toast.success("Login successful!", { style: { color: "black", fontWeight: 600 } })
-                    setIsLoggedIn(prev=>!prev)
-                    navigate('/host')
+                    setIsLoggedIn(true)
+                    navigate('/host',{state:{id:`${data.user.id}`}})
                 }
                 if (data.status === 200 && !data.user && !data.token) {
                     throw new Error(data.message || "Invalid credentials ")
