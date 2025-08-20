@@ -8,7 +8,7 @@ function Dashboard(){
     const data:VanType = useLoaderData()
     const location = useLocation()
 
-    const id = location.state?.id || '';
+    const id = location.state?.id ;
 
     return(
         <div className="mb-16 h-full">
