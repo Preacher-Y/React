@@ -7,28 +7,28 @@ function Login({setIsLoggedIn}:{setIsLoggedIn:React.Dispatch<React.SetStateActio
     const [loginFormData, setLoginFormData] = useState({ email: "", password: "" })
 
     const [status, setStatus] = useState(false);
-    
+
     const navigate = useNavigate()
+    
+    const fetchUser = async (creds: { email: string, password: string }) => {
+        const res = await fetch('/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(creds)
+        })
+        const data = await res.json()
+
+        if (!res.ok) {
+
+            throw new Error("Server error occurred")
+        }
+
+        return data
+    }
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
         setStatus(true)
-        const fetchUser = async (creds: { email: string, password: string }) => {
-            const res = await fetch('/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(creds)
-            })
-            const data = await res.json()
-
-            if (!res.ok) {
-
-                throw new Error("Server error occurred")
-            }
-
-            return data
-        }
-
         fetchUser(loginFormData)
             .then(data => {
                 if (data.user && data.token) {
