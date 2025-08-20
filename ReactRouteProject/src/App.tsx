@@ -16,13 +16,14 @@ import SignUp from './pages/signUp';
 
 import type { VanType } from './type';
 import { FetchError } from './type';
+import { LoginContext } from './hooks/useLogginContext';
 
 import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route, useNavigate } from 'react-router-dom';
 import "./server"
 import LayoutHeader from './components/LayoutHeader';
 import LayoutHost from './components/LayoutHost';
 import FetchErrors from './components/Error'
-import React from 'react';
+import React, { useState } from 'react';
 
 
 function Loader(){
@@ -46,28 +47,31 @@ function Loader(){
 
 }
 
-function ProtectedRoute({ children }:{children:React.JSX.Element}) {
-  const navigate = useNavigate();
-  const isLoggedIn = false;
-
-  React.useEffect(() => {
-    if (!isLoggedIn) {
-      navigate('/SignIn',{state:{message:"You must first Login "}});
-    }
-  }, [isLoggedIn, navigate]);
-
-  if (!isLoggedIn) {
-    return null;
-  }
-
-  return children;
-}
 
 
 function App() {
+  
+  const [isLoggedIn,setIsLoggedIn] = useState(false) 
+  
+  function ProtectedRoute({ children }:{children:React.JSX.Element}) {
+    const navigate = useNavigate();
+  
+    React.useEffect(() => {
+      if (!isLoggedIn) {
+        navigate('/SignIn',{state:{message:"You must first Login "}});
+      }
+    }, [navigate]);
+  
+    if (!isLoggedIn) {
+      return null;
+    }
+  
+    return children;
+  }
 
     const router = createBrowserRouter(createRoutesFromElements(
-      <Route path="/" element={<LayoutHeader/>} errorElement={<FetchErrors/>}>
+
+        <Route path="/" element={<LayoutHeader/>} errorElement={<FetchErrors/>}>
             <Route path='*' element={<Error/>}/>
 
             <Route index element={<Home />} />
@@ -76,7 +80,7 @@ function App() {
             <Route path="vans/:name" element={<DetailsVan/>} loader={Loader} />
             <Route path="SignIn" element={<Login/>}/>
             <Route path="SignUp" element={<SignUp/>}/>
-            
+              
             <Route path="host" element={<ProtectedRoute><LayoutHost/></ProtectedRoute>} >
               <Route index element={<Dashboard/>} loader={Loader}/>
               <Route path="reviews" element={<Reviews/>} />
@@ -88,15 +92,15 @@ function App() {
                 <Route path="pricing" element={<Pricing/>}/>
                 <Route path="Photos" element={<Pic/>}/>
               </Route>
-            </Route>
-
           </Route>
+        </Route>
+      
     ))
 
   return (
-    <>
+    <LoginContext.Provider value={{isLoggedIn,setIsLoggedIn}}>
       <RouterProvider router={router}/>
-    </>
+    </LoginContext.Provider>
   );
 }
 
