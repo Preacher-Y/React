@@ -1,4 +1,3 @@
-import { memo } from "react"
 import { Link,useLoaderData, useLocation } from "react-router-dom"
 
 import type { VanType } from "../../type"
@@ -57,4 +56,4 @@ function Dashboard(){
     )
 }
 
-export default memo(Dashboard)
+export default Dashboard
