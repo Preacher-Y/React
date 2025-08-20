@@ -2,13 +2,13 @@ import { useEffect, useState } from "react"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
-import { useLoginContext } from "../hooks/useLogginContext"
 
-function Login() {
+function Login({setIsLoggedIn}:{setIsLoggedIn:React.Dispatch<React.SetStateAction<boolean>>}) {
     const [loginFormData, setLoginFormData] = useState({ email: "", password: "" })
+
     const [status, setStatus] = useState(false);
+    
     const navigate = useNavigate()
-    const {setIsLoggedIn}=useLoginContext()
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -22,6 +22,7 @@ function Login() {
             const data = await res.json()
 
             if (!res.ok) {
+
                 throw new Error("Server error occurred")
             }
 
