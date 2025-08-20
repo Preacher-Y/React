@@ -8,7 +8,22 @@ function Login(){
 
     function handleSubmit(e:React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
-        console.log(loginFormData)
+        const fetchUser =async (creds:{ email: string, password: string }) => {
+            const res = await fetch('/api/login',{method:'POST',body: JSON.stringify(creds)})
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw {
+                    message:data.message,
+                    statusText: res.statusText,
+                    status: res.status
+                }
+            }
+
+            return data
+            
+        }
+        fetchUser(loginFormData).then(data=>console.log(data))
         setLoginFormData({email:"",password:""})
     }
 
