@@ -15,7 +15,7 @@ import Login from './pages/login';
 import SignUp from './pages/signUp';
 
 import type { VanType } from './type';
-import { FetchError } from './type'; 
+import { FetchError } from './type';
 
 import { RouterProvider, createBrowserRouter,createRoutesFromElements, Route, Navigate } from 'react-router-dom';
 import "./server"
@@ -47,24 +47,23 @@ const Loader = async () => {
 };
 
 
+function ProtectedRoute({ children, isLoggedIn }: { children: React.JSX.Element, isLoggedIn: boolean }) {
+  if (!isLoggedIn) {
+    return <Navigate to="/SignIn" state={{ message: "You must first Login " }} replace />
+  }
+  return children;
+}
 
 function App() {
   
   const [isLoggedIn,setIsLoggedIn] = useState(false) 
   
-  function ProtectedRoute({ children }:{children:React.JSX.Element}) {
-    if (!isLoggedIn) {
-      
-      return <Navigate to="/SignIn" state={{ message: "You must first Login " }} replace />
-    }
-    return children;
-  }
 
     const router = createBrowserRouter(createRoutesFromElements(
 
         <Route path="/" element={<LayoutHeader/>} errorElement={<FetchErrors/>}>
             <Route path='*' element={<Error/>}/>
-
+ 
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans />}loader={Loader} />
@@ -72,7 +71,7 @@ function App() {
             <Route path="SignIn" element={<Login setIsLoggedIn={setIsLoggedIn}/>}/>
             <Route path="SignUp" element={<SignUp/>}/>
               
-            <Route path="host" element={<ProtectedRoute><LayoutHost/></ProtectedRoute>}>
+            <Route path="host" element={<ProtectedRoute isLoggedIn={isLoggedIn}><LayoutHost/></ProtectedRoute>}>
               <Route index element={<Dashboard/>} loader={Loader}/>
               <Route path="reviews" element={<Reviews/>} />
               <Route path="income" element={<Income/>} />
