@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { ToastContainer, toast } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css'
+import { useLoginContext } from "../hooks/useLogginContext"
 
 function Login() {
     const [loginFormData, setLoginFormData] = useState({ email: "", password: "" })
     const [status, setStatus] = useState(false);
+    const navigate = useNavigate()
+    const {setIsLoggedIn}=useLoginContext()
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault()
@@ -29,12 +32,11 @@ function Login() {
             .then(data => {
                 if (data.user && data.token) {
                     toast.success("Login successful!", { style: { color: "black", fontWeight: 600 } })
+                    setIsLoggedIn(prev=>!prev)
+                    navigate('/host')
                 }
                 if (data.status === 200 && !data.user && !data.token) {
                     throw new Error(data.message || "Invalid credentials ")
-                }
-                else {
-                    throw new Error("Invalid response from server")
                 }
             })
             .catch(error => {
