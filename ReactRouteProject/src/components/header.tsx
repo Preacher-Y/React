@@ -1,12 +1,13 @@
 import Logo from '../assets/VanLogo.svg'
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("loggedIn") === 'true')
   const [show,setShow] = useState(false)
   const navigate = useNavigate()
+  const dropDown = useRef<HTMLLIElement>(null)
 
   useEffect(() => {
     const authChange = () => {
@@ -22,11 +23,23 @@ function Header() {
     }
   }, [])
 
+  useEffect(() => {
+    const clickOutside = (event: MouseEvent) => {
+      if (dropDown.current && !dropDown.current.contains(event.target as Node)) {
+        setShow(false)
+      }
+    }
+
+    document.addEventListener('mousedown', clickOutside)
+    return () => document.removeEventListener('mousedown', clickOutside)
+  }, [])
+
   function logOut() {
     localStorage.removeItem("loggedIn")
     localStorage.removeItem("id")
     localStorage.removeItem("img")
     setIsLoggedIn(false)
+    setShow(false)
     window.dispatchEvent(new Event('authStateChanged'))
     navigate('/SignIn', { state: { message: "You have been Logged Out !" }, replace: true })
   }
@@ -61,7 +74,7 @@ function Header() {
                 <NavLink to="/SignIn" className="icon-[solar--user-circle-outline] text-xl text-gray-600 hover:text-gray-900 hover:scale-110 transition-all duration-300" />
               </li>
             ) : (
-              <li className='flex cursor-pointer overflow-hidden items-center text-sm group text-gray-600 hover:text-gray-900 transition-all duration-300'>
+              <li className='flex cursor-pointer overflow-hidden items-center text-sm group text-gray-600 hover:text-gray-900 transition-all duration-300' ref={dropDown}>
                 <img onClick={()=>setShow(prev=>!prev)} src={img} alt="profilePic" className='w-10 h-10 rounded-full object-cover object-center' />
                 {show&&(<div onClick={logOut} className='flex items-center gap-1.5 shadow-[0px_2px_2px] z-10 absolute px-3 py-2 top-15 left-9/14 rounded-md bg-amber-50 hover:bg-gray-300'>
                   <h1 className='icon-[hugeicons--logout-04] group-hover:text-red-600' />
