@@ -1,4 +1,3 @@
-// Remove redirect import since we're not using it anymore
 import { type ActionFunctionArgs } from "react-router-dom";
 
 export async function loginUser(creds: {
@@ -22,7 +21,6 @@ export async function loginUser(creds: {
   return data
 }
 
-// Modified action to return success data instead of redirect
 export async function action({ request }: ActionFunctionArgs) {
   const formData = await request.formData();
   const email = formData.get('email');
@@ -36,10 +34,9 @@ export async function action({ request }: ActionFunctionArgs) {
     window.dispatchEvent(new Event('authStateChanged'))
     console.log('login successful')
     
-    // Return success indicator instead of redirect
     return { success: true, data };
+
   } catch (error) {
-    // Return error details for better error handling
     return { 
       success: false, 
       error: error instanceof Error ? error.message : "Login failed" 
