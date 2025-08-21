@@ -12,7 +12,8 @@ export type UserType={
   user:{
     id:string;
     email:string;
-    name:string
+    name:string;
+    imageUrl:string
   };
   token:string
 }
