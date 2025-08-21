@@ -59,7 +59,7 @@ function Header() {
             ) : (
               <li onClick={logOut} className='flex cursor-pointer gap-1 items-center text-sm group text-gray-600 hover:text-gray-900 hover:scale-105 transition-all duration-300'>
                 <h1 className='icon-[hugeicons--logout-04] group-hover:text-red-600' />
-                <p className='mt-0.5'>logout</p>
+                <p>logout</p>
               </li>
             )}
           </ul>
