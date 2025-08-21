@@ -31,7 +31,7 @@ export async function action({ request }: ActionFunctionArgs) {
   try {
     const data = await loginUser({ email, password })
     localStorage.setItem('loggedIn', 'true');
-    console.log(data)
+    localStorage.setItem('id', data.user.id)
     console.log('login successful')
     
     // Return success indicator instead of redirect
