@@ -40,3 +40,90 @@ createServer({
         })
     }
 })
+
+// fetching the vans:
+/*
+  // In a file like services/vanService.ts or similar
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { app } from "../firebase"; // Import your initialized Firebase app
+
+const db = getFirestore(app); // Get a reference to your Firestore database
+
+const fetchVans = async () => {
+  try {
+    const vansCollectionRef = collection(db, "vans"); // Reference to a "vans" collection
+    const querySnapshot = await getDocs(vansCollectionRef);
+
+    const vans = querySnapshot.docs.map(doc => ({
+      id: doc.id, // Include the document ID
+      ...doc.data() // Get the data from the document
+    }));
+
+    console.log("Fetched vans:", vans);
+    return vans;
+  } catch (error) {
+    console.error("Error fetching vans from Firestore:", error);
+    // You can re-throw a custom error here if you like
+    throw new Error("Failed to fetch vans. Please try again later.");
+  }
+};
+
+export default fetchVans;
+
+*/
+
+// Fetching user:
+
+/*
+  // In a file like services/authService.ts or similar
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { app } from "../firebase"; // Import your initialized Firebase app
+
+const auth = getAuth(app); // Get a reference to your Firebase Auth service
+
+export async function loginUser(creds: {
+  email: FormDataEntryValue | null,
+  password: FormDataEntryValue | null
+}) {
+  const email = creds.email?.toString();
+  const password = creds.password?.toString();
+
+  if (!email || !password) {
+    throw {
+      message: "Email and password are required.",
+      status: 400
+    };
+  }
+
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    console.log("User logged in:", user);
+    // Return user information or a success message
+    return {
+      message: "Login successful!",
+      user: {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL
+      }
+    };
+  } catch (error: any) {
+    console.error("Error during login:", error.code, error.message);
+    // Map Firebase auth errors to more user-friendly messages
+    let errorMessage = "An unknown error occurred during login.";
+    if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+      errorMessage = "Invalid email or password.";
+    } else if (error.code === 'auth/too-many-requests') {
+      errorMessage = "Too many login attempts. Please try again later.";
+    }
+    throw {
+      message: errorMessage,
+      statusText: error.message,
+      status: 401 // Unauthorized
+    };
+  }
+}
+
+*/
