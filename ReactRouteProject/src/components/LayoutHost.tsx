@@ -1,9 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import clsx from "clsx";
-import { memo } from "react";
+import { memo, } from "react";
 
 function LayoutHost(){
-
     const normal = "text-gray-600 underline-offset-3 font-semibold text-sm hover:text-gray-950 hover:underline"
     const active = "text-gray-950 underline"
 
