@@ -11,8 +11,7 @@ function Login() {
   const actionData = useActionData() as { success: boolean; data?: UserType; error?: string } | undefined
   const navigation = useNavigation()
   const message = location.state?.message
-  
-  // Handle navigation after successful login
+
   useEffect(() => {
     if (actionData?.success) {
         toast.success('Succefully Logged In', {
@@ -33,7 +32,6 @@ function Login() {
     }
   }, [message])
 
-  // Check if form is submitting
   const isSubmitting = navigation.state === "submitting"
 
   return (
