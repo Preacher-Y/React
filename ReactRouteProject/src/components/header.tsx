@@ -55,7 +55,7 @@ function Header() {
           <img src={Logo} alt="Van Logo" className="mx-auto w-28" />
         </Link>
 
-        <nav>
+        <nav className="relative>
           <ul className="flex justify-center items-center space-x-6">
             <li id='host'>
               <NavLink to="/host" className={({ isActive }) => clsx(normal, isActive && active)}>Host</NavLink>
