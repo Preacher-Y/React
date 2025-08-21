@@ -32,6 +32,7 @@ export async function action({ request }: ActionFunctionArgs) {
     const data = await loginUser({ email, password })
     localStorage.setItem('loggedIn', 'true');
     localStorage.setItem('id', data.user.id)
+    localStorage.setItem('img',data.user.imageUrl)
     window.dispatchEvent(new Event('authStateChanged'))
     console.log('login successful')
     
