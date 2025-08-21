@@ -7,7 +7,7 @@ function Home(){
 
         <div
             style={{ backgroundImage: `url(${BgHero})` }}
-            className="bg-cover bg-center h-screen flex flex-col items-center gap-6 justify-center px-6"
+            className="bg-cover bg-center min-h-screen flex flex-col items-center gap-6 justify-center px-6"
         >
             <h1 className="text-3xl text-white font-bold">You got the travel plans, we got the travel vans.</h1>
             <p className="text-gray-200 font-medium ">Add adventure to your life by joining the #vanlife movement. Rent the perfect van to make your perfect road trip.</p>
