@@ -15,8 +15,11 @@ function Login() {
   // Handle navigation after successful login
   useEffect(() => {
     if (actionData?.success) {
+        toast.success('Succefully Logged In', {
+        style: { color: "red", fontWeight: 600 } 
+      })
       console.log('redirecting to host')
-      navigate('/host', { state:{id:actionData.data?.user.id}, replace: true })
+      navigate('/host', { replace: true })
     } else if (actionData?.error) {
       toast.error(actionData.error, { 
         style: { color: "red", fontWeight: 600 } 
