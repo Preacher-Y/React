@@ -8,6 +8,15 @@ export type VanType = {
   hostId:string
 }[];
 
+export type UserType={
+  user:{
+    id:string;
+    email:string;
+    name:string
+  };
+  token:string
+}
+
 export class FetchError extends Error {
   status: number;
   statusText: string;
