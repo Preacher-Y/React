@@ -1,13 +1,12 @@
-import { Link,useLoaderData, useLocation } from "react-router-dom"
+import { Link,useLoaderData, } from "react-router-dom"
 
 import type { VanType } from "../../type"
 
 function Dashboard(){
     
     const data:VanType = useLoaderData()
-    const location = useLocation()
 
-    const id = location.state?.id ;
+    const id = localStorage.getItem('id') ;
 
     return(
         <div className="mb-16 h-full">
