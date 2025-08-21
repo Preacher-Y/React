@@ -15,7 +15,6 @@ function Header() {
       setIsLoggedIn(localStorage.getItem("loggedIn")==='true');
     }
     window.addEventListener('storage',storageChange)
-
     return ()=> window.removeEventListener('storage',storageChange)
   },[])
 
