@@ -1,12 +1,11 @@
-import { Link,useLoaderData, useLocation } from "react-router-dom"
+import { Link,useLoaderData, } from "react-router-dom"
 
 import type { VanType } from "../../type"
 
 function Vans(){
 
     const data:VanType = useLoaderData()
-    const location = useLocation()
-    const id = location.state?.id ;
+    const id = localStorage.getItem('id');
 
     return(
 
