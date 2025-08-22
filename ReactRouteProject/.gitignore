@@ -12,7 +12,7 @@ dist
 dist-ssr
 *.local
 
-/src/seedDatabase
+\src\seedDatabase
 seedDatabase
 
 
