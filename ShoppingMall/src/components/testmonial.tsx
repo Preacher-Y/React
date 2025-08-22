@@ -52,7 +52,7 @@ function Testimonial(){
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.7 }}
-                        className='px-24 text-gray-600 font-medium text-xl'>
+                        className='px-24 text-gray-700 font-medium text-xl'>
                             Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
                 </motion.p>
 
