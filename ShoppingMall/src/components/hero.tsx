@@ -6,7 +6,7 @@ import { memo } from 'react';
 function Hero() {
 
     return (
-        <div 
+        <section 
             className='relative flex flex-col lg:flex-row items-center justify-between w-full min-h-screen px-4 md:px-8 lg:px-32 py-20 lg:py-0'
         >
 
@@ -50,7 +50,7 @@ function Hero() {
                     />
                 </div>
             </motion.div>
-        </div>
+        </section>
     )
 }
 export default memo(Hero);
