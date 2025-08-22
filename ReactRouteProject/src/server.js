@@ -16,6 +16,7 @@ createServer({
         server.create("van", { id: "6", name: "Green Wonder", price: 70, description: "With this van, you can take your travel life to the next level. The Green Wonder is a sustainable vehicle that's perfect for people who are looking for a stylish, eco-friendly mode of transport that can go anywhere.", imageUrl: "https://assets.scrimba.com/advanced-react/react-router/green-wonder.png", type: "Rugged", hostId:"123" })
 
         server.create("user", { id: "123", email: "b@b.com",imageUrl:"https://res.cloudinary.com/dn85kcomj/image/upload/v1739952643/samples/smile.jpg" ,password: "p123", name: "Bob" })
+        server.create("user", { id: "789", email: "preacher@b.com",imageUrl:"https://res.cloudinary.com/dn85kcomj/image/upload/v1739952636/samples/people/kitchen-bar.jpg" ,password: "admin123", name: "Preacher" })
     },
 
     routes() {
