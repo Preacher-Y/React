@@ -56,6 +56,24 @@ function Testimonial(){
                             Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
                 </motion.p>
 
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                    className='flex gap-1.5 text-[#ED573E]'
+                >
+                    {Array.from({length:5}).map((_,i)=>
+                        <motion.span key={i}
+                            initial={{opacity:0, y:20}}
+                            animate = {isInView?{opacity:1,y:0}:{opacity:0, y:20}}
+                            transition={{duration:0.7,delay:0.8+Number(`0.${i+2}`)}}
+                            className=' text-3xl'
+                        >
+                            ★
+                        </motion.span>
+                    )}
+                </motion.div>
+
                 <motion.h1 
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
