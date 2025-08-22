@@ -7,35 +7,35 @@ function Testimonial(){
     const isInView = useInView(ref, { once: false, amount: 0.3 });
 
     return(
-        <section>
+        <section ref={ref} className='px-32 py-20 mb-10'>
             <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className='text-center'>
+                    className='text-center max-w-3xl mx-auto'>
                     <motion.h1 
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className='text-[#ED573E] text-lg font-semibold mb-6'>
-                            Work
+                            Testimonial
                     </motion.h1>
                     <motion.h1 
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.4 }} 
                         className='text-6xl text-gray-800/95 font-extrabold mb-6 pl-2'>
-                            How It Works
+                            What They Are Saying
                     </motion.h1>
                     <motion.p  
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className='md:px-49 pl-2 text-gray-600 font-medium text-xl'>
-                            Pick Food from your menu, Order your Choice and We shall deliver in "No time" in your school cantine or at your doorstep.
-                            <br/>And then 'Enjoy' thy food for thee
+                        className='px-24 text-gray-600 font-medium text-xl'>
+                            Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.
                     </motion.p>
                 </motion.div>
+                
         </section>
     )
 }
