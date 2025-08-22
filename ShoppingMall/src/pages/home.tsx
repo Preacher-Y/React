@@ -3,7 +3,6 @@ import Header from '../components/header';
 import Hero from '../components/hero';
 import How from '../components/how';
 
-import {memo} from 'react';
 import Testimonial from '../components/testmonial';
 
 function Home(){
@@ -19,4 +18,4 @@ function Home(){
         </>
     )
 }
-export default memo(Home);
+export default Home;
