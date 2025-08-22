@@ -41,7 +41,7 @@ function Hero() {
                     <img 
                         src={FirstFig} 
                         alt="Background Shape" 
-                        className="absolute -top-40 -right-14 w-full scale-75 md:scale-88 lg:scale-120 lg:-top-102 lg:-right-22 -z-40" 
+                        className="absolute -top-40 -right-14 w-full scale-75 md:scale-88 lg:scale-120 lg:-top-102 lg:-right-24 -z-40" 
                     />
                     <motion.img
                         src={FirstPlate}
