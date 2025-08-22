@@ -8,7 +8,7 @@ function How() {
 
     return(
         <>
-            <div ref={ref} className='px-32 py-20 mt-10'>
+            <section ref={ref} className='px-32 py-20 mt-10'>
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ function How() {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className='md:px-49 pl-2 text-gray-600 font-medium text-xl'>Pick Food from your menu, Order your Choice and We shall deliver in "No time" in your school cantine 
                     or at your doorstep.
-                    <br></br>
+                    <br/>
                      And then 'Enjoy' thy food for thee</motion.p>
                 </motion.div>
                 <motion.div className=' flex items-center text-center gap-4 justify-between mt-16'
@@ -65,7 +65,7 @@ function How() {
                         <p className='text-gray-700 px-16'>Fast Delivery to your home, hostels and School cantine</p>
                     </motion.div>
                 </motion.div>
-            </div>
+            </section>
         </>
     )    
 }
