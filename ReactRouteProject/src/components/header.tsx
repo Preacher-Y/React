@@ -76,7 +76,7 @@ function Header() {
             ) : (
               <li className='flex cursor-pointer overflow-hidden items-center text-sm group text-gray-600 hover:text-gray-900 transition-all duration-300' ref={dropDown}>
                 <img onClick={()=>setShow(prev=>!prev)} src={img} alt="profilePic" className='w-10 h-10 rounded-full object-cover object-center' />
-                {show&&(<div onClick={logOut} className='flex items-center gap-1.5 shadow-[0px_2px_2px] z-10 absolute px-3 py-2 top-15 left-9/14 rounded-md bg-amber-50 hover:bg-gray-300'>
+                {show&&(<div onClick={logOut} className='flex items-center gap-1.5 shadow-[0px_2px_2px] z-10 absolute px-3 py-2 top-12 left-9/14 rounded-md bg-amber-50 hover:bg-gray-300'>
                   <h1 className='icon-[hugeicons--logout-04] group-hover:text-red-600' />
                   <p>logout</p>
                 </div>)}
