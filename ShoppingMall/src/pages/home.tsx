@@ -4,6 +4,7 @@ import Hero from '../components/hero';
 import How from '../components/how';
 
 import {memo} from 'react';
+import Testimonial from '../components/testmonial';
 
 function Home(){
     return(
@@ -13,6 +14,7 @@ function Home(){
                 <Hero/>
                 <About/>
                 <How/>
+                <Testimonial/>
             </div>
         </>
     )
