@@ -27,7 +27,7 @@ function About() {
                     About
                 </motion.span>
                 <motion.h2 
-                    className="text-4xl md:text-5xl text-gray-800 font-bold mb-6 leading-tight"
+                    className="text-3xl md:text-4xl text-gray-800 font-bold mb-6 leading-tight"
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
