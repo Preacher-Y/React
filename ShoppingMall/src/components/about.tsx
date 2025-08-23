@@ -56,10 +56,10 @@ function About() {
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, delay: 0.7 }}
                 >
-                    <button className="bg-[#ED573E] flex items-center gap-2 text-white px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-[#ED573E]/80 transition-colors duration-300 text-base md:text-lg">
+                    <button className="bg-[#ED573E] hover:bg-white hover:text-[#ED573E] hover:shadow-[0px_0px_25px] hover:ring-[#ED573E] hover:ring-2 flex items-center gap-2 text-white px-6 md:px-8 py-3 md:py-4 rounded-full  transition-all duration-500 text-base md:text-lg">
                         Learn More
                     </button>
-                    <button className="flex items-center gap-2 text-gray-800 px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-gray-100 transition-colors duration-300 text-base md:text-lg">
+                    <button className="flex items-center gap-2 text-gray-800 group px-6 md:px-8 py-3 md:py-4 rounded-full hover:bg-gray-100 transition-colors duration-300 text-base md:text-lg">
                         <span className="icon-[material-symbols--play-circle] text-4xl text-[#ED573E]" />
                         Watch Video
                     </button>
