@@ -58,7 +58,7 @@ function Header() {
           <h1 className='icon-[mdi--cart-outline] text-[22px] hover:text-white'/>
         </button>
         
-        <button className='bg-white px-4 py-2 rounded-full hover:bg-[#ED573E] hover:text-white hover:ring-2 transition-all duration-700 ease-in-out'>
+        <button className='bg-white px-4 py-2 rounded-full hover:bg-[#ED573E] hover:shadow-[0px_0px_20px] hover:text-white hover:ring-2 transition-all duration-700 ease-in-out'>
           Order Now
         </button>
       </nav>
