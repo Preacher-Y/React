@@ -25,7 +25,7 @@ function How() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                         transition={{ duration: 0.5, delay: 0.4 }} 
-                        className='text-5xl text-gray-800/95 font-extrabold mb-6 pl-2'>
+                        className='text-4xl text-gray-800/95 font-extrabold mb-6 pl-2'>
                             How It Works
                     </motion.h1>
                     <motion.p  
