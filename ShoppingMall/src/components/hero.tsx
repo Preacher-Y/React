@@ -7,7 +7,7 @@ function Hero() {
 
     return (
         <section id='Home'
-            className='relative flex flex-col lg:flex-row items-center justify-between w-full min-h-screen px-4 md:px-8 lg:px-32 py-20 lg:py-0'
+            className='relative flex flex-col lg:flex-row items-center justify-between w-full min-h-[calc(100vh-80px)] px-4 md:px-8 lg:px-32 py-20 lg:py-0'
         >
 
             <motion.div 
