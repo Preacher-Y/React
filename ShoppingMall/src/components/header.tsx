@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import Logo from '../assets/android-app-top-banner.png'
 import Words from '../assets/android-chrome-512x512.png'
 import { memo } from 'react';
-import { Link } from 'react-router-dom';
+import {HashLink} from 'react-router-hash-link';
+
 
 function Header() {
   return (
@@ -27,33 +28,33 @@ function Header() {
         />
       </div>
       <nav className='flex gap-8 items-center mt-4'>
-        <Link to={'#Home'} className='group relative'>
+        <HashLink to={'#Home'} className='group relative'>
           <button className='group-hover:text-[#ED573E] max-lg:group-hover:text-white group-hover:-translate-y-1.5 transition-all duration-300'>
             Home
           </button>
           <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#ED573E] max-lg:bg-white opacity-0 group-hover:opacity-100 transition-all duration-300'></div>
-        </Link>
+        </HashLink>
 
-        <Link to={'#About'} className='group relative'>
+        <HashLink to={'#About'} className='group relative'>
           <button className='group-hover:text-[#ED573E] max-lg:group-hover:text-white group-hover:-translate-y-1.5 transition-all duration-300'>
             About
           </button>
           <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#ED573E] max-lg:bg-white opacity-0 group-hover:opacity-100 transition-all duration-300'></div>
-        </Link>
+        </HashLink>
 
-        <Link to={'#Testamonial'} className='group relative'>
+        <HashLink to={'#Testamonial'} className='group relative'>
           <button className='group-hover:text-white group-hover:-translate-y-1.5 transition-all duration-300'>
             Testamonials
           </button>
           <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-all duration-300'></div>
-        </Link>
+        </HashLink>
 
-        <Link to={'#Footer'} className='group relative'>
+        <HashLink to={'#Footer'} className='group relative'>
           <button className='group-hover:text-white group-hover:-translate-y-1.5 transition-all duration-300'>
             Contact
           </button>
           <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-all duration-300'></div>
-        </Link>
+        </HashLink>
 
         <button className='items-center flex'>
           <h1 className='icon-[mdi--cart-outline] text-[22px] hover:text-white'/>
