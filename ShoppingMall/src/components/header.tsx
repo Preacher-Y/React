@@ -52,13 +52,13 @@ function Header() {
           <div className='absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-white opacity-0 group-hover:opacity-100 transition-all duration-300'></div>
         </HashLink>
 
-        <button className='items-center flex'>
+        <Link to={'cart'} className='items-center flex'>
           <h1 className='icon-[mdi--cart-outline] text-[22px] hover:text-white'/>
-        </button>
+        </Link>
         
-        <button className='bg-white px-4 py-2 rounded-full hover:bg-[#ED573E] hover:shadow-[0px_0px_20px] hover:text-white hover:ring-2 transition-all duration-700 ease-in-out'>
+        <Link to={'buy'} className='bg-white px-4 py-2 rounded-full hover:bg-[#ED573E] hover:shadow-[0px_0px_20px] hover:text-white hover:ring-2 transition-all duration-700 ease-in-out'>
           Order Now
-        </button>
+        </Link>
       </nav>
     </header>
   );
