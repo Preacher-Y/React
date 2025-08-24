@@ -8,7 +8,7 @@ function How() {
 
     return(
         <>
-            <section ref={ref} className='px-32 py-18 mt-10'>
+            <section id='How' ref={ref} className='px-32 py-18 mt-10'>
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
