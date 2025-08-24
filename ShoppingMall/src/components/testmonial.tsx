@@ -7,7 +7,7 @@ function Testimonial(){
     const isInView = useInView(ref, { once: false, amount: 0.3 });
 
     return(
-        <section ref={ref} className='px-32 py-20 mb-10 text-center'>
+        <section id='Testamonial' ref={ref} className='px-32 py-20 mb-10 text-center'>
             <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
