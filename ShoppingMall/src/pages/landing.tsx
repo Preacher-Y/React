@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import Logo from '../assets/android-app-top-banner.png'
-import Words from '../assets/android-chrome-512x512.png'
 
 export default function Landing() {
     return (
@@ -14,15 +13,11 @@ export default function Landing() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, ease: "easeIn" }}
             />
-            <motion.img 
-                src={Words} 
-                alt="words" 
-                width={170} 
-                className='-mt-24 mr-3'
+            <motion.h1
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.2, delay: 1 , ease: "easeIn" }}
-            />
+                className="font-['Great_Vibes'] -mt-8 mb-20 text-5xl  text-[#ED573E]">DuBuy</motion.h1>
             <motion.h1 
                 className="text-4xl font-bold text-center -mt-10"
                 initial={{ opacity: 0 }}
