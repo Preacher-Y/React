@@ -3,6 +3,7 @@ import Home from './pages/home';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
+import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from 'react-router-dom';
 
 function App() {
   const [isDisplayed, setIsDisplayed] = React.useState(false);
@@ -13,9 +14,7 @@ function App() {
     }, 4700);
   }, []);
 
-  return (
-    <AnimatePresence mode="wait">
-      {!isDisplayed ? (
+  const HomeAndLanding = !isDisplayed ? (
         <motion.div
           key="landing"
           initial={{ opacity: 1 }}
@@ -33,8 +32,16 @@ function App() {
         >
           <Home/>
         </motion.div>
-      )}
-    </AnimatePresence>
+      )
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={<Outlet/>}>
+      <Route index element={<AnimatePresence mode="wait">{HomeAndLanding}</AnimatePresence>}/>
+    </Route>
+  ))
+  
+  return (
+    <RouterProvider router={router}/>
   );
 }
 
