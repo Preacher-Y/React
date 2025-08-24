@@ -1,4 +1,5 @@
 import About from '../components/about';
+import Footer from '../components/footer';
 import Header from '../components/header';
 import Hero from '../components/hero';
 import How from '../components/how';
@@ -16,6 +17,7 @@ function Home(){
                 <How/>
                 <Testimonial/>
                 <ReachOut/>
+                <Footer/>
             </div>
         </>
     )
