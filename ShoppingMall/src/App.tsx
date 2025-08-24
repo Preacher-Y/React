@@ -4,6 +4,7 @@ import Layout from './components/Layout';
 import Cart from './pages/cart';
 import Products from './pages/products';
 import Buy from './pages/buy';
+import { ScrollProvider } from './context/ScrollContext';
 
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
@@ -54,7 +55,9 @@ function App() {
   ))
 
   return (
-    <RouterProvider router={router}/>
+    <ScrollProvider>
+      <RouterProvider router={router}/>
+    </ScrollProvider>
   );
 }
 
