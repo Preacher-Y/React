@@ -29,10 +29,10 @@ function Footer(){
                             initial={{ opacity: 0, y: 20 }}
                             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className='flex gap-6 text-5xl'>
+                            className='flex gap-6 text-4xl'>
                             <motion.h1 className='icon-[lineicons--x] hover:text-black hover:scale-110 hover:rotate-4 transition-all duration-500'/>
                             <motion.h1 className='icon-[line-md--instagram] hover:scale-110 hover:rotate-4 transition-all duration-500'/>
-                            <motion.h1 className='icon-[mdi--youtube] text-6xl hover:scale-110 hover:rotate-4 hover:text-red-700 -mt-1 transition-all duration-500'/>
+                            <motion.h1 className='icon-[mdi--youtube] text-5xl hover:scale-110 hover:rotate-4 hover:text-red-700 -mt-1 transition-all duration-500'/>
                             <motion.h1 className='icon-[ci--facebook] hover:scale-110 hover:rotate-4 hover:text-blue-900 transition-all duration-500'/>
                         </motion.div>
                 </motion.div>
