@@ -49,7 +49,8 @@ call npm install react-router-dom
 
 echo.
 echo %CYAN%Installing React Router Hash Link ...%RESET%
-call npm install react-router-hash-link
+call npm install --save-dev react-router-hash-link
+call npm i --save-dev @types/react-router-hash-link
 
 echo.
 echo %CYAN%Installing mirage Sever package ...%RESET%
@@ -57,7 +58,7 @@ call npm install --save-dev miragejs
 
 echo.
 echo %CYAN%Installing Toasting notification package ...%RESET%
-call npm install --save react-toastify
+call npm install --save-dev react-toastify
 
 echo.
 echo %CYAN%Installing react Chart package ... %RESET%
