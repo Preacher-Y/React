@@ -6,7 +6,7 @@ import { memo } from 'react';
 function Hero() {
 
     return (
-        <section 
+        <section id='Home'
             className='relative flex flex-col lg:flex-row items-center justify-between w-full min-h-screen px-4 md:px-8 lg:px-32 py-20 lg:py-0'
         >
 
