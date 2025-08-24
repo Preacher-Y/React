@@ -10,7 +10,7 @@ function About() {
     const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
     return (
-        <section ref={ref} className="relative flex flex-col lg:flex-row-reverse items-center justify-between w-full min-h-screen px-4 md:px-8 lg:px-32 py-20 lg:py-32">
+        <section id="About" ref={ref} className="relative flex flex-col lg:flex-row-reverse items-center justify-between w-full min-h-screen px-4 md:px-8 lg:px-32 py-20 lg:py-32">
 
             <motion.div 
                 className="flex flex-col items-center lg:items-start justify-center max-w-xl text-center lg:text-left z-10"
