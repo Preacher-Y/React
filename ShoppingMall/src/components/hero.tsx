@@ -1,9 +1,12 @@
 import FirstFig from '../assets/first-figure.svg'
 import FirstPlate from '../assets/first plate.png';
-import { motion } from 'framer-motion';
+import { motion,useScroll,useTransform } from 'framer-motion';
 import { memo } from 'react';
 
 function Hero() {
+
+    const { scrollYProgress } = useScroll();
+    const rotate = useTransform(scrollYProgress, [0, 1], [0, 360]);
 
     return (
         <section id='Home'
@@ -46,6 +49,7 @@ function Hero() {
                     <motion.img
                         src={FirstPlate}
                         alt="Food Plate"
+                        style={{rotate}}
                         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -z-40 -translate-y-1/2 w-[90%] md:w-[80%] lg:scale-150"
                     />
                 </div>
