@@ -4,11 +4,15 @@ import Home from './pages/home';
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from 'react-router-dom';
+import { makeServer } from './mirage/server';
 
 function App() {
   const [isDisplayed, setIsDisplayed] = React.useState(()=>localStorage.getItem('isDisplayed')==='true');
 
   React.useEffect(() => {
+    // Start MirageJS server
+    makeServer();
+    
     setTimeout(() => {
       if(localStorage.getItem('isDiplayed')!=='true'){
         setIsDisplayed(true);
@@ -40,6 +44,8 @@ function App() {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Outlet/>}>
       <Route index element={<AnimatePresence mode="wait">{ HomeAndLanding }</AnimatePresence>}/>
+      <Route path="cart" element={<></>} />
+      <Route path="products" element={<></>} />
     </Route>
   ))
 
