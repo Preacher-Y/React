@@ -93,7 +93,7 @@ function Header() {
         
         <Link to={'buy'} className={`px-4 py-2 rounded-full transition-all duration-700 ease-in-out ${
           isScrolled 
-            ? 'bg-[#ED573E] text-white hover:bg-[#ED573E]/90 hover:shadow-[0px_0px_20px] hover:ring-2' 
+            ? 'bg-[#ED573E] text-white hover:bg-white hover:text-[#ED573E] hover:shadow-[0px_0px_20px] hover:ring-2' 
             : 'bg-white hover:bg-[#ED573E] hover:shadow-[0px_0px_20px] hover:text-white hover:ring-2'
         }`}>
           Order Now
