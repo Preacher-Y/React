@@ -6,11 +6,14 @@ import React from 'react';
 import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from 'react-router-dom';
 
 function App() {
-  const [isDisplayed, setIsDisplayed] = React.useState(false);
+  const [isDisplayed, setIsDisplayed] = React.useState(()=>localStorage.getItem('isDisplayed')==='true');
 
   React.useEffect(() => {
     setTimeout(() => {
-      setIsDisplayed(true);
+      if(localStorage.getItem('isDiplayed')!=='true'){
+        setIsDisplayed(true);
+        localStorage.setItem('isDisplayed','true')
+      }
     }, 4700);
   }, []);
 
@@ -36,10 +39,10 @@ function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Outlet/>}>
-      <Route index element={<AnimatePresence mode="wait">{HomeAndLanding}</AnimatePresence>}/>
+      <Route index element={<AnimatePresence mode="wait">{ HomeAndLanding }</AnimatePresence>}/>
     </Route>
   ))
-  
+
   return (
     <RouterProvider router={router}/>
   );
