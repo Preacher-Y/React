@@ -1,9 +1,12 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import {toast, ToastContainer} from 'react-toastify'
+import { useDispatch } from "react-redux";
+import { login } from "../features/user";
 
 export default function Login() {
 
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const location = useLocation()
   const message = location.state?.message
@@ -40,7 +43,7 @@ export default function Login() {
           </div>
           <button
             type="button"
-            onClick={()=>{localStorage.setItem('LoggedInRedux','true'); navigate('profile',{replace:true})}}
+            onClick={()=>{dispatch(login({name:'Yves Sheja N. M.', profession:'Full Stack Engineer', number:'+250 788 123 456', email:'ysheja@gmail.com', address:'Kigali, Rwanda'}));localStorage.setItem('LoggedInRedux','true'); navigate('profile',{replace:true})}}
             className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Login
