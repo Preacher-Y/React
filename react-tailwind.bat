@@ -29,7 +29,7 @@ call npm install
 
 echo.
 :: Install Tailwind CSS v4.0 with Vite plugin
-echo %CYAN%Installing Tailwind v4.0 and vite plugin...%RESET%
+echo %CYAN%Installing Tailwind v4.0 and vite plugin and Icons...%RESET%
 call npm install tailwindcss @tailwindcss/vite
 call npm i @iconify/json @iconify/tailwind4 -D
 
@@ -46,6 +46,10 @@ echo @plugin "@iconify/tailwind4";
 echo.
 echo %CYAN%Installing React Router ...%RESET%
 call npm install react-router-dom
+
+echo.
+echo %CYAN%Installing Redux ...%RESET%
+call npm install redux react-redux @reduxjs/toolkit
 
 echo.
 echo %CYAN%Installing React Router Hash Link ...%RESET%
