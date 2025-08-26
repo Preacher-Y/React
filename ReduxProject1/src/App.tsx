@@ -1,12 +1,19 @@
-import Header from './components/header';
+import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterProvider } from 'react-router-dom';
+import Header from './components/Login';
+import Profile from './components/Profile';
 
 function App() {
+
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path='/' element={<Outlet/>}>
+      <Route index element={<Header/>}/>
+      <Route path='profile' element={<Profile/>}/>
+    </Route>
+  ))
+
   return (
     <>
-        <Header/>
-        <div className="text-center mt-20 text-3xl font-bold text-blue-600">
-            Tailwind 4 + Vite
-        </div>
+        <RouterProvider router={router}/>
     </>
   );
 }
