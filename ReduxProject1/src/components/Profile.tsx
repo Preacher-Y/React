@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 type UserType = {
     name:string, 
@@ -10,6 +11,10 @@ type UserType = {
 }
 
 export default function Profile() {
+
+    const navigate = useNavigate()
+    
+
     const user = useSelector((state:{user:{value:UserType}})=>state.user.value)
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
@@ -26,7 +31,7 @@ export default function Profile() {
             <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
               Edit Profile
             </button>
-            <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
+            <button onClick={()=>{localStorage.removeItem('LoggedInRedux');navigate('/',{replace:true})}} className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
               Logout
             </button>
           </div>
