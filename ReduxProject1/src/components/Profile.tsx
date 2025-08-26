@@ -10,7 +10,7 @@ type UserType = {
 }
 
 export default function Profile() {
-    const user = useSelector((state:{user:{value:UserType}})=>state?.user.value)
+    const user = useSelector((state:{user:{value:UserType}})=>state.user.value)
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-6">
