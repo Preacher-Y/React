@@ -1,28 +1,20 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
-type UserType = {
-    name:string, 
-    profession:string, 
-    profile:string,
-    number:string, 
-    email:string, 
-    address:string
-}
+import type { userType } from "../features/user";
 
 export default function Profile() {
 
     const navigate = useNavigate()
     
 
-    const user = useSelector((state:{user:{value:UserType}})=>state.user.value)
+    const user = useSelector((state:{user:{value:userType}})=>state.user.value)
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-6">
         <div className="flex flex-col items-center">
           <img
             className="w-24 h-24 rounded-full shadow-md"
-            src={user.profile}
+            src='https://i.pravatar.cc/150?img=2'
             alt="Profile"
           />
           <h2 className="mt-4 text-xl font-semibold text-gray-800">{user.name}</h2>
