@@ -1,6 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Navigate, Outlet, Route, RouterProvider } from 'react-router-dom';
 import Header from './components/Login';
 import Profile from './components/Profile';
+import { action } from './utilit';
 
 function ProtectedRoute({ children }: { children: React.JSX.Element }) {
   const isLoggedIn = localStorage.getItem('LoggedInRedux')?.toLowerCase() === 'true';
@@ -11,11 +12,14 @@ function ProtectedRoute({ children }: { children: React.JSX.Element }) {
   return children;
 }
 
+
+
+
 function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/' element={<Outlet/>}>
-      <Route index element={<Header/>}/>
+      <Route index element={<Header/>} action={action}/>
       <Route path='profile' element={<ProtectedRoute><Profile/></ProtectedRoute>}/>
     </Route>
   ))
