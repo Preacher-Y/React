@@ -6,9 +6,10 @@ export type userType={
     number: string;
     email: string;
     address: string;
+    password?: string;
 }
 
-const initialValue:userType = {name:'', profession:'',number:'', email:'', address:''}
+const initialValue:userType = {name:'', profession:'',number:'', email:'', address:'',password:''}
 
 export const userSlice = createSlice({
     name: 'user',
