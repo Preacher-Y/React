@@ -1,13 +1,13 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import type { userType } from "../features/user";
+import { login, type userType } from "../features/user";
 
 export default function Profile() {
 
-    const navigate = useNavigate()
-    
-
-    const user = useSelector((state:{user:{value:userType}})=>state.user.value)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const user = useSelector((state:{user:{value:userType}})=>state.user.value)
+  
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-6">
@@ -23,7 +23,7 @@ export default function Profile() {
             <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
               Edit Profile
             </button>
-            <button onClick={()=>{localStorage.removeItem('LoggedInRedux');navigate('/',{replace:true})}} className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
+            <button onClick={()=>{dispatch(login({name: '',profession: '',number: '',email: '',address: ''}));localStorage.removeItem('LoggedInRedux') ;navigate('/',{replace:true})}} className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition">
               Logout
             </button>
           </div>
