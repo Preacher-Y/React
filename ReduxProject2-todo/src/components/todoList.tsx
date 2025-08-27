@@ -75,8 +75,8 @@ export default function TodoList() {
           Showing <strong>{todo.length}</strong> items
         </span>
         <span>
-            <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-400 rounded-full"/>Complete: {`${todo.filter(el=>el.completed).length}`} tasks</span>
-            <span className="flex items-center gap-2"><div className="w-2 h-2 bg-red-500 rounded-full"/>Incomplete: {`${todo.filter(el=>!el.completed).length}`} tasks</span>
+            <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-400 rounded-full"/>Complete: {<strong>{`${todo.filter(el=>el.completed).length}`}</strong>} tasks</span>
+            <span className="flex items-center gap-2"><div className="w-2 h-2 bg-red-500 rounded-full"/>Incomplete: {<strong>{`${todo.filter(el=>!el.completed).length}`}</strong>} tasks</span>
         </span>
       </div>
     </div>
