@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodo, toggleTodo, type todoListType } from "../features/todoListSlice";
+import { deleteAll, deleteTodo, toggleTodo, type todoListType } from "../features/todoListSlice";
 
 export default function TodoList() {
 
@@ -41,7 +41,7 @@ export default function TodoList() {
           <button type="button" data-action="mark-all-complete" className="inline-flex items-center rounded-xl border border-zinc-200 dark:border-zinc-700 px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800">
             Mark all complete
           </button>
-          <button type="button" data-action="clear-all" className="inline-flex items-center rounded-xl bg-rose-600 px-4 py-2 text-sm font-medium text-white hover:bg-rose-700">
+          <button onClick={()=>dispatch(deleteAll())} data-action="clear-all" className="inline-flex items-center rounded-xl bg-rose-600 px-4 py-2 text-sm font-medium text-white hover:bg-rose-700">
             Clear all
           </button>
         </div>
@@ -74,10 +74,10 @@ export default function TodoList() {
         <span>
           Showing <strong>{todo.length}</strong> items
         </span>
-        <span>
+        {todo.length>0&&(<span>
             <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-400 rounded-full"/>Complete: {<strong>{`${todo.filter(el=>el.completed).length}`}</strong>} tasks</span>
             <span className="flex items-center gap-2"><div className="w-2 h-2 bg-red-500 rounded-full"/>Incomplete: {<strong>{`${todo.filter(el=>!el.completed).length}`}</strong>} tasks</span>
-        </span>
+        </span>)}
       </div>
     </div>
   );
