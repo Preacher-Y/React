@@ -1,23 +1,17 @@
-import { useMemo } from "react";
+import { useSelector } from "react-redux";
+import type { todoListType } from "../features/todoListSlice";
 
 export default function TodoList() {
 
-  const items = useMemo(
-    () => [
-      { id: 1, text: "Review PR #42", completed: false },
-      { id: 2, text: "Write unit tests", completed: true },
-      { id: 3, text: "Design meeting notes", completed: false },
-      { id: 4, text: "Email client update", completed: true },
-    ], []
-  );
+    const todo = useSelector((state:{todoList:todoListType[]})=>state.todoList)
 
   return (
     <div className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-sm">
-      <div className="flex items-center text-center justify-center gap-3 flex-wrap">
-        <h2 className="text-3xl font-semibold text-center text-zinc-900 dark:text-zinc-100">Tasks</h2>
+      <div className="flex items-center text-center justify-center flex-wrap">
+        <h2 className="text-3xl font-semibold text-center text-zinc-900 dark:text-zinc-100">{todo.length>0?'Tasks':'Add Some Task'}</h2>
       </div>
 
-      <div className="mt-4 flex flex-col lg:flex-row gap-3 lg:items-center lg:justify-between">
+      {todo.length>0 &&(<div className="mt-4 flex flex-col lg:flex-row gap-3 lg:items-center lg:justify-between">
         <div className="inline-flex rounded-xl border border-zinc-200 dark:border-zinc-700 overflow-hidden">
           <button type="button" data-filter="all" className="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 bg-zinc-50 dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700">
             All
@@ -50,10 +44,10 @@ export default function TodoList() {
             Clear all
           </button>
         </div>
-      </div>
+      </div>)}
 
       <ul className="mt-4 divide-y divide-zinc-200 dark:divide-zinc-800">
-        {items.map(item => (
+        {todo.map(item => (
           <li key={item.id} className="flex items-center gap-3 py-3">
             <input
               type="checkbox"
@@ -64,7 +58,7 @@ export default function TodoList() {
             />
             <div className="flex-1">
               <p className={`text-sm sm:text-base ${item.completed ? "line-through text-zinc-400" : "text-zinc-900 dark:text-zinc-100"}`}>
-                {item.text}
+                {item.task}
               </p>
             </div>
             <div className="flex items-center gap-2">
@@ -75,9 +69,9 @@ export default function TodoList() {
         ))}
       </ul>
 
-      <div className="mt-4 flex items-center justify-between text-sm text-zinc-600 dark:text-zinc-300">
+      <div className={`mt-6 flex items-center ${todo.length>0?'justify-between':'justify-center'} text-sm text-zinc-600 dark:text-zinc-300`}>
         <span>
-          Showing <strong>{items.length}</strong> items
+          Showing <strong>{todo.length}</strong> items
         </span>
       </div>
     </div>
