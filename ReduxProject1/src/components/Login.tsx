@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Form, useLocation, useNavigate } from "react-router-dom";
 import {toast, ToastContainer} from 'react-toastify'
 import { useDispatch } from "react-redux";
 import { login } from "../features/user";
@@ -17,6 +17,7 @@ export default function Login() {
     }
   }, [message])
 
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <ToastContainer position="top-center"/>
@@ -24,7 +25,7 @@ export default function Login() {
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
           Welcome Back
         </h2>
-        <form className="space-y-4">
+        <Form className="space-y-4">
           <div>
             <label className="block text-gray-600 mb-1">Email</label>
             <input
@@ -48,7 +49,7 @@ export default function Login() {
           >
             Login
           </button>
-        </form>
+        </Form>
         <p className="mt-4 text-center text-sm text-gray-500">
           Don’t have an account?{" "}
           <a href="#" className="text-blue-600 hover:underline">
