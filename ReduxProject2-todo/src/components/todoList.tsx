@@ -1,9 +1,10 @@
-import { useSelector } from "react-redux";
-import type { todoListType } from "../features/todoListSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTodo, toggleTodo, type todoListType } from "../features/todoListSlice";
 
 export default function TodoList() {
 
     const todo = useSelector((state:{todoList:todoListType[]})=>state.todoList)
+    const dispatch = useDispatch()
 
   return (
     <div className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-sm">
@@ -62,8 +63,8 @@ export default function TodoList() {
               </p>
             </div>
             <div className="flex items-center gap-2">
-              <button type="button" data-action="edit" className="rounded-lg border border-zinc-200 dark:border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800">Edit</button>
-              <button type="button" data-action="delete" className="rounded-lg border border-zinc-200 dark:border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800">Delete</button>
+              <button onClick={()=>dispatch(toggleTodo(item.id))} data-action="edit" className="rounded-lg border border-zinc-200 dark:border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800">{item.completed?'UnMark':'Mark'}</button>
+              <button onClick={()=>dispatch(deleteTodo(item.id))} data-action="delete" className="rounded-lg border border-zinc-200 dark:border-zinc-700 px-3 py-1.5 text-xs font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800">Delete</button>
             </div>
           </li>
         ))}
@@ -72,6 +73,10 @@ export default function TodoList() {
       <div className={`mt-6 flex items-center ${todo.length>0?'justify-between':'justify-center'} text-sm text-zinc-600 dark:text-zinc-300`}>
         <span>
           Showing <strong>{todo.length}</strong> items
+        </span>
+        <span>
+            <span className="flex items-center gap-2"><div className="w-2 h-2 bg-green-400 rounded-full"/>Complete: {`${todo.filter(el=>el.completed).length}`} tasks</span>
+            <span className="flex items-center gap-2"><div className="w-2 h-2 bg-red-500 rounded-full"/>Incomplete: {`${todo.filter(el=>!el.completed).length}`} tasks</span>
         </span>
       </div>
     </div>
