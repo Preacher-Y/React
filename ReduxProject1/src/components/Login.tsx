@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Form, useLocation, useNavigate } from "react-router-dom";
+import { Form, useActionData, useLocation, useNavigate } from "react-router-dom";
 import {toast, ToastContainer} from 'react-toastify'
 import { useDispatch } from "react-redux";
 import { login } from "../features/user";
@@ -9,7 +9,23 @@ export default function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const location = useLocation()
+  const actionData= useActionData() as {email:string, password:string}
   const message = location.state?.message
+
+  useEffect(()=>{
+    if(actionData){
+      if(actionData.email==='ysheja@gmail.com'&& actionData.password==='admin123'){
+        toast.success('Succefully logged in',{ style: { color: "black", fontWeight: 600 }})
+        setTimeout(()=>{
+          dispatch(login({name:'Yves Sheja N. M.', profession:'Full Stack Engineer', number:'+250 788 123 456', email:'ysheja@gmail.com', address:'Kigali, Rwanda'}));
+          localStorage.setItem('LoggedInRedux','true')
+          navigate('/profile', {state:{message:'Yves Sheja'}})
+        },1500)
+      }else{
+        toast.error('No user found',{ style: { color: "red", fontWeight: 600 }})
+      }
+    }
+  })
 
   useEffect(() => {
     if (message) {
@@ -31,6 +47,7 @@ export default function Login() {
             <input
               type="email"
               placeholder="you@example.com"
+              required
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -38,13 +55,13 @@ export default function Login() {
             <label className="block text-gray-600 mb-1">Password</label>
             <input
               type="password"
+              required
               placeholder="••••••••"
               className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <button
             type="button"
-            onClick={()=>{dispatch(login({name:'Yves Sheja N. M.', profession:'Full Stack Engineer', number:'+250 788 123 456', email:'ysheja@gmail.com', address:'Kigali, Rwanda'}));localStorage.setItem('LoggedInRedux','true'); navigate('profile',{replace:true})}}
             className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
           >
             Login
