@@ -31,13 +31,7 @@ export default function TodoList() {
             id="sort"
             className="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-4 py-2 text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             defaultValue="az"
-            onChange={(e) => {
-              if (e.target.value === "az") {
-                dispatch(sortAsc());
-              } else if (e.target.value === "za") {
-                dispatch(sortDesc());
-              }
-            }}
+            onChange={(e) =>e.target.value === "az"? dispatch(sortAsc()) : dispatch(sortDesc())}
           >
             <option value="az" className="py-4 rounded">A - Z</option>
             <option value="za" className="py-4">Z - A</option>
@@ -59,7 +53,7 @@ export default function TodoList() {
           <li key={item.id} className="flex items-center hover:bg-zinc-700/80 gap-3 px-4 py-3">
             <div className="flex-1">
               <p className={`text-sm sm:text-base ${item.completed ? "line-through text-zinc-400" : "text-zinc-900 dark:text-zinc-100"}`}>
-                {item.task}
+                {item.task[0].toUpperCase()+item.task.slice(1)}
               </p>
             </div>
             <div className="flex items-center gap-2">
