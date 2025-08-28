@@ -5,10 +5,12 @@ import App from './App.tsx'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 import todoReducer from './features/todoListSlice'
+import userReducer from './features/fetchUserSlice'
 
 const store = configureStore({
   reducer: {
-    todoList: todoReducer
+    todoList: todoReducer,
+    user:userReducer
   }
 })
 
