@@ -13,17 +13,6 @@ export default function TodoList() {
       </div>
 
       {todo.length>0 &&(<div className="mt-4 flex flex-col lg:flex-row gap-3 lg:items-center lg:justify-between">
-        <div className="inline-flex rounded-xl border border-zinc-200 dark:border-zinc-700 overflow-hidden">
-          <button type="button" data-filter="all" className="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 bg-zinc-50 dark:bg-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-700">
-            All
-          </button>
-          <button type="button" data-filter="active" className="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800">
-            Active
-          </button>
-          <button type="button" data-filter="completed" className="px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800">
-            Completed
-          </button>
-        </div>
 
         <div className="flex items-center gap-2">
           <label htmlFor="sort" className="text-sm text-zinc-600 dark:text-zinc-300">Sort</label>
@@ -48,7 +37,7 @@ export default function TodoList() {
         </div>
       </div>)}
 
-      <ul className="mt-4 divide-y divide-zinc-200 dark:divide-zinc-800">
+      {todo.length>0 && <ul className="mt-4 divide-y divide-zinc-200 dark:divide-zinc-800">
         {todo.map(item => (
           <li key={item.id} className="flex items-center hover:bg-zinc-700/80 gap-3 px-4 py-3">
             <div className="flex-1">
@@ -62,7 +51,7 @@ export default function TodoList() {
             </div>
           </li>
         ))}
-      </ul>
+      </ul>}
 
       <div className={`mt-6 flex items-center ${todo.length>0?'justify-between':'justify-center'} text-sm text-zinc-600 dark:text-zinc-300`}>
         <span>
