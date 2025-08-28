@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { compeleteAll, deleteAll, deleteTodo, toggleTodo, type todoListType } from "../features/todoListSlice";
+import { compeleteAll, deleteAll, deleteTodo, sortAsc, sortDesc, toggleTodo, type todoListType } from "../features/todoListSlice";
 
 export default function TodoList() {
 
@@ -29,8 +29,15 @@ export default function TodoList() {
           <label htmlFor="sort" className="text-sm text-zinc-600 dark:text-zinc-300">Sort</label>
           <select
             id="sort"
-            className="rounded-xl border  border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-4 py-2 text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-xl border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 px-4 py-2 text-sm text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             defaultValue="az"
+            onChange={(e) => {
+              if (e.target.value === "az") {
+                dispatch(sortAsc());
+              } else if (e.target.value === "za") {
+                dispatch(sortDesc());
+              }
+            }}
           >
             <option value="az" className="py-4 rounded">A - Z</option>
             <option value="za" className="py-4">Z - A</option>
