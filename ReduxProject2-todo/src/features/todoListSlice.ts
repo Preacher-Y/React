@@ -35,7 +35,7 @@ const todoListSlice = createSlice({
         },
         sortDesc: (state) => {
             return state.sort((a, b) => b.task.localeCompare(a.task))
-        }
+        },
     }
 })
 
