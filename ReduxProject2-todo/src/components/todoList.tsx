@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAll, deleteTodo, toggleTodo, type todoListType } from "../features/todoListSlice";
+import { compeleteAll, deleteAll, deleteTodo, toggleTodo, type todoListType } from "../features/todoListSlice";
 
 export default function TodoList() {
 
@@ -38,7 +38,7 @@ export default function TodoList() {
         </div>
 
         <div className="flex items-center gap-2">
-          <button type="button" data-action="mark-all-complete" className="inline-flex items-center rounded-xl border border-zinc-200 dark:border-zinc-700 px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800">
+          <button onClick={()=>dispatch(compeleteAll())} data-action="mark-all-complete" className="inline-flex items-center rounded-xl border border-zinc-200 dark:border-zinc-700 px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-200 hover:bg-zinc-50 dark:hover:bg-zinc-800">
             Mark all complete
           </button>
           <button onClick={()=>dispatch(deleteAll())} data-action="clear-all" className="inline-flex items-center rounded-xl bg-rose-600 px-4 py-2 text-sm font-medium text-white hover:bg-rose-700">
@@ -49,14 +49,7 @@ export default function TodoList() {
 
       <ul className="mt-4 divide-y divide-zinc-200 dark:divide-zinc-800">
         {todo.map(item => (
-          <li key={item.id} className="flex items-center gap-3 py-3">
-            <input
-              type="checkbox"
-              aria-label={item.completed ? "Completed" : "Mark complete"}
-              defaultChecked={item.completed}
-              disabled
-              className="h-5 w-5 rounded-md border-zinc-300 dark:border-zinc-600 text-indigo-600 focus:ring-indigo-500"
-            />
+          <li key={item.id} className="flex items-center hover:bg-zinc-700/80 gap-3 px-4 py-3">
             <div className="flex-1">
               <p className={`text-sm sm:text-base ${item.completed ? "line-through text-zinc-400" : "text-zinc-900 dark:text-zinc-100"}`}>
                 {item.task}
