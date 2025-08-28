@@ -29,9 +29,15 @@ const todoListSlice = createSlice({
         compeleteAll:(state)=>{
             if(state.every(todo => todo.completed)) return state.map(todo => ({...todo, completed: false}))
             return state.map(todo => ({...todo, completed: true}))
+        },
+        sortAsc: (state) => {
+            return state.sort((a, b) => a.task.localeCompare(b.task))
+        },
+        sortDesc: (state) => {
+            return state.sort((a, b) => b.task.localeCompare(a.task))
         }
     }
 })
 
-export const {addTodo, toggleTodo, deleteTodo, deleteAll, compeleteAll} = todoListSlice.actions
+export const {addTodo, toggleTodo, deleteTodo, deleteAll, compeleteAll, sortAsc, sortDesc} = todoListSlice.actions
 export default todoListSlice.reducer
