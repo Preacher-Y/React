@@ -8,6 +8,7 @@ function App() {
   const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<><Header/><Outlet /></>}>
       <Route index element={<TodoPage/>} />
+      <Route path="fetch" element={<h1>fetch</h1>} />
     </Route>
   ))
 
