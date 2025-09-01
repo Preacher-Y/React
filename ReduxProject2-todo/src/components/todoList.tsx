@@ -1,10 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import { compeleteAll, deleteAll, deleteTodo, sortAsc, sortDesc, toggleTodo, type todoListType } from "../features/todoListSlice";
+import { useDispatch } from "react-redux";
+import { compeleteAll, deleteAll, deleteTodo, sortAsc, sortDesc, toggleTodo } from "../features/todoListSlice";
+import { AppSelector, type AppDispatch } from "../main";
 
 export default function TodoList() {
 
-    const todo = useSelector((state:{todoList:todoListType[]})=>state.todoList)
-    const dispatch = useDispatch()
+    const todo = AppSelector(state=>state.todoList)
+    const dispatch = useDispatch<AppDispatch>()
 
   return (
     <div className="w-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-4 sm:p-6 shadow-sm">

@@ -16,7 +16,7 @@ export const fetchUser = createAsyncThunk<
   number,         // ✅ arg type: dispatch(fetchUser(1)) -> number
   { rejectValue: Rejected }  // ✅ payload type when rejected via rejectWithValue
 >(
-  'user/fetchUser',
+  'fetchUser',
   async (id, thunkAPI) => {
     try {
       const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
