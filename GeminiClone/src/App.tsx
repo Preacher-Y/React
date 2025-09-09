@@ -3,15 +3,13 @@ import Body from './components/body';
 import Chat from './components/chat';
 import Header from './components/header';
 import SideBar from './components/sideBar';
-import { openContext } from './hooks/openContext';
+import OpenContextProvider from './hooks/openContext';
 import { openModelContext } from './hooks/openModelContext';
 import { searchContext } from './hooks/searchContext';
 import { openSettingsContext } from './hooks/openSettingsContext';
 import { openThreeDotsContext } from './hooks/openThreeDotsContext';
 
 function App() {
-  
-  const [isOpen, setIsOpen] = useState(false);
   const [isOpenModel, setIsOpenModel] = useState(false);
   const [isOpenSettings, setIsOpenSettings] = useState(false);
   const [isSearchClicked, setIsSearchClicked] = useState(false);
@@ -21,12 +19,12 @@ function App() {
     <openThreeDotsContext.Provider value={{ isThreeDotsClicked, setIsThreeDotsClicked }}>
     <openSettingsContext.Provider value={{ isOpenSettings, setIsOpenSettings }}>
     <searchContext.Provider value={{ isSearchClicked, setIsSearchClicked }}>  
-      <openContext.Provider value={{ isOpen, setIsOpen }}>
+      <OpenContextProvider>
       <openModelContext.Provider value={{ isOpenModel, setIsOpenModel }}>
         <Header/>
         <SideBar/>
       </openModelContext.Provider>
-      </openContext.Provider>
+      </OpenContextProvider>
         <Body/>
         <Chat/>
     </searchContext.Provider>
