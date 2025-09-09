@@ -2,6 +2,8 @@ import { createBrowserRouter, createRoutesFromElements, Outlet, Route, RouterPro
 import TodoPage from "./pages/todoListPage";
 import Header from "./components/header";
 import FetchUserPage from "./pages/fetchUserPage";
+import ThemePage from "./pages/ThemePage";
+import ThemeContextProvider from "./hooks/Context";
 
 
 function App() {
@@ -12,12 +14,15 @@ function App() {
       
       <Route index element={<TodoPage/>} />
       <Route path="fetch" element={<FetchUserPage/>} />
+      <Route path= 'theme' element={<ThemePage/>}/>
       
     </Route>
   ))
 
   return (
-    <RouterProvider router={router} />
+    <ThemeContextProvider>
+      <RouterProvider router={router} />
+    </ThemeContextProvider>
   );
 }
 

@@ -57,6 +57,7 @@ export function makeServer({ environment = 'development' } = {}) {
     },
 
     routes() {
+      
       this.namespace = 'api';
 
       this.get('/products', () => {
@@ -109,6 +110,16 @@ export function makeServer({ environment = 'development' } = {}) {
       this.post('/cart/clear', () => {
         this.db.products.remove();
         return { success: true };
+      });
+
+      this.post('/auth/signin', (schema, request) => {
+        const { email, password } = JSON.parse(request.requestBody);
+        return { success: true, user: { email, name: 'User' } };
+      });
+
+      this.post('/auth/signup', (schema, request) => {
+        const { name, email, password } = JSON.parse(request.requestBody);
+        return { success: true, user: { email, name } };
       });
     },
   });

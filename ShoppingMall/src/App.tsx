@@ -4,6 +4,8 @@ import Layout from './components/Layout';
 import Cart from './pages/cart';
 import Products from './pages/products';
 import Buy from './pages/buy';
+import SignIn from './pages/signin';
+import SignUp from './pages/signup';
 import { ScrollProvider } from './context/ScrollContext';
 
 import { motion, AnimatePresence } from 'framer-motion';
@@ -51,6 +53,8 @@ function App() {
       <Route path="cart" element={<Cart />} />
       <Route path="products" element={<Products />} />
       <Route path="buy" element={<Buy />} />
+      <Route path="signin" element={<SignIn />} />
+      <Route path="signup" element={<SignUp />} />
     </Route>
   ))
 

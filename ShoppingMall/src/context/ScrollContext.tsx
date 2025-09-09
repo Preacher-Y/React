@@ -8,7 +8,9 @@ interface ScrollContextType {
 const ScrollContext = createContext<ScrollContextType | undefined>(undefined);
 
 export const useScroll = () => {
+
   const context = useContext(ScrollContext);
+
   if (context === undefined) {
     throw new Error('useScroll must be used within a ScrollProvider');
   }
@@ -23,6 +25,7 @@ export const ScrollProvider: React.FC<ScrollProviderProps> = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       setIsScrolled(scrollPosition > 50);
@@ -33,6 +36,7 @@ export const ScrollProvider: React.FC<ScrollProviderProps> = ({ children }) => {
   }, []);
 
   return (
+    
     <ScrollContext.Provider value={{ isScrolled }}>
       {children}
     </ScrollContext.Provider>

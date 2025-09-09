@@ -7,6 +7,7 @@ import { useRef } from "react"
 function FetchUserPage() {
     const dispatch = useDispatch<AppDispatch>()
     const { data, status, error } = AppSelector(state => state.userPost.user)
+    const post = AppSelector(state => state.userPost.post)
     const ref = useRef<HTMLInputElement|null>(null)
     
   return (

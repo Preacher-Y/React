@@ -1,4 +1,2 @@
 @import 'tailwindcss';
 @plugin "@iconify/tailwind4";
-
-@custom-variant dark (&:where(.dark, .dark *));

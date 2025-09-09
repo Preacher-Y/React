@@ -91,6 +91,14 @@ function Header() {
           }`}/>
         </Link>
         
+        <Link to={'signin'} className={`px-4 py-2 rounded-full transition-all duration-300 ${
+          isScrolled 
+            ? 'text-gray-800 hover:text-[#ED573E]' 
+            : 'text-gray-800 hover:text-white'
+        }`}>
+          Sign In
+        </Link>
+        
         <Link to={'buy'} className={`px-4 py-2 rounded-full transition-all duration-700 ease-in-out ${
           isScrolled 
             ? 'bg-[#ED573E] text-white hover:bg-white hover:text-[#ED573E] hover:shadow-[0px_0px_20px] hover:ring-2' 

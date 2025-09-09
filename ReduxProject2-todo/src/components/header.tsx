@@ -11,6 +11,7 @@ function header() {
     <header className="bg-zinc-50 dark:bg-zinc-800 text-zinc-900 flex justify-center gap-10 py-4 dark:text-zinc-50">
         <NavLink to={'/'} className={({ isActive }) => clsx(normal, isActive && active)}>TodoList App</NavLink>
         <NavLink to={'fetch'} className={({ isActive }) => clsx(normal, isActive && active)}>FetchUser App</NavLink>
+        <NavLink to={'theme'} className={({ isActive }) => clsx(normal, isActive && active)}>ThemeToggle App</NavLink>
     </header>
   )
 }
