@@ -18,14 +18,9 @@ set /p projectName=
 echo.   
 :: Create Vite React+TS project
 echo %CYAN%Creating Vite project %projectName%...%RESET%
-call npm create vite@latest %projectName%
+call npm create vite@latest %projectName% -y
 
 cd %projectName%
-
-echo.
-:: Install dependencies
-echo %CYAN%Installing dependencies...%RESET%
-call npm install
 
 echo.
 :: Install Tailwind CSS v4.0 with Vite plugin
