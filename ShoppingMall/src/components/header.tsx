@@ -31,7 +31,7 @@ function Header() {
           className="font-['Great_Vibes'] pt-1.5 text-2xl text-[#ED573E]">DuBuy</motion.h1>
       </Link>
       <nav className='flex gap-9 items-center mt-4'>
-        <HashLink to={'#Home'} className='group relative'>
+        <HashLink to={'/#Home'} className='group relative'>
           <button className={`group-hover:-translate-y-1.5 transition-all duration-300 ${
             isScrolled 
               ? 'group-hover:text-[#ED573E]' 
@@ -44,7 +44,7 @@ function Header() {
           }`}></div>
         </HashLink>
 
-        <HashLink to={'#About'} className='group relative'>
+        <HashLink to={'/#About'} className='group relative'>
           <button className={`group-hover:-translate-y-1.5 transition-all duration-300 ${
             isScrolled 
               ? 'group-hover:text-[#ED573E]' 
@@ -57,7 +57,7 @@ function Header() {
           }`}></div>
         </HashLink>
 
-        <HashLink to={'#Testamonial'} className='group relative'>
+        <HashLink to={'/#Testamonial'} className='group relative'>
           <button className={`group-hover:-translate-y-1.5 transition-all duration-300 ${
             isScrolled 
               ?  'group-hover:text-[#ED573E]' 
@@ -70,7 +70,7 @@ function Header() {
           }`}></div>
         </HashLink>
 
-        <HashLink to={'#Footer'} className='group relative'>
+        <HashLink to={'/#Footer'} className='group relative'>
           <button className={`group-hover:-translate-y-1.5 transition-all duration-300 ${
             isScrolled 
               ? 'group-hover:text-[#ED573E]' 
