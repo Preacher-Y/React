@@ -48,7 +48,7 @@ function App() {
       )
 
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route path="/" element={<Layout/>}>
+    <Route path="/" element={<Layout isDisplayed={isDisplayed}/>}>
       <Route index element={<AnimatePresence mode="wait">{ HomeAndLanding }</AnimatePresence>}/>
       <Route path="cart" element={<Cart />} />
       <Route path="products" element={<Products />} />

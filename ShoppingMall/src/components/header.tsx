@@ -30,7 +30,7 @@ function Header() {
           transition={{ duration: 0.5, delay: 0.35 , ease: "easeIn" }}
           className="font-['Great_Vibes'] pt-1.5 text-2xl text-[#ED573E]">DuBuy</motion.h1>
       </Link>
-      <nav className='flex gap-8 items-center mt-4'>
+      <nav className='flex gap-9 items-center mt-4'>
         <HashLink to={'#Home'} className='group relative'>
           <button className={`group-hover:-translate-y-1.5 transition-all duration-300 ${
             isScrolled 
@@ -60,13 +60,13 @@ function Header() {
         <HashLink to={'#Testamonial'} className='group relative'>
           <button className={`group-hover:-translate-y-1.5 transition-all duration-300 ${
             isScrolled 
-              ? 'group-hover:text-[#ED573E]' 
-              : 'group-hover:text-white'
+              ?  'group-hover:text-[#ED573E]' 
+              : 'group-hover:text-[#ED573E] max-lg:group-hover:text-white'
           }`}>
             Testamonials
           </button>
           <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 ${
-            isScrolled ? 'bg-[#ED573E]' : 'bg-white'
+            isScrolled ? 'bg-[#ED573E]' : 'bg-[#ED573E] max-lg:bg-white'
           }`}></div>
         </HashLink>
 
